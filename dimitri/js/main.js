@@ -1,81 +1,44 @@
-class Player {
-    constructor() {
-        this.audio = document.getElementById('audio');
-        this.playBtn = document.getElementById('play');
-        this.pauseBtn = document.getElementById('pause');
-        this.prevBtn = document.getElementById('prev');
-        this.nextBtn = document.getElementById('next');
-        this.songs = ['harmony.mp3', 'monnlight.mp3'];
-        this.soundPromise = null;
-        this.songIndex = 0;
-    }
-
-    play = (n) => {
-        if (n !== null) {
-            try{
-               this.audio.pause();
-            }catch(e){
-                // console.log(e);
-            }
-            this.audio = new Audio(`./assets/audio/${this.songs[n]}`);
-            this.soundPromise = this.audio.play();
-        } else {
-            this.audio = new Audio(`./assets/audio/${this.songs[this.songIndex]}`);
-            this.soundPromise = this.audio.play();
-        }
-    }
-
-    pause =() => {
-        // If the sound promise is not null, then pause the audio
-        if (this.soundPromise !== null) {
-            this.soundPromise.then(_ => {
-                this.audio.pause();
-            }).catch(error => {
-                console.error('Error pausing audio:', error);
-            });
-        }    
-    }
-
-    prev = () => {
-        this.songIndex = this.songIndex > 0 ? this.songIndex - 1 : this.songs.length - 1;
-        this.play(null);
-    }
-
-    next = () => {
-        this.audio.pause();
-        this.songIndex = this.songIndex < this.songs.length - 1 ? this.songIndex + 1 : 0;
-        this.audio = new Audio(`./assets/audio/${this.songs[this.songIndex]}`);
-        this.play(null);
+// Fisher Yates shuffle algorithm
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * i);
+        [array[i], array[j]] = [array[j], array[i]];
     }
 }
 
-
-
 function card_clicked(n) {
     // Flip the previously selected card back
-    if(current_card != 0) {
+    if (current_card != 0) {
         flip_card_over(current_card);
     }
     // Flip the selected card
     current_card = n;
     flip_card_over(n);
-}
-// Flip a card over
-function flip_card_over(n) {
-    const card = document.getElementById(`card-${n}`);
-    card.classList.toggle('flip-card-over');
     // array index of the song
     index = n - 1;
     player.play(index);
 }
+// Flip a card over
+function flip_card_over(n) {
+    const card = document.getElementById(`card-${n}`);
+    card.classList.toggle('flip-card-over');    
+}
 
-document.addEventListener('DOMContentLoaded', () => {
-    const flipCards = document.querySelectorAll('.flip-card');
-    flipCards.forEach((card, index) => {
-        card.addEventListener('click', () => card_clicked(index + 1));
-    });
-});
+const playlist = ['harmony', 'monnlight']
+const audio_files_path = './assets/audio/';
 
-const player = new Player();
+const player = new MP3Player(audio_files_path, playlist);
 // Currently selected card
 var current_card = 0;
+
+// Create an array of GameCard objects for each track in the playlist
+// const gameCards = playlist.map((track, index) => new GameCard(index + 1, track));
+// // Shuffle the game cards
+// shuffle(gameCards);
+
+// // Creeate an array with one hundred integers from 1 to 100
+// const cardIndices = Array.from({ length: 24 }, (_, i) => i + 1);
+
+// console.log(cardIndices)
+// shuffle(cardIndices);
+// console.log('Shuffled card indices:', cardIndices);
