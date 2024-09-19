@@ -11,16 +11,16 @@ function card_clicked(n) {
     flip_card_over(n);
     // If we have a winner
     if (game.pickCard(n)) {
-       current_card = 0;
-       return;
-    } else {
-        // Flip the previously selected card back
-        if (current_card != 0) {
-            flip_card_over(current_card);
-        } 
-        current_card = n;
+        previous_card = null;
+        return;
     }
-
+    // Flip the previously selected card back over
+    if (previous_card != n && previous_card != null) {
+        flip_card_over(previous_card);
+        previous_card = n;
+    } else {
+        previous_card = n;
+    }
 }
 // Flip a card over
 function flip_card_over(n) {
@@ -33,12 +33,12 @@ const audio_files_path = './assets/audio/';
 
 const player = new MP3Player(audio_files_path, playlist);
 
-var current_card = 0;
+var previous_card = null;
 
 // Create an array of GameCard objects, two objects for each track in the playlist
 const gameCards = [];
 
-for (let i = 0; i <  playlist.length; i++) {   
+for (let i = 0; i < 3; i++) {
     gameCards.push(new GameCard(i, i));
     gameCards.push(new GameCard(i, i));
 }

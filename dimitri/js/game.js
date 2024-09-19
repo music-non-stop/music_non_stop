@@ -32,10 +32,15 @@ class Game {
     pickCard = (n) => {
         // Play the song associated with the card
         this.mp3player.play(this.cards[n].trackIndex);
-
+        // If the first card is null, it means that this is the first card to be selected
         if(this.firstCard == null) {
             this.firstCard = this.cards[n];
-        }else{
+        }// If the second card is null, it means that this is the second card to be selected
+        else if(this.secondCard == null) {
+            this.secondCard = this.cards[n];
+        }else {
+            // If both cards have been selected, we need to flip them back over
+            this.firstCard = this.secondCard;
             this.secondCard = this.cards[n];
         }
 
@@ -46,7 +51,7 @@ class Game {
     // See if both cards have the same index and are not the same card
     isAMatch = (n) => {
         // If both cards are null, it means that only one has been selected
-        if (this.firstCard == null || this.secondCard == null) {
+        if (this.firstCard == null || this.secondCard == null) {            
             return false;
         }
 
@@ -54,6 +59,7 @@ class Game {
             this.firstCard = null;
             this.secondCard = null;
             this.score++;
+            console.log('Score: ' + this.score);
             return true;
         }
         return false;
