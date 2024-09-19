@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./js/main.js"></script>
+    <!-- JQeury CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="flip-card">
+            <div id="card-1" class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h4>Play song 1</h4>
+                </div>
+                <div class="flip-card-back">
+                    <h4>My Song</h4>
+                    <p>Artist: My Artist</p>
+                    <p>Album: My Album</p>
+                </div>
+            </div>
+        </div>
+        <div class="flip-card">
+            <div id="card-2" class="flip-card-inner">
+                <div class="flip-card-front">
+                    <h4>Play song 2</h4>
+                </div>
+                <div class="flip-card-back">
+                    <h4>My Song</h4>
+                    <p>Artist: My Artist</p>
+                    <p>Album: My Album</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="button" value="Play" id="play" onclick="player.play(null)">
+    <input type="button" value="Pause" id="pause" onclick="player.pause()">
+    <input type="button" value="Stop" id="stop" onclick="player.stop()">
+    <input type="button" value="Next" id="next" onclick="player.next()">
+</body>
+
+</html>
