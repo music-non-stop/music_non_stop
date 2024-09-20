@@ -47,16 +47,16 @@
 #### The development process for this project followed an Agile methodology, emphasizing continuous improvement throughout the development lifecycle. We assigned tasks to each other, which helped us distribute the workload efficiently and ensured clarity on responsibilities.
 
 ### Wireframes
-<img src="images/about_us.png">
-<img src="images/game.png">
-<img src="images/game_over.png">
-<img src="images/home.png">
-<img src="images/instructions.png">
-<img src="images/scoreboard.png">
+<img src="documentation/wireframes/about_us.png">
+<img src="documentation/wireframes/game.png">
+<img src="documentation/wireframes/game_over.png">
+<img src="documentation/wireframes/home.png">
+<img src="documentation/wireframes/instructions.png">
+<img src="documentation/wireframes/scoreboard.png">
 
 
 ### Colour palettes
-<img src="images/img_8611.png">
+<img src="documentation/img_8611.png">
 
 
 
