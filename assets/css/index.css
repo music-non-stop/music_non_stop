@@ -26,6 +26,8 @@ body {
     position: fixed;
     top: 0;
     font-family: 'Cormorant Garamond', serif;
+    
+   
 }
 
 .logo-img {
@@ -59,8 +61,8 @@ body {
     width: 100%;
     padding: 20px 0;
     text-align: center;
-    position: fixed;
     bottom: 0;
+    z-index: 9999;
 }
 
 .footer-link {
