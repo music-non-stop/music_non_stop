@@ -15,15 +15,27 @@
     <div class="grid-container" id="cards-container">
         <!-- The cards will be injected here -->
     </div>
+    <div class="game-over-popup" id="game-over-screen">
+        <div></div><div><h1 class="game-over-heading">Game Over</h1></div><div></div>
+        <div></div><div><h2 class="game-over-score-text"> <span id="score"></span></h2></div><div></div>
+        <div></div>
+        <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
+        <div></div>        
+
+    </div>
     <span id="track-index"></span>
     <input type="button" value="Play" id="play" onclick="player.play(null)">
     <input type="button" value="Pause" id="pause" onclick="player.pause()">
     <input type="button" value="Stop" id="stop" onclick="player.stop()">
     <input type="button" value="Next" id="next" onclick="player.next()">
-
+    <input type="button" value="test" id=""test-button" onclick="on_test_button_click()">
 
     <script src="./js/mp3-player.js"></script>
     <script src="./js/game.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/mp3-player.js"></script>
+    <script src="./js/game.js"></script>
+
     <script src="./js/main.js"></script>
 </body>
 
