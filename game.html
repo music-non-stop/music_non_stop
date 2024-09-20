@@ -7,11 +7,24 @@
     <!-- JQeury CDN -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/css/game.css">
     <link rel="stylesheet" href="./dimitri/css/game-cards.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
     <title>Document</title>
 </head>
 
 <body>
+    <div id="navbar-placeholder"></div>
+
+    <div>
+      <h1>Music Non Stop</h1>
+    </div>
+    <div class="score-timer-container">
+      <div class="score">Score: <span id="score">0</span></div>
+      <div class="timer">Timer: 0:00</div>
+   </div>
+   
+
     <div class="grid-container" id="cards-container">
         <!-- The cards will be injected here -->
     </div>
@@ -22,13 +35,29 @@
         <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
         <div></div>        
     </div>
+    <div class="button-container">
     <span id="track-index"></span>
     <input type="button" value="Play" id="play" onclick="player.play(null)">
     <input type="button" value="Pause" id="pause" onclick="player.pause()">
     <input type="button" value="Stop" id="stop" onclick="player.stop()">
+    <!--
     <input type="button" value="Next" id="next" onclick="player.next()">
-    <input type="button" value="test" id=""test-button" onclick="on_test_button_click()">
+    <input type="button" value="test" id="test-button" onclick="on_test_button_click()">
+    -->
+    </div>
+    
+    <div class="restart-container">
+      <div>
+          <input type="button" class="restart-button" value="Try Again" id="play-again" onclick="game_restart()">
+      </div>
+      <div>
+          <a href="instructions.html">
+              <input type="button" class="instructions-button" value="Instructions">
+          </a>
+      </div>
+    </div>
 
+    <script src="js/loadLayout.js"></script>
     <script src="./js/mp3-player.js"></script>
     <script src="./js/game.js"></script>
     <script src="./js/navigation.js"></script>

@@ -1,0 +1,145 @@
+/* Estilos para el contenedor de las tarjetas */
+
+
+.score-timer-container {
+  display: flex;
+  justify-content: space-between; /* Para que se separen a los extremos */
+  margin-top: 10px; /* Espaciado superior si lo deseas */
+}
+
+.score, .timer {
+  margin: 0 10px; 
+  font-size: 20px; 
+  font-weight: bold; 
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  
+  gap: 15px;
+  max-width: 600px;
+  margin: 20px;
+  justify-content: center;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: grid; 
+  align-items: center; 
+  margin-top: 20px; 
+}
+
+.button-container input {
+  margin: 5px; 
+}
+
+/* Restart-Instructions Buttons */
+.restart-container {
+  display: flex; /* Usar flexbox para alinear los elementos */
+  justify-content: center; /* Centrar horizontalmente */
+  margin-top: 20px; /* Espaciado superior */
+}
+
+.restart-container div {
+  margin: 0 10px; /* Espacio entre los botones */
+}
+
+.instructions-button{
+  background-color: #2e2e2e; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+}
+
+/* Player Buttons */
+#play {
+  color: black;
+  background-color: #004d40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+}
+
+#pause {
+  color: black;
+  background-color: #d0b8a8;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
+
+#stop {
+  color: black;
+  background-color: #f08080;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
+
+#next {
+  color: black;
+  background-color: #004d40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
+
+#test-button {
+  color: black;
+  background-color: #004d40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
