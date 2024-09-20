@@ -5,25 +5,41 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+// These variables are used to keep track of the previously selected cards, so the clicks can be ignored
+var flip_previous_card = false;
+var uncovered_cards =  [];
+
+// Check if a card is among the covered cards
+function is_among_uncovered_cards(n) {    
+    return uncovered_cards.includes(n);
+}
 
 // Flip a card over and play the associated track
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function card_clicked(n) {
+    // If the user clicked on the same card again ignore the click
+    if (previous_card == n) return;
+    // If the card is among the covered cards, ignore the click
+    if (is_among_uncovered_cards(n)) return
     // Flip the card over
     flip_card_over(n);
     // Pick a card and see if it matches the previous card
+    // game.pickCard(n) returns true if the cards match
     if (game.pickCard(n)) {
-        previous_card = null;
+        // If the cards match, add them to the uncovered_cards array
+        uncovered_cards.push(n);
+        uncovered_cards.push(previous_card);
+
+        previous_card = n;
+        flip_previous_card = false;
         return;
     }
     // Flip the previously selected card back over
-    if (previous_card != n && previous_card != null) {
-        flip_card_over(previous_card);
-        previous_card = n;
-    } else {
-        previous_card = n;
-    }
+    if(previous_card != null && flip_previous_card) flip_card_over(previous_card);
+    previous_card = n;
+    // Flag that if the card does not match the previous card, flip the previous card back over
+    flip_previous_card = true;
 }
 
 // Flip a card over
@@ -35,39 +51,59 @@ function flip_card_over(n) {
 // Show the game over screen
 function game_over() {
     const gameOverScreen = document.getElementById('game-over-screen');
-    gameOverScreen.style.display = 'block';
-
+    gameOverScreen.style.display = 'block';  
 }
 
+function game_restart() {    
+    // clear the covered cards array
+    uncovered_cards = [];    
+    remove_cards_from_DOM();
+    // Reinitialize the game cards
+    const newGameCards = [];
+    generateGameCards(newGameCards);
+    player.cards = newGameCards;
+    embedGameCards(cardsContainer, newGameCards);  
+    game = new Game(newGameCards, player, game_over);     
+}
+
+// Remove all cards from the DOM
+function remove_cards_from_DOM() {
+    var elements = document.getElementsByClassName('flip-card');
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
+
+
 // Populate the gameCards array with GameCard objects
-function getGameCards() {
-    for (let i = 0; i < 3; i++) {
-        gameCards.push(new GameCard(i, i));
-        gameCards.push(new GameCard(i, i));
+function getGameCards(arr) {
+    for (let i = 0; i < 2; i++) {
+        arr.push(new GameCard(i, i));
+        arr.push(new GameCard(i, i));
     }
 }
 
 // Reassign the index property of each game card to match its new position in the array
-function reassign_gameCards_indexes() {
+function reassign_gameCards_indexes(arr) {
     for (let i = 0; i < gameCards.length; i++) {
-        gameCards[i].index = i;
+        arr[i].index = i;
     }
 }
 
 // Embed the game cards in the DOM
-function embedGameCards(cardsContainer) {
-    gameCards.forEach(card => {
+function embedGameCards(cardsContainer, arrGameCards) {
+    arrGameCards.forEach(card => {
         cardsContainer.innerHTML += card.render();
     });
 }
 // Generate the game cards
-function generateGameCards() {
+function generateGameCards(arr) {
     // Poulate the gameCards array with GameCard objects
-    getGameCards();
+    getGameCards(arr);
     // Shuffle the game cards
-    shuffle(gameCards);
+    shuffle(arr);
     // Reassign the index property of each game card to match its new position in the array
-    reassign_gameCards_indexes();
+    reassign_gameCards_indexes(arr);
 }
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
@@ -82,12 +118,12 @@ var previous_card = null;
 // Create an array of GameCard objects, two objects for each track in the playlist
 const gameCards = [];
 
-generateGameCards();
+generateGameCards(gameCards);
 // Embed the game cards in the DOM
 const cardsContainer = document.getElementById('cards-container');
 
 // Embed the game cards in the DOM
-embedGameCards(cardsContainer);
+embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
-const game = new Game(gameCards, player, game_over);
+game = new Game(gameCards, player, game_over);
 

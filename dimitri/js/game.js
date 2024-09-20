@@ -36,18 +36,14 @@ class Game {
         // Number of cards uncovered
         this.cards_uncovered = 0;     
         // Callback function for game over
-        this.gameOverCallback = gameOverCallback;          
-    }
+        this.gameOverCallback = gameOverCallback;             
+    }   
 
     restart = () => {
         this.firstCard = null;
         this.secondCard = null;
         this.score = 0;
-        this.cards_uncovered = 0;
-        this.cards.forEach(card => {
-            const cardElement = document.getElementById(`card-${card.index}`);
-            cardElement.classList.remove('flip-card-over');
-        });
+        this.cards_uncovered = 0;        
     }
     
     pickCard = (n) => {

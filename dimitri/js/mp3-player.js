@@ -10,7 +10,7 @@ class MP3Player {
         // @playlist: an array of audio file names without the extension. All files must be in mp3 format
         this.tracks = playlist;
         this.audio_files_foler_path = path;
-        this.trackIndex = 0;        
+        this.trackIndex = 0;
     }
 
     play = (n) => {
@@ -21,18 +21,18 @@ class MP3Player {
                 this.stop();
             }
             // 
-            this.audio = new Audio(this.audio_files_foler_path + this.tracks[n]+".mp3");
+            this.audio = new Audio(this.audio_files_foler_path + this.tracks[n] + ".mp3");
             this.audio.play();
         } else {
             // if the audio has been stoppped, load the audio file and play it
             if (this.audio == null) {
-                this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex]+".mp3");
+                this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex] + ".mp3");
                 this.audio.play();
             } else {
                 // Otherwise the audio has been paused, resume playing                
                 this.audio.play();
             }
-        }        
+        }
     }
     // stop the audio and reset the time
     stop = () => {
@@ -42,7 +42,7 @@ class MP3Player {
         this.audio = null;
     }
 
-    pause = () => {        
+    pause = () => {
         this.audio.pause();
     }
 
@@ -52,9 +52,9 @@ class MP3Player {
     }
 
     next = () => {
-        if(this.audio != null) this.stop();
+        if (this.audio != null) this.stop();
         this.trackIndex = this.trackIndex < this.tracks.length - 1 ? this.trackIndex + 1 : 0;
-        this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex]+".mp3");
+        this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex] + ".mp3");
         this.play(null);
     }
 }
