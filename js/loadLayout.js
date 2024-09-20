@@ -4,13 +4,34 @@ function loadNavbar() {
         <div class="logo">
             <img src="assets/images/logo.png" alt="Music Non Stop logo" class="logo-img">
         </div>
-        <ul class="nav-links">
+        <div class="burger-menu" id="burger-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="nav-links" id="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="#">Scoreboard</a></li>
         </ul>
     </nav>`;
-    document.body.insertAdjacentHTML('afterbegin', navbarHtml);
+
+    document.getElementById('navbar-placeholder').insertAdjacentHTML('afterbegin', navbarHtml);
+
+    const burgerMenu = document.getElementById('burger-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    burgerMenu.addEventListener('click', (event) => {
+        navLinks.classList.toggle('active');
+        event.stopPropagation();
+    });
+
+    document.addEventListener('click', (event) => {
+        const isClickInsideNav = navLinks.contains(event.target) || burgerMenu.contains(event.target);
+        if (!isClickInsideNav) {
+            navLinks.classList.remove('active');
+        }
+    });
 }
 
 function loadFooter() {
