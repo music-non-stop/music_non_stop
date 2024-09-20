@@ -9,49 +9,41 @@
     <link rel="stylesheet" href="assets/css/homepage.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="assets/images/logo.png" alt="Music Non Stop logo" class="logo-img">
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="#">Scoreboard</a></li>
-        </ul>
-    </nav>
+
+    <!-- Load NavBar -->
+    <div id="navbar-placeholder"></div>
     <div class="main-content">
-      <div class="game-card">
-          <h1 class="game-title">Music Non Stop</h1>
-          <p class="description">
-              Welcome to Music Non Stop! Match the cards to hear beautiful classical melodies. Enter your name to start and let's play!
-          </p>
-          <input type="text" id="player-name" placeholder="Enter your name" class="input-field">
-          <button id="start-game" class="start-button">Submit</button>
-      </div>
-   </div>
-    <footer class="footer">
-      <a href="https://github.com" target="_blank" class="footer-link"><i class="fa-brands fa-github"></i></a>
-      <a href="https://codeinstitute.net" target="_blank" class="footer-link">
-        <i class="fa-regular fa-circle"></i>
-      </a>
-    </footer>
+        <div class="game-card">
+            <h1 class="game-title">Music Non Stop</h1>
+            <p class="description">
+                Welcome to Music Non Stop! Match the cards to hear beautiful classical melodies. Enter your name to start and let's play!
+            </p>
+            <input type="text" id="player-name" placeholder="Enter your name" class="input-field">
+            <button id="start-game" class="start-button">Submit</button>
+        </div>
+    </div>
+
+    <!-- Load Footer -->
+    <div id="footer-placeholder"></div>
+
     <!-- Name Prompt Modal Structure -->
     <div id="name-prompt-modal" class="modal">
-      <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <h2>Warning</h2>
-          <p>Please enter your name to start the game.</p>
-      </div>
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Warning</h2>
+            <p>Please enter your name to start the game.</p>
+        </div>
     </div>
     <div id="welcome-modal" class="modal">
-      <div class="modal-content">
-          <span class="close-button">&times;</span>
-          <h2>Welcome!</h2>
-          <p id="modal-message"></p>
-          <button class="modal-start-button">Start Game</button>
-      </div>
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Welcome!</h2>
+            <p id="modal-message"></p>
+            <button class="modal-start-button">Start Game</button>
+        </div>
     </div>
 
     <script src="js/index.js"></script>
+    <script src="js/loadLayout.js"></script>
 </body>
 </html>
