@@ -1,5 +1,8 @@
 /* Estilos para el contenedor de las tarjetas */
 
+.game-header-container {
+  margin-top: 85px;
+}
 
 .score-timer-container {
   display: flex;
@@ -37,7 +40,7 @@
 .restart-container {
   display: flex; /* Usar flexbox para alinear los elementos */
   justify-content: center; /* Centrar horizontalmente */
-  margin-top: 20px; /* Espaciado superior */
+  margin-top: 40px; /* Espaciado superior */
 }
 
 .restart-container div {
