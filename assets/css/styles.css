@@ -10,6 +10,15 @@ body {
     box-sizing: border-box; 
 }
 
+#navbar-placeholder {
+    z-index: 9999;
+}
+
+#footer-placeholder {
+    z-index: 9999;
+}
+
+
 .feedback-form {
     background: #F7E7CE;
     padding: 20px;
