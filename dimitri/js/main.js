@@ -1,5 +1,3 @@
-
-
 // Fisher Yates shuffle algorithm
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -42,6 +40,19 @@ function card_clicked(n) {
     previous_card = n;
     // Flag that if the card does not match the previous card, flip the previous card back over
     flip_previous_card = true;
+    // Flip the card over
+    flip_card_over(n);
+    // If we have a winner
+    if (game.pickCard(n)) {
+       current_card = 0;
+       return;
+    } else {
+        // Flip the previously selected card back
+        if (current_card != 0) {
+            flip_card_over(current_card);
+        } 
+        current_card = n;
+    }
 }
 
 // Flip a card over
@@ -73,14 +84,14 @@ function game_restart() {
     gameOverScreen.style.display = 'none';     
 }
 
-// Remove all cards from the DOM
 function remove_cards_from_DOM() {
     var elements = document.getElementsByClassName('flip-card');
     while (elements.length > 0) {
         elements[0].parentNode.removeChild(elements[0]);
     }
 }
-
+const playlist = ['Bach', 'Beethoven', 'Brahms', 'Chopin', 'Johann Strauss', 'Mozart', 'Rossini', 'Satie', 'Sibelius', 'Tchaikovski', 'Verdi', 'Vivaldi']
+const audio_files_path = './assets/audio/';
 
 // Populate the gameCards array with GameCard objects
 function getGameCards(arr) {
@@ -143,3 +154,28 @@ embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
 game = new Game(gameCards, player, game_over);
 
+var current_card = 0;
+
+// Create an array of GameCard objects, two objects for each track in the playlist
+const gameCards = [];
+
+for (let i = 0; i <  playlist.length; i++) {   
+    gameCards.push(new GameCard(i, i));
+    gameCards.push(new GameCard(i, i));
+}
+
+console.log(gameCards);
+// Shuffle the game cards
+shuffle(gameCards);
+// Now set the inicies to correspond to the shuffled array
+for (let i = 0; i < gameCards.length; i++) {
+    gameCards[i].index = i;
+}
+// Embed the game cards in the DOM
+const cardsContainer = document.getElementById('cards-container');
+gameCards.forEach(card => {
+    cardsContainer.innerHTML += card.render();
+});
+// Create a new Game object
+const game = new Game(gameCards, player);
+console.log(gameCards)

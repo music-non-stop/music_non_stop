@@ -32,7 +32,7 @@ class MP3Player {
                 // Otherwise the audio has been paused, resume playing                
                 this.audio.play();
             }
-        }
+        }        
     }
     // stop the audio and reset the time
     stop = () => {
