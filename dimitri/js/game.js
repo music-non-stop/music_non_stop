@@ -1,8 +1,10 @@
 class GameCard {
-    constructor(index, trackIndex) {
+    constructor(index, trackIndex, name, backgroundColor) {
         // use index for the card id
         this.index = index;
         this.trackIndex = trackIndex;
+        this.name = name; 
+        this.backgroundColor = backgroundColor;  
     }
     // Render the card in the DOM
     render() {
@@ -12,8 +14,9 @@ class GameCard {
                     <div class="flip-card-front">
                         <h4>Track ${this.trackIndex}</h4>
                     </div>
-                    <div class="flip-card-back">
+                    <div class="flip-card-back" style="background-color: ${this.backgroundColor};" >
                         <p>Listen and pick another card</p>
+                        <p>${this.name}</p>
                     </div>
                 </div>
             </div>

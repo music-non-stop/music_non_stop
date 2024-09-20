@@ -53,7 +53,9 @@ function flip_card_over(n) {
 // Show the game over screen
 function game_over() {
     const gameOverScreen = document.getElementById('game-over-screen');
-    gameOverScreen.style.display = 'block';  
+    gameOverScreen.style.display = 'grid'; 
+    const score = document.getElementById('score');
+    score.innerHTML = `Score: ${game.score}`; 
 }
 
 function game_restart() {    
@@ -65,7 +67,10 @@ function game_restart() {
     generateGameCards(newGameCards);
     player.cards = newGameCards;
     embedGameCards(cardsContainer, newGameCards);  
-    game = new Game(newGameCards, player, game_over);     
+    game = new Game(newGameCards, player, game_over);  
+    // Hide the game over screen
+    const gameOverScreen = document.getElementById('game-over-screen');
+    gameOverScreen.style.display = 'none';     
 }
 
 // Remove all cards from the DOM
@@ -79,10 +84,19 @@ function remove_cards_from_DOM() {
 
 // Populate the gameCards array with GameCard objects
 function getGameCards(arr) {
-    for (let i = 0; i < 2; i++) {
-        arr.push(new GameCard(i, i));
-        arr.push(new GameCard(i, i));
+    var colors = getCardColors();
+    shuffle(colors);
+
+    for (let i = 0; i < 3; i++) {
+        // assign filenames to the GameCard objects, based on the playlist array
+        arr.push(new GameCard(i, i, playlist[i], colors[i]));
+        arr.push(new GameCard(i, i, playlist[i], colors[i]));
     }
+}
+
+function getCardColors(){
+    const colors = ['red', 'blue', 'green', 'orange', 'purple', 'pink', 'brown', 'grey', 'black','cyan', 'magenta', 'darkblue'];
+    return colors;
 }
 
 // Reassign the index property of each game card to match its new position in the array
