@@ -1,3 +1,11 @@
+---
+name: Task
+about: Issue that includes a task
+title: 'TASK: <Title>'
+labels: ''
+assignees: ''
+
+---
 **Acceptance criteria**
 
 *Tasks**
