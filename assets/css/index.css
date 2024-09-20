@@ -1,1 +1,220 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Crimson+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+body {
+    font-family: 'Crimson Pro', serif;
+    background-color: #f7e7ce;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: #2e2e2e;
+}
+
+/* Navbar styling */
+.navbar {
+    background-color: #004d40;
+    color: white;
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.logo-img {
+    width: 120px;
+    height: auto;
+    margin-left: 20px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin-right: 20px;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.nav-links a:hover {
+    color: #f08080;
+}
+
+/* Main content styling */
+.main-content {
+    text-align: center;
+    padding: 20px;
+}
+
+.game-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.game-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    color: #2e2e2e;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 22px;
+    margin-bottom: 40px;
+    font-family: 'Crimson Pro', serif;
+    color: #2e2e2e;
+}
+
+.input-field {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #004d40;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #d0b8a8;
+    color: #2e2e2e;
+    display: block;
+}
+
+.start-button {
+    background-color: #004d40;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 10px;
+    display: block;
+    transition: box-shadow 0.3s;
+}
+
+.start-button:hover {
+    box-shadow: 0 0 10px #f08080, 0 0 20px #f08080;
+}
+
+.start-button:active {
+    transform: scale(0.95);
+}
+
+/* Footer styling */
+.footer {
+    background-color: #004d40;
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-link {
+    color: #f7e7ce;
+    font-size: 30px;
+    margin: 0 30px;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #f08080;
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.modal-start-button,
+.close-prompt-button {
+    background-color: #004d40;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-start-button:hover,
+.close-prompt-button:hover {
+    background-color: #003d33;
+}
+
+.close-button {
+    color: #171616;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.confetti {
+    position: absolute;
+    opacity: 1;
+    transition: opacity 1s, transform 1s;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .input-field {
+        width: 250px;
+    }
+
+    .start-button {
+        font-size: 16px;
+        padding: 8px 16px;
+    }
+}
