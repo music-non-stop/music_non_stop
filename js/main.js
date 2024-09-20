@@ -5,6 +5,10 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+// How many card pairs for the game?
+// This setting will be used inside the getGameCards function
+const NUMBER_OF_CARDS = 5;
+
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
 uncovered_cards =  [];
@@ -94,7 +98,7 @@ function getGameCards(arr) {
     var colors = getCardColors();
     shuffle(colors);
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < NUMBER_OF_CARDS; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
