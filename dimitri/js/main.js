@@ -56,14 +56,15 @@ function game_over() {
     score.innerHTML = `Score: ${game.score}`; 
 }
 
-function game_restart() {    
+function game_restart() {   
+    game = null; 
     // clear the covered cards array
     uncovered_cards = [];    
     remove_cards_from_DOM();
     // Reinitialize the game cards
     const newGameCards = [];
     generateGameCards(newGameCards);
-    player.cards = newGameCards;
+    // player.cards = newGameCards;
     embedGameCards(cardsContainer, newGameCards);  
     game = new Game(newGameCards, player, game_over);  
     // Hide the game over screen
@@ -119,6 +120,7 @@ function generateGameCards(arr) {
     // Reassign the index property of each game card to match its new position in the array
     reassign_gameCards_indexes(arr);
 }
+
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
 // Each name in the playlist must match the name of an MP3 file in the audio folder
