@@ -12,17 +12,17 @@ body {
 
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
     grid-gap: 1rem;
-    padding: 1rem;
+    padding: 0rem;
 }
 /* CSS for flipping cards copied from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card */
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 .flip-card {
     background-color: transparent;
-    width: 100px;
-    height: 100px;
+    width: 150px;
+    height: 150px;
     border: 1px solid #f1f1f1;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
   }
@@ -87,20 +87,6 @@ body {
     display: none;
   }
 
-.restart-button {
-    background-color: #f08080; /* Green */
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
-    width: 100%;
-}
 
 .game-over-heading {
     color: white;

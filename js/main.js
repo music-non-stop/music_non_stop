@@ -94,7 +94,7 @@ function getGameCards(arr) {
     var colors = getCardColors();
     shuffle(colors);
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 6; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
