@@ -14,6 +14,12 @@ function is_among_uncovered_cards(n) {
     return uncovered_cards.includes(n);
 }
 
+// Function for updating score display panel
+function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById('score');
+    scoreDisplay.textContent = `${game.score}`;
+}
+
 // Flip a card over and play the associated track
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
@@ -33,6 +39,9 @@ function card_clicked(n) {
 
         previous_card = n;
         flip_previous_card = false;
+
+        // Update the score display
+        updateScoreDisplay();
         return;
     }
     // Flip the previously selected card back over
@@ -141,4 +150,3 @@ const cardsContainer = document.getElementById('cards-container');
 embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
 game = new Game(gameCards, player, game_over);
-
