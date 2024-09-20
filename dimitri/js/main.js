@@ -1,5 +1,3 @@
-
-
 // Fisher Yates shuffle algorithm
 function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -87,7 +85,7 @@ function getGameCards(arr) {
     var colors = getCardColors();
     shuffle(colors);
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 5; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
@@ -125,6 +123,7 @@ function generateGameCards(arr) {
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
 // Each name in the playlist must match the name of an MP3 file in the audio folder
 const playlist = ['Bach', 'Beethoven', 'Brahms', 'Chopin', 'Johann Strauss', 'Mozart', 'Rossini', 'Satie', 'Sibelius', 'Tchaikovski', 'Verdi', 'Vivaldi']
+
 // Path to the audio files
 const audio_files_path = './assets/audio/';
 // Create an instance of the MP3Player class
