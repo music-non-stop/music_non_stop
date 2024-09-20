@@ -4,8 +4,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
     margin: 0;
+    padding: 20px; 
+    box-sizing: border-box; 
 }
 
 .feedback-form {
@@ -13,7 +15,9 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: 100%; 
+    max-width: 500px; 
+   box-sizing: border-box; 
 }
 
 .feedback-form h2 {
@@ -33,9 +37,6 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-
-
-
 
 .feedback-form button {
     width: 100%;
