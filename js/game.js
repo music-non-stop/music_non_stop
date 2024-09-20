@@ -75,19 +75,30 @@ class Game {
     
     // See if both cards have the same index and are not the same card
     isAMatch = (n) => {
-        // If both cards are null, it means that only one has been selected
-        if (this.firstCard == null || this.secondCard == null) {            
+        // Check if only one card has been selected
+        function isOnlyOneCardSelected(card1, card2) {
+            return card1 == null || card2 == null;
+        }
+        // Check if the two cards match
+        function isCardsMatch(card1_trackIndex, card2_trackIndex, card1_index, n) {
+            return card1_trackIndex == card2_trackIndex && card1_index != n;
+        }
+
+        // If only one card is selected, then it is not a match
+        if (isOnlyOneCardSelected(this.firstCard, this.secondCard)) {            
             return false;
         }
 
-        if (this.firstCard.trackIndex == this.secondCard.trackIndex && this.firstCard.index != n) {
+        if (isCardsMatch(this.firstCard.trackIndex, this.secondCard.trackIndex, this.firstCard.index, n)) {
+            // Reset the first and second cards
             this.firstCard = null;
             this.secondCard = null;
+            // Increment the score and the cards_uncovered counter
             this.score++;
             this.cards_uncovered += 2;
-            console.log('Score: ' + this.score);
+            
             if (this.isGameOver()) {
-                console.log('Game Over!');
+                // Call the callback function for game over                
                 this.onGameOver(this.gameOverCallback);
             }
             return true;
