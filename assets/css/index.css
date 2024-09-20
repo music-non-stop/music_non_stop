@@ -25,6 +25,7 @@ body {
     align-items: center;
     position: fixed;
     top: 0;
+    left: 0;
     font-family: 'Cormorant Garamond', serif;
 }
 
@@ -53,6 +54,23 @@ body {
     color: #f08080;
 }
 
+/* Burger menu styling */
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+}
+
+
 /* Footer styling */
 .footer {
     background-color: #004d40;
@@ -72,4 +90,27 @@ body {
 
 .footer-link:hover {
     color: #f08080;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #004d40;
+        position: absolute;
+        top: 80px;
+        text-align: center;
+        left: 0;
+        right: 0;
+        padding: 0px 0px 20px 0px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .burger-menu {
+        display: flex;
+    }
 }
