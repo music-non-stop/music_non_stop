@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .grid-container {
@@ -60,19 +62,20 @@
 
 
 .team-title {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 2.5rem;
     font-weight: bold;
     color: #2e2e2e;
     text-align: center;
-    z-index: 1000;
+    margin-bottom: 50px;
 }
 
 
 @media (max-width: 768px) {
+    .container {
+        margin-top: 90px;
+        margin-bottom: 90px;
+    }
+
     .grid-container {
         grid-template-columns: 1fr;
     }
