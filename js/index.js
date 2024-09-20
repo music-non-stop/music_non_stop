@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalMessage = document.getElementById("modal-message");
     const closeButtons = document.querySelectorAll(".close-button");
     const modalStartButton = document.getElementById("modal-start-button");
-    const closePromptButton = document.getElementById("close-prompt-button");
 
     startButton.addEventListener("click", () => {
         const playerName = playerNameInput.value.trim();

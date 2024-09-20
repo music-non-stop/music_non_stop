@@ -94,8 +94,7 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.modal-start-button,
-.close-prompt-button {
+.modal-start-button {
     background-color: #004d40;
     color: white;
     padding: 10px 20px;
@@ -105,8 +104,7 @@
     transition: background-color 0.3s;
 }
 
-.modal-start-button:hover,
-.close-prompt-button:hover {
+.modal-start-button:hover {
     background-color: #003d33;
 }
 
