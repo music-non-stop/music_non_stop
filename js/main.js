@@ -72,8 +72,7 @@ function game_restart() {
     remove_cards_from_DOM();
     // Reinitialize the game cards
     const newGameCards = [];
-    generateGameCards(newGameCards);
-    // player.cards = newGameCards;
+    generateGameCards(newGameCards);    
     embedGameCards(cardsContainer, newGameCards);  
     game = new Game(newGameCards, player, game_over);  
     // Hide the game over screen
