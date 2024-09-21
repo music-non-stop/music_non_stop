@@ -8,6 +8,12 @@
   padding: 20px;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
 .game-header-container {
   text-align: center;
   padding: 10px;
@@ -43,9 +49,11 @@
 
 .button-container {
   display: flex;
-  flex-direction: grid; 
   align-items: center; 
-  margin-top: 20px; 
+  width: 100%;
+  margin-top: 20px;
+  grid-gap: 20px;
+  flex-direction: row;
 }
 
 .button-container input {
@@ -103,7 +111,6 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px; 
   width: 100%;
@@ -119,7 +126,6 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
   width: 100%;
@@ -136,10 +142,10 @@
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
   width: 100%;
+  margin-right: 20px;
 
 }
 
