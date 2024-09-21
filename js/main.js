@@ -8,7 +8,7 @@ function shuffle(array) {
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
 // The maximum number of card pairs is 12
-const NUMBER_OF_CARD_PAIRS = 6;
+const NUMBER_OF_CARD_PAIRS = 2;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
@@ -68,9 +68,14 @@ function game_over() {
     gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
     score.innerHTML = `Score: ${game.score}`;
+    saveScoreBoardData({ username: playerData.username, score: game.score });
 }
 
 function game_restart() {
+    // Remove after testing
+    scoreBoardData = loadScoreBoardData();
+    console.log(scoreBoardData);
+
     // clear the covered cards array
     uncovered_cards = [];
     previous_card = null;
@@ -184,3 +189,4 @@ if (playerData) {
 } else {
     console.log("Welcome new player!");
 }
+
