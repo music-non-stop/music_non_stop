@@ -28,6 +28,7 @@
         <div class="grid-container" id="cards-container">
             <!-- The cards will be injected here -->
         </div>
+        
         <div class="game-over-popup" id="game-over-screen">
             <div></div>
             <div><h1 class="game-over-heading">Game Over</h1></div>
@@ -37,7 +38,20 @@
             <div></div>
             <div></div>
             <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
-            <div></div>
+            <div></div>        
+        </div>
+
+        <div class="button-container">
+            <span id="track-index"></span>
+            <button id="play" onclick="player.play(null)">
+                <i class="fas fa-play"></i>
+            </button>
+            <button id="pause" onclick="player.pause()">
+                <i class="fas fa-pause"></i>
+            </button>
+            <button id="stop" onclick="player.stop()">
+                <i class="fas fa-stop"></i>
+            </button>
         </div>
 
     <div class="grid-container" id="cards-container">
@@ -49,19 +63,7 @@
         <div></div>
         <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
         <div></div>        
-    </div>
-    <div class="button-container">
-      <span id="track-index"></span>
-      <button id="play" onclick="player.play(null)">
-          <i class="fas fa-play"></i>
-      </button>
-      <button id="pause" onclick="player.pause()">
-          <i class="fas fa-pause"></i>
-      </button>
-      <button id="stop" onclick="player.stop()">
-          <i class="fas fa-stop"></i>
-      </button>
-    </div>
+    </div>    
       <!--
     
     <input type="button" value="Next" id="next" onclick="player.next()">
