@@ -55,31 +55,35 @@
             </button>
         </div>
 
-    <div class="grid-container" id="cards-container">
-        <!-- The cards will be injected here -->
-    </div>
-    <div class="game-over-popup" id="game-over-screen">
-        <div></div><div><h1 class="game-over-heading">Game Over</h1></div><div></div>
-        <div></div><div><h2 class="game-over-score-text"> <span id="score"></span></h2></div><div></div>
-        <div></div>
-        <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
-        <div></div>        
-    </div>    
-      <!--
-    
-    <input type="button" value="Next" id="next" onclick="player.next()">
-    <input type="button" value="test" id="test-button" onclick="on_test_button_click()">
-    -->
-    
-    <div class="restart-container">
-      <div>
-          <input type="button" class="restart-button" value="Try Again" id="restart-game" onclick="game_restart()">
-      </div>
-      <div>
-          <a href="instructions.html">
-              <input type="button" class="instructions-button" value="Instructions">
-          </a>
-      </div>
+        <div class="restart-container">
+            <div>
+                <input type="button" class="restart-button" value="Try Again" id="restart-game" onclick="game_restart()">
+            </div>
+            <div>
+                <input type="button" class="instructions-button" value="Instructions" id="show-instructions">
+            </div>
+        </div>
+
+        <!-- Hidden Instructions Popup -->
+        <div id="instructions-popup">
+            <h1>Instructions</h1>
+            <h2>Objective:</h2>
+            <p>Match all 12 pairs of cards that play the same tune.</p>
+            <h2>How to Play:</h2>
+            <ul>
+                <li>The game will start the timer as soon as you begin.</li>
+                <li>Click on any two cards to flip them over and listen to the tunes.</li>
+                <li>If the cards play the same tune, you have found a match. The cards will remain face up.</li>
+                <li>If the cards do not match, they will flip back over after a short delay.</li>
+                <li>Keep selecting two cards at a time, trying to remember the tunes and their locations.</li>
+                <li>The game ends when all pairs have been matched.</li>
+            </ul>
+            <h2>Winning the Game:</h2>
+            <p>The goal is to match all pairs as quickly as possible. Your final time will be displayed when the last pair is matched.</p>
+            <button class="close-btn" id="close-instructions">Close</button>
+        </div>
+
+        <div id="overlay"></div>
     </div>
 
     <div id="footer-placeholder"></div>
@@ -94,3 +98,4 @@
 </body>
 
 </html>
+
