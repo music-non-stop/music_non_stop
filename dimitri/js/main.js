@@ -6,8 +6,8 @@ function shuffle(array) {
     }
 }
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
-var flip_previous_card = false;
-var uncovered_cards =  [];
+flip_previous_card = false;
+uncovered_cards =  [];
 
 // Check if a card is among the covered cards
 function is_among_uncovered_cards(n) {    
@@ -59,7 +59,9 @@ function game_over() {
 function game_restart() {   
     game = null; 
     // clear the covered cards array
-    uncovered_cards = [];    
+    uncovered_cards = []; 
+    // clear the previous card
+    previous_card = null;   
     remove_cards_from_DOM();
     // Reinitialize the game cards
     const newGameCards = [];
