@@ -7,8 +7,10 @@
   margin-bottom: 40px;
   padding: 20px;
 }
+
 .game-header-container {
   text-align: center;
+  padding: 10px;
 }
 
 .score-timer-container {
@@ -29,28 +31,37 @@
   text-align: center;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) !important;
+  gap: 15px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
 
 .button-container {
   display: flex;
-  justify-content: center;
+  flex-direction: grid; 
   align-items: center; 
-  gap: 20px;               /* Espacio entre los botones */
-  margin-top: 5px;
-  padding: 10px; 
+  margin-top: 20px; 
 }
 
 .button-container input {
-  margin: 5px;
-  padding: 10px 20px;
+  margin: 5px; 
 }
 
 /* Restart-Instructions Buttons */
 .restart-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin-bottom: 20px; 
-  grid-gap: 10px;
+  margin-bottom: 40px; 
+  grid-gap: 20px;
+  width: 100%;
+  justify-content:center;
+  margin-top: 40px;
+  flex-direction: row;
 }
 
 .restart-container div {
@@ -58,16 +69,22 @@
   align-items: center;
 }
 
-
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
 
 .instructions-button, .restart-button {
   background-color: #f08080; 
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 15px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  justify-content: space-between;
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
@@ -88,13 +105,13 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
-  border-radius: 8px;
-  
+  border-radius: 8px; 
+  width: 100%;
 }
 
 #pause {
   color: black;
-  background-color: #004d40;
+  background-color: #d0b8a8;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -105,13 +122,13 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  
+  width: 100%;
 
 }
 
 #stop {
   color: black;
-  background-color: #004d40;
+  background-color: #f08080;
   border: none;
   color: white;
   padding: 15px 32px;
@@ -122,7 +139,7 @@
   margin: 4px 2px;
   cursor: pointer;
   border-radius: 8px;
-  
+  width: 100%;
 
 }
 
@@ -158,4 +175,35 @@
   border-radius: 8px;
   width: 100%;
 
+}
+
+/* Media Queries */
+@media (max-width: 768px) { 
+  .grid-container {
+      grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .score, .timer {
+      font-size: 20px;
+  }
+
+  .instructions-button, .restart-button {
+      font-size: 14px;
+  }
+
+  .restart-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .score, .timer {
+      font-size: 18px;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .flip-card {
+      max-width: 100px;
+  }
 }
