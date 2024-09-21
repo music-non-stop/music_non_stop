@@ -5,13 +5,23 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+// How many card pairs for the game?
+// This setting will be used inside the getGameCards function
+const NUMBER_OF_CARDS = 5;
+
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
-var flip_previous_card = false;
-var uncovered_cards =  [];
+flip_previous_card = false;
+uncovered_cards =  [];
 
 // Check if a card is among the covered cards
 function is_among_uncovered_cards(n) {    
     return uncovered_cards.includes(n);
+}
+
+// Function for updating score display panel
+function updateScoreDisplay() {
+    const scoreDisplay = document.getElementById('score');
+    scoreDisplay.textContent = `${game.score}`;
 }
 
 // Flip a card over and play the associated track
@@ -33,6 +43,9 @@ function card_clicked(n) {
 
         previous_card = n;
         flip_previous_card = false;
+
+        // Update the score display
+        updateScoreDisplay();
         return;
     }
     // Flip the previously selected card back over
@@ -58,12 +71,12 @@ function game_over() {
 
 function game_restart() {    
     // clear the covered cards array
-    uncovered_cards = [];    
+    uncovered_cards = [];   
+    previous_card = null; 
     remove_cards_from_DOM();
     // Reinitialize the game cards
     const newGameCards = [];
-    generateGameCards(newGameCards);
-    player.cards = newGameCards;
+    generateGameCards(newGameCards);    
     embedGameCards(cardsContainer, newGameCards);  
     game = new Game(newGameCards, player, game_over);  
     // Hide the game over screen
@@ -85,7 +98,7 @@ function getGameCards(arr) {
     var colors = getCardColors();
     shuffle(colors);
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < NUMBER_OF_CARDS; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
@@ -141,4 +154,3 @@ const cardsContainer = document.getElementById('cards-container');
 embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
 game = new Game(gameCards, player, game_over);
-
