@@ -7,16 +7,12 @@ function shuffle(array) {
 }
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
-const NUMBER_OF_CARDS = 5;
+const NUMBER_OF_CARD_PAIRS = 5;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
 uncovered_cards =  [];
 
-// Check if a card is among the covered cards
-function is_among_uncovered_cards(n) {    
-    return uncovered_cards.includes(n);
-}
 
 // Function for updating score display panel
 function updateScoreDisplay() {
@@ -28,6 +24,10 @@ function updateScoreDisplay() {
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function card_clicked(n) {
+    // Check if a card is among the uncovered cards
+    function is_among_uncovered_cards(n) {    
+        return uncovered_cards.includes(n);
+    }
     // If the user clicked on the same card again ignore the click
     if (previous_card == n) return;
     // If the card is among the covered cards, ignore the click
@@ -98,7 +98,7 @@ function getGameCards(arr) {
     var colors = getCardColors();
     shuffle(colors);
 
-    for (let i = 0; i < NUMBER_OF_CARDS; i++) {
+    for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
         arr.push(new GameCard(i, i, playlist[i], colors[i]));
@@ -108,6 +108,11 @@ function getGameCards(arr) {
 function getCardColors(){
     const colors = ['red', 'blue', 'green', 'orange', 'purple', 'pink', 'brown', 'grey', 'black','cyan', 'magenta', 'darkblue'];
     return colors;
+}
+
+function getComposerImages(){
+    const images = ['Bach.png', 'Beethoven.png', 'Brahms.png', 'Chopin.png', 'Strauss.png', 'mozart.png', 'Rossini.png', 'Satie.png', 'Sibelius.png', 'Tchaikovski.png', 'Verdi.png', 'vivaldi.png'];
+    return images;
 }
 
 // Reassign the index property of each game card to match its new position in the array
