@@ -26,7 +26,6 @@
 body {
     background-color: var(--color-lightgold);
     font-family: var(--font-body), serif;
-    /* Use global font for body */
     color: var(--color-green);
     margin: 0;
     padding: 0;
@@ -44,7 +43,6 @@ h4,
 h5,
 h6 {
     font-family: var(--font-heading), serif;
-    /* Use global font for headings */
 }
 
 /* Error container */
@@ -82,7 +80,6 @@ h6 {
     margin-bottom: 20px;
     color: var(--color-green);
     font-size: 3rem;
-    /* Adjust the size as per your requirement */
 }
 
 /* Card container */
@@ -123,7 +120,6 @@ h6 {
 .card:hover {
     transform: scale(1.1);
     cursor: pointer;
-    /* Indicate the card is interactive */
 }
 
 /* Responsive Design for larger screens */
