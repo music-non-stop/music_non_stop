@@ -8,7 +8,7 @@ function shuffle(array) {
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
 // The maximum number of card pairs is 12
-const NUMBER_OF_CARD_PAIRS = 12;
+const NUMBER_OF_CARD_PAIRS = 6;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
@@ -105,11 +105,15 @@ function getGameCards(arr) {
     shuffle(colors);
     // Shuffle the face images array
     shuffle(faceImages);
+    // array index track number in the playlist
+    let trackIndex = 0;
+    // Assign random track index between 0 and 5 to trackIndex
+    trackIndex = Math.floor(Math.random() * 6);
 
-    for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++) {
+    for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++, trackIndex++) {
         // assign filenames to the GameCard objects, based on the playlist array
-        arr.push(new GameCard(i, i, playlist[i], colors[i], path_to_composer_images+ composerImages[i], path_to_face_images + faceImages[0]));
-        arr.push(new GameCard(i, i, playlist[i], colors[i], path_to_composer_images+ composerImages[i], path_to_face_images + faceImages[0]));
+        arr.push(new GameCard(i, trackIndex, playlist[trackIndex], colors[i], path_to_composer_images+ composerImages[trackIndex], path_to_face_images + faceImages[0]));
+        arr.push(new GameCard(i, trackIndex, playlist[trackIndex], colors[i], path_to_composer_images+ composerImages[trackIndex], path_to_face_images + faceImages[0]));
     }
 }
 
