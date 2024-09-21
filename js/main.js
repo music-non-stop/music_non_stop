@@ -7,16 +7,13 @@ function shuffle(array) {
 }
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
-const NUMBER_OF_CARDS = 5;
+// The maximum number of card pairs is 12
+const NUMBER_OF_CARD_PAIRS = 12;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
 uncovered_cards =  [];
 
-// Check if a card is among the covered cards
-function is_among_uncovered_cards(n) {    
-    return uncovered_cards.includes(n);
-}
 
 // Function for updating score display panel
 function updateScoreDisplay() {
@@ -28,6 +25,10 @@ function updateScoreDisplay() {
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function card_clicked(n) {
+    // Check if a card is among the uncovered cards
+    function is_among_uncovered_cards(n) {    
+        return uncovered_cards.includes(n);
+    }
     // If the user clicked on the same card again ignore the click
     if (previous_card == n) return;
     // If the card is among the covered cards, ignore the click
@@ -95,19 +96,37 @@ function remove_cards_from_DOM() {
 
 // Populate the gameCards array with GameCard objects
 function getGameCards(arr) {
+    const path_to_composer_images = './assets/images/composers/';
+    const path_to_face_images = './assets/images/card_faces/';
     var colors = getCardColors();
+    var composerImages = getComposerImages();
+    var faceImages = getCardImages();
+    // Shuffle the colors array
     shuffle(colors);
+    // Shuffle the face images array
+    shuffle(faceImages);
 
-    for (let i = 0; i < NUMBER_OF_CARDS; i++) {
+    for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
-        arr.push(new GameCard(i, i, playlist[i], colors[i]));
-        arr.push(new GameCard(i, i, playlist[i], colors[i]));
+        arr.push(new GameCard(i, i, playlist[i], colors[i], path_to_composer_images+ composerImages[i], path_to_face_images + faceImages[0]));
+        arr.push(new GameCard(i, i, playlist[i], colors[i], path_to_composer_images+ composerImages[i], path_to_face_images + faceImages[0]));
     }
 }
 
 function getCardColors(){
     const colors = ['red', 'blue', 'green', 'orange', 'purple', 'pink', 'brown', 'grey', 'black','cyan', 'magenta', 'darkblue'];
     return colors;
+}
+
+function getComposerImages(){
+    const images = ['Bach.png', 'Beethoven.jpg', 'Brahms.jpg', 'chopin.jpeg', 'Johann_Strauss.jpg', 'mozart.jpg', 'Rossini.jpg', 'Satie.jpg', 'Sibelius.jpg', 'tchaikovsky.jpg', 'Verdi.jpg', 'vivaldi.jpg'];
+    return images;
+}
+
+// Get the names of the face up images for the game cards
+function getCardImages(){
+    const images = ['face1.webp', 'face2.webp', 'face3.webp', 'face4.webp', 'face5.webp'];    
+    return images;
 }
 
 // Reassign the index property of each game card to match its new position in the array
