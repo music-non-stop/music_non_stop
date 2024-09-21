@@ -9,9 +9,11 @@
 body, html {
     font-family: 'Crimson Pro', serif;
     background-color: #f7e7ce;
-    background-image: url(/assets/images/classical-music-background.jpg);
+    background-image: url(/assets/images/cassical-music-background-edit.png);
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0 auto;
+    padding: 0;
     display: flex;
     flex-direction: column;
     color: #2e2e2e;
