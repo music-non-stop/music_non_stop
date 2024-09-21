@@ -5,6 +5,7 @@ class GameCard {
         this.trackIndex = trackIndex;
         this.name = name; 
         this.backgroundColor = backgroundColor;
+        
     }
     // Render the card in the DOM
     render() {

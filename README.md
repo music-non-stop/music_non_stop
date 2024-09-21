@@ -7,6 +7,9 @@
 ## Logo
 <img src="assets/images/logoforreadme.jpg">
 
+#### The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
+#### The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.
+
 
 
 ## Game Overview
@@ -83,6 +86,12 @@
 
 ### Colour palettes
 <img src="documentation/img_8611.png">
+
+#### Deep Forest Green (#004D40): This color evokes a sense of depth and richness, much like the profound and intricate compositions found in classical music. It can also symbolize the natural, timeless beauty of classical pieces.
+#### Muted Gold (#F7E7CE): Gold often represents elegance and sophistication, which are key characteristics of classical music. This color can also hint at the historical and prestigious nature of classical compositions.
+#### Light Beige (#D0B8A8): Beige is a neutral, calming color that can provide a soothing background, allowing players to focus on the game. It also complements the other colors without overpowering them, adding to the overall harmony.
+#### Dark Charcoal (#2E2E2E): This color adds contrast and depth, much like the dramatic moments in classical music. It can also represent the serious and intense emotions that classical music can evoke.
+#### Soft Coral Pink (#F08080): This color introduces a touch of modernity and freshness, perhaps symbolizing new interpretations or contemporary performances of classical pieces. It adds a lively and inviting element to the palette.
 
 
 
