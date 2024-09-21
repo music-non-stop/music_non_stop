@@ -7,44 +7,32 @@
     <!-- JQeury CDN -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./js/mp3-player.js"></script>
-    <script src="./js/game-card.js"></script>
-    <script src="./js/main.js"></script>
-    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/game-cards.css">
     <title>Document</title>
 </head>
 
 <body>
-    <div class="grid-container">
-        <div class="flip-card">
-            <div id="card-1" class="flip-card-inner" onclick="card_clicked(1)">
-                <div class="flip-card-front">
-                    <h4>Play song 1</h4>
-                </div>
-                <div class="flip-card-back">
-                    <h4>My Song</h4>
-                    <p>Artist: My Artist</p>
-                    <p>Album: My Album</p>
-                </div>
-            </div>
-        </div>
-        <div class="flip-card">
-            <div id="card-2" class="flip-card-inner" onclick="card_clicked(2)">
-                <div class="flip-card-front">
-                    <h4>Play song 2</h4>
-                </div>
-                <div class="flip-card-back">
-                    <h4>My Song</h4>
-                    <p>Artist: My Artist</p>
-                    <p>Album: My Album</p>
-                </div>
-            </div>
-        </div>
+    <div class="grid-container" id="cards-container">
+        <!-- The cards will be injected here -->
     </div>
+    <div class="game-over-popup" id="game-over-screen">
+        <div></div><div><h1 class="game-over-heading">Game Over</h1></div><div></div>
+        <div></div><div><h2 class="game-over-score-text"> <span id="score"></span></h2></div><div></div>
+        <div></div>
+        <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
+        <div></div>        
+    </div>
+    <span id="track-index"></span>
     <input type="button" value="Play" id="play" onclick="player.play(null)">
     <input type="button" value="Pause" id="pause" onclick="player.pause()">
     <input type="button" value="Stop" id="stop" onclick="player.stop()">
     <input type="button" value="Next" id="next" onclick="player.next()">
+    <input type="button" value="test" id=""test-button" onclick="on_test_button_click()">
+
+    <script src="./js/mp3-player.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/navigation.js"></script>
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

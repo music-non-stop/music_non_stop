@@ -1,0 +1,215 @@
+.main-container {
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.game-header-container {
+  text-align: center;
+  padding: 10px;
+}
+
+.score-timer-container {
+  display: flex;
+  justify-content: space-between; 
+  margin-top: 10px; 
+}
+
+.score, .timer {
+  margin: 0 5px; 
+  font-size: 25px; 
+  font-weight: bold;
+  padding: 10px;
+  border: 2px solid black;      
+  border-radius: 10px;          
+  display: inline-block;
+  width: 120px; 
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 10px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.button-container {
+  display: flex;
+  align-items: center; 
+  width: 100%;
+  margin-top: 20px;
+  grid-gap: 20px;
+  flex-direction: row;
+}
+
+.button-container input {
+  margin: 5px; 
+}
+
+/* Restart-Instructions Buttons */
+.restart-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px; 
+  grid-gap: 20px;
+  width: 100%;
+  justify-content:center;
+  margin-top: 40px;
+  flex-direction: row;
+}
+
+.restart-container div {
+  margin: -5px 10px;
+  align-items: center;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.instructions-button, .restart-button {
+  background-color: #f08080; 
+  border: none;
+  color: white;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px; 
+  width: 200px;
+}
+
+/* Player Buttons */
+#play {
+  color: black;
+  background-color: #004d40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px; 
+  width: 100%;
+}
+
+#pause {
+  color: black;
+  background-color: #d0b8a8;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
+
+#stop {
+  color: black;
+  background-color: #f08080;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+  margin-right: 20px;
+
+}
+
+#next {
+  color: black;
+  background-color: #004d40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
+
+#test-button {
+  color: black;
+  background-color: #004d40;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  width: 100%;
+
+}
+
+/* Media Queries */
+@media (max-width: 768px) { 
+  .grid-container {
+      grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .score, .timer {
+      font-size: 20px;
+  }
+
+  .instructions-button, .restart-button {
+      font-size: 14px;
+  }
+
+  .restart-container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 400px) {
+  .score, .timer {
+      font-size: 18px;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .flip-card {
+      max-width: 100px;
+  }
+}

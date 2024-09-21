@@ -1,0 +1,54 @@
+body {
+    font-family: 'Cormorant Garamond', serif;
+    background: radial-gradient(circle, #F7E7CE 40%, #f08080 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    margin: 0;
+    padding: 20px; 
+    box-sizing: border-box; 
+}
+
+
+.feedback-form {
+    background: #F7E7CE;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%; 
+    max-width: 500px; 
+   box-sizing: border-box; 
+}
+
+.feedback-form h2 {
+    margin-bottom: 20px;
+}
+
+.feedback-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.feedback-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #004D40;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.feedback-form button:hover {
+    background-color: #f08080;
+}
