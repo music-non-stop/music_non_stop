@@ -17,8 +17,7 @@ class GameCard {
                         <img src="${this.imgFace}" alt="Card Image" class="face-image">
                     </div>
                     <div class="flip-card-back" style="background-color: ${this.backgroundColor};" >
-                        <img src="${this.imgComposer}" alt="Composer Image" class="composer-image">
-                        <p>${this.name}</p>
+                        <img src="${this.imgComposer}" alt="Composer Image" class="composer-image">                        
                     </div>
                 </div>
             </div>

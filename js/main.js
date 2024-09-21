@@ -97,10 +97,11 @@ function gameOver() {
 }
 
 function gameRestart() {
-    // Remove after testing
-    scoreBoardData = loadScoreBoardData();
+    // Reset the timer back to 00:00
     resetTimer();
-    
+    // Set the html content of the score display to 0
+    const scoreDisplay = document.getElementById('score');
+    scoreDisplay.textContent = 0;
 
     // clear the covered cards array
     uncovered_cards = [];
