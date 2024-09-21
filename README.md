@@ -5,7 +5,7 @@
 #### Developed by Harmonic Hackers
 
 ## Logo
-<img src="assets/images/logo.png">
+<img src="assets/images/logoforreadme.jpg">
 
 
 
