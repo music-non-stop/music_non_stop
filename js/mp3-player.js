@@ -38,8 +38,7 @@ class MP3Player {
     stop = () => {
         // If the sound promise is not null, then stop the audio
         this.audio.pause();
-        this.audio.currentTime = 0;
-        this.audio = null;
+        this.audio.currentTime = 0;        
     }
 
     pause = () => {
