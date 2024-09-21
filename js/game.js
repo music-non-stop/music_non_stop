@@ -14,7 +14,7 @@ class GameCard {
             <div class="flip-card">
                 <div id="card-${this.index}" class="flip-card-inner" onclick="card_clicked(${this.index})">
                     <div class="flip-card-front">
-                        <img src="${this.imgFace}" alt="Face Image" class="face-image">
+                        <img src="${this.imgFace}" alt="Card Image" class="face-image">
                     </div>
                     <div class="flip-card-back" style="background-color: ${this.backgroundColor};" >
                         <img src="${this.imgComposer}" alt="Composer Image" class="composer-image">
