@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-/* Global font and color variables */
+/* Local font and color variables */
 :root {
     /* Color Variables */
     --color-green: #004d40;
