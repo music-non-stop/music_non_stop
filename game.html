@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="./assets/css/game.css">
     <link rel="stylesheet" href="./dimitri/css/game-cards.css">
     <link rel="stylesheet" href="./assets/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Game Page</title>
 </head>
 
@@ -35,16 +36,22 @@
         <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
         <div></div>        
     </div>
-    <!--
     <div class="button-container">
-    <span id="track-index"></span>
-    <input type="button" value="Play" id="play" onclick="player.play(null)">
-    <input type="button" value="Pause" id="pause" onclick="player.pause()">
-    <input type="button" value="Stop" id="stop" onclick="player.stop()">
+      <span id="track-index"></span>
+      <button id="play" onclick="player.play(null)">
+          <i class="fas fa-play"></i>
+      </button>
+      <button id="pause" onclick="player.pause()">
+          <i class="fas fa-pause"></i>
+      </button>
+      <button id="stop" onclick="player.stop()">
+          <i class="fas fa-stop"></i>
+      </button>
+    </div>
+      <!--
     
     <input type="button" value="Next" id="next" onclick="player.next()">
     <input type="button" value="test" id="test-button" onclick="on_test_button_click()">
-    </div>
     -->
     
     <div class="restart-container">
