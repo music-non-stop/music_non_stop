@@ -7,6 +7,9 @@
 ## Logo
 <img src="assets/images/logoforreadme.jpg">
 
+#### The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
+#### The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.
+
 
 
 ## Game Overview
