@@ -90,7 +90,9 @@ function game_over() {
     gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
     score.innerHTML = `Score: ${game.score}`;
-    saveScoreBoardData({ username: playerData.username, score: game.score });
+    // Get value from the DOM field named timer
+    const timer = document.getElementById('timer').textContent;
+    saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });
 }
 
 function game_restart() {
@@ -212,3 +214,5 @@ if (playerData) {
     console.log("Welcome new player!");
 }
 
+// Remove scoreBoardData from local storage
+localStorage.removeItem('scoreBoardData');

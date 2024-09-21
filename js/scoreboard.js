@@ -11,9 +11,12 @@ function renderScoreBoardData() {
             name.textContent = `${entry.username}`;
             let score = document.createElement('td');
             score.textContent = `${entry.score}`;
+            let time = document.createElement('td');
+            time.textContent = `${entry.time}`;
             tr.appendChild(rank);
             tr.appendChild(name);
             tr.appendChild(score);
+            tr.appendChild(time);
             scoreBoard.appendChild(tr);
         });
     }
