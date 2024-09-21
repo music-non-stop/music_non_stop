@@ -95,6 +95,10 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.modal h2 {
+    margin-bottom: 20px;
+}
+
 .modal-start-button {
     background-color: #004d40;
     color: white;
@@ -103,6 +107,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin-top: 20px;
 }
 
 .modal-start-button:hover {
