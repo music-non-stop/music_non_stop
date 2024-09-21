@@ -1,20 +1,50 @@
 # Music Non Stop
 
-#### Music Non Stop is a classical music-themed memory card game. Designed to enhance your memory while appreciating classical music.
+Music Non Stop is a classical music-themed memory card game. Designed to enhance your memory while appreciating classical music.
 
-#### Developed by Harmonic Hackers
+![The website shown on a variety of screen sizes](/documentation/doc-images/amiresponsive.webp)
+
+Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music_non_stop/index.html)
+
+**Developed by:** Harmonic Hackers
+
+# Table of Contents
+- [Logo](#logo)
+- [Game Overview](#game-overview)
+- [How to Play](#how-to-play)
+- [Scoring](#scoring)
+- [Tips for Success](#tips-for-success)
+- [Goals](#goals)
+- [User Stories](#user-stories)
+- [Planning & Design](#planning--design)
+  - [Wireframes](#wireframes)
+  - [Colour palettes](#colour-palettes)
+  - [JavaScript Audio](#javascript-audio)
+    - [MP3Player](#mp3player)
+      - [Constructor](#constructor)
+      - [Properties](#properties)
+      - [Methods](#methods)
+- [Deployment & Local Development](#deployment--local-development)
+  - [Deployment](#deployment)
+  - [Local Development](#local-development)
+    - [How to Fork](#how-to-fork)
+    - [How to Clone](#how-to-clone)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Acknowledgments](#acknowledgments)
+
+---
 
 ## Logo
+
+**The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
+The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.**
+
 <img src="assets/images/logoforreadme.jpg">
-
-#### The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
-#### The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.
-
 
 
 ## Game Overview
-#### Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.
-
+**Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.**
 
 
 ## How to Play:
@@ -26,10 +56,8 @@
 #### 6. The game ends when all pairs have been matched.
 
 
-
 ## Scoring:
 #### There is no specific scoring system; the goal is to match all pairs as quickly as possible.
-
 
 
 ## Tips for Success:
@@ -95,13 +123,12 @@
 
 
 
+## JavaScript Audio
+We have created a class for playing audio files. Since we're going to use mp3-format it is named 'MP3Player'. The class is defined in mp3-player.js.
 
-# JavaScript Audio
-I have created a class for playing audio files. Since we're going to use mp3-format I named it MP3Player. The class is defined in mp3-player.js.
+### MP3Player
 
-## MP3Player
-
-### Constructor
+#### Constructor
 The constructor accepts two parameters **path** and **playlist**
 
 **path** is the path to the folder with the mp3-files. The path is relative to the html document in which the script is loaded.
@@ -120,7 +147,7 @@ player.play(1);
 
 </code>
 
-### Properties
+#### Properties
 audio
 playBtn
 stopBtn
@@ -130,7 +157,7 @@ tracks
 audio_files_foler_path
 trackIndex
 
-### Methods
+#### Methods
 The class implements all the essential methods for playing mp3 files. Play.stop, pause, previous, next.
 
 play(n)
@@ -139,3 +166,55 @@ pause()
 prev()
 next()
 
+## Deployment & Local Development
+
+### Deployment
+
+Github Pages was used to deploy the live website. The instructions to achieve this are below:
+
+1. Log in (or sign up) to Github.
+2. Find the repository for this project, [Music Non Stop](https://github.com/music-non-stop/music_non_stop/)
+3. Click on the Settings link.
+4. Click on the Pages link in the left hand side navigation bar.
+5. In the Source section, choose main from the drop down select branch menu. Select Root from the drop down select folder menu.
+6. Click Save. Your live Github Pages site is now deployed at the URL shown.
+
+This site is deployed using GitHub Pages - [Music Non Stop](https://github.com/music-non-stop/music_non_stop/)
+
+### Local Development
+
+#### How to Fork
+
+To fork the Music Non Stop repository:
+
+1. Log in (or sign up) to Github.
+2. Go to the repository for this project, [Music Non Stop](https://github.com/music-non-stop/music_non_stop/)
+3. Click the Fork button in the top right corner.
+
+#### How to Clone
+
+To clone the Music Non Stop repository:
+
+1. Log in (or sign up) to GitHub.
+2. Go to the repository for this project, [Music Non Stop](https://github.com/music-non-stop/music_non_stop/)
+3. Click on the code button, select whether you would like to clone with HTTPS, SSH or GitHub CLI and copy the link shown.
+4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
+5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
+
+## Credits
+
+### Content
+
+Website content crafted by the developer.
+
+###  Acknowledgments
+
+- Thanks to Code Institute for the chance to work on this hackathon.
+- Thanks to our facilitator [Vasilica Pavaloi](https://github.com/Vasi012)
+- Thanks to all team members, for their work and co-operation:
+  - [Alina Teodora Brinzac](https://github.com/TeodoraAlina)
+  - [Anthony Radose](https://github.com/anthonyradose)
+  - [Dimitri Edel](https://github.com/dimitri-edel)
+  - [Jacqueline Kalmár](https://github.com/JaqiKal)
+  - [Kiko Climent](https://github.com/Kiko-Climent)
+  - [Monica Iancu](https://github.com/Monicaular)
