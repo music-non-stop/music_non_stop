@@ -119,7 +119,7 @@ function getCardColors(){
 }
 
 function getComposerImages(){
-    const images = ['Bach.png', 'Beethoven.jpg', 'Brahms.jpg', 'Chopin.jpeg', 'Johann_Strauss.jpg', 'mozart.jpg', 'Rossini.jpg', 'Satie.jpg', 'Sibelius.jpg', 'tchaikovsky.jpg', 'Verdi.jpg', 'vivaldi.jpg'];
+    const images = ['Bach.png', 'Beethoven.jpg', 'Brahms.jpg', 'chopin.jpeg', 'Johann_Strauss.jpg', 'mozart.jpg', 'Rossini.jpg', 'Satie.jpg', 'Sibelius.jpg', 'tchaikovsky.jpg', 'Verdi.jpg', 'vivaldi.jpg'];
     return images;
 }
 
