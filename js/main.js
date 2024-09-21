@@ -32,13 +32,13 @@ function card_clicked(n) {
         time_of_last_card_pick = Date.now();
     }
     // Check if a card is among the uncovered cards
-    function is_among_uncovered_cards(n) {
+    function isAmongUncoveredCards(n) {
         return uncovered_cards.includes(n);
     }
     // If the user clicked on the same card again ignore the click
     if (previous_card == n) return;
     // If the card is among the covered cards, ignore the click
-    if (is_among_uncovered_cards(n)) return
+    if (isAmongUncoveredCards(n)) return
     // Flip the card over
     flip_card_over(n);
     // Pick a card and see if it matches the previous card
@@ -92,13 +92,15 @@ function game_over() {
     score.innerHTML = `Score: ${game.score}`;
     // Get value from the DOM field named timer
     const timer = document.getElementById('timer').textContent;
+    // Add results to the scoreboard
     saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });
 }
 
 function game_restart() {
     // Remove after testing
     scoreBoardData = loadScoreBoardData();
-    console.log(scoreBoardData);
+    resetTimer();
+    
 
     // clear the covered cards array
     uncovered_cards = [];
