@@ -24,7 +24,7 @@ function updateScoreDisplay() {
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function card_clicked(n) {
-    // Check if a card is among the covered cards
+    // Check if a card is among the uncovered cards
     function is_among_uncovered_cards(n) {    
         return uncovered_cards.includes(n);
     }
@@ -108,6 +108,11 @@ function getGameCards(arr) {
 function getCardColors(){
     const colors = ['red', 'blue', 'green', 'orange', 'purple', 'pink', 'brown', 'grey', 'black','cyan', 'magenta', 'darkblue'];
     return colors;
+}
+
+function getComposerImages(){
+    const images = ['Bach.png', 'Beethoven.png', 'Brahms.png', 'Chopin.png', 'Strauss.png', 'mozart.png', 'Rossini.png', 'Satie.png', 'Sibelius.png', 'Tchaikovski.png', 'Verdi.png', 'vivaldi.png'];
+    return images;
 }
 
 // Reassign the index property of each game card to match its new position in the array
