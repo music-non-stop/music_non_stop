@@ -12,7 +12,7 @@ const NUMBER_OF_CARD_PAIRS = 6;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
-uncovered_cards =  [];
+uncovered_cards = [];
 
 
 // Function for updating score display panel
@@ -26,7 +26,7 @@ function updateScoreDisplay() {
 // Let the game object determine if the card matches the previous card
 function card_clicked(n) {
     // Check if a card is among the uncovered cards
-    function is_among_uncovered_cards(n) {    
+    function is_among_uncovered_cards(n) {
         return uncovered_cards.includes(n);
     }
     // If the user clicked on the same card again ignore the click
@@ -50,7 +50,7 @@ function card_clicked(n) {
         return;
     }
     // Flip the previously selected card back over
-    if(previous_card != null && flip_previous_card) flip_card_over(previous_card);
+    if (previous_card != null && flip_previous_card) flip_card_over(previous_card);
     previous_card = n;
     // Flag that if the card does not match the previous card, flip the previous card back over
     flip_previous_card = true;
@@ -65,24 +65,24 @@ function flip_card_over(n) {
 // Show the game over screen
 function game_over() {
     const gameOverScreen = document.getElementById('game-over-screen');
-    gameOverScreen.style.display = 'grid'; 
+    gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
-    score.innerHTML = `Score: ${game.score}`; 
+    score.innerHTML = `Score: ${game.score}`;
 }
 
-function game_restart() {    
+function game_restart() {
     // clear the covered cards array
-    uncovered_cards = [];   
-    previous_card = null; 
+    uncovered_cards = [];
+    previous_card = null;
     remove_cards_from_DOM();
     // Reinitialize the game cards
     const newGameCards = [];
-    generateGameCards(newGameCards);    
-    embedGameCards(cardsContainer, newGameCards);  
-    game = new Game(newGameCards, player, game_over);  
+    generateGameCards(newGameCards);
+    embedGameCards(cardsContainer, newGameCards);
+    game = new Game(newGameCards, player, game_over);
     // Hide the game over screen
     const gameOverScreen = document.getElementById('game-over-screen');
-    gameOverScreen.style.display = 'none';     
+    gameOverScreen.style.display = 'none';
 }
 
 // Remove all cards from the DOM
@@ -112,24 +112,24 @@ function getGameCards(arr) {
 
     for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++, trackIndex++) {
         // assign filenames to the GameCard objects, based on the playlist array
-        arr.push(new GameCard(i, trackIndex, playlist[trackIndex], colors[i], path_to_composer_images+ composerImages[trackIndex], path_to_face_images + faceImages[0]));
-        arr.push(new GameCard(i, trackIndex, playlist[trackIndex], colors[i], path_to_composer_images+ composerImages[trackIndex], path_to_face_images + faceImages[0]));
+        arr.push(new GameCard(i, trackIndex, playlist[trackIndex], colors[i], path_to_composer_images + composerImages[trackIndex], path_to_face_images + faceImages[0]));
+        arr.push(new GameCard(i, trackIndex, playlist[trackIndex], colors[i], path_to_composer_images + composerImages[trackIndex], path_to_face_images + faceImages[0]));
     }
 }
 
-function getCardColors(){
-    const colors = ['red', 'blue', 'green', 'orange', 'purple', 'pink', 'brown', 'grey', 'black','cyan', 'magenta', 'darkblue'];
+function getCardColors() {
+    const colors = ['red', 'blue', 'green', 'orange', 'purple', 'pink', 'brown', 'grey', 'black', 'cyan', 'magenta', 'darkblue'];
     return colors;
 }
 
-function getComposerImages(){
+function getComposerImages() {
     const images = ['Bach.png', 'Beethoven.jpg', 'Brahms.jpg', 'chopin.jpeg', 'Johann_Strauss.jpg', 'mozart.jpg', 'Rossini.jpg', 'Satie.jpg', 'Sibelius.jpg', 'tchaikovsky.jpg', 'Verdi.jpg', 'vivaldi.jpg'];
     return images;
 }
 
 // Get the names of the face up images for the game cards
-function getCardImages(){
-    const images = ['face1.webp', 'face2.webp', 'face3.webp', 'face4.webp', 'face5.webp'];    
+function getCardImages() {
+    const images = ['face1.webp', 'face2.webp', 'face3.webp', 'face4.webp', 'face5.webp'];
     return images;
 }
 
@@ -177,3 +177,10 @@ const cardsContainer = document.getElementById('cards-container');
 embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
 game = new Game(gameCards, player, game_over);
+
+const playerData = loadPlayerData();
+if (playerData) {
+    console.log(`Welcome back, ${playerData.username}! Your last score was: ${playerData.score}`);
+} else {
+    console.log("Welcome new player!");
+}
