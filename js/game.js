@@ -116,4 +116,9 @@ class Game {
     onGameOver = (callback) => {
        callback();
     }
+
+    // Add score to the game
+    addScore = (extraScore) => {
+        this.score+= extraScore;
+    }
 }

@@ -14,6 +14,8 @@ on_test_button_click = () => {
 }
 
 on_start_game_button_click = () => {
+    // Put player data in local storage
+    savePlayerData(document.getElementById('player-name').value, 0);
     window.location.href = root_url + '/game.html';
 }
 
