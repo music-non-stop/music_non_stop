@@ -12,13 +12,12 @@ class GameCard {
     render() {
         return `
             <div class="flip-card">
-                <div id="card-${this.index}" class="flip-card-inner" onclick="card_clicked(${this.index})">
+                <div id="card-${this.index}" class="flip-card-inner" onclick="cardClcked(${this.index})">
                     <div class="flip-card-front">
                         <img src="${this.imgFace}" alt="Card Image" class="face-image">
                     </div>
                     <div class="flip-card-back" style="background-color: ${this.backgroundColor};" >
-                        <img src="${this.imgComposer}" alt="Composer Image" class="composer-image">
-                        <p>${this.name}</p>
+                        <img src="${this.imgComposer}" alt="Composer Image" class="composer-image">                        
                     </div>
                 </div>
             </div>
