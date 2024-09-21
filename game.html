@@ -31,16 +31,15 @@
                 <!-- The cards will be injected here -->
             </div>
             
-            <div class="game-over-popup" id="game-over-screen">
-                <div></div>
-                <div><h1 class="game-over-heading">Game Over</h1></div>
-                <div></div>
-                <div></div>
-                <div><h2 class="game-over-score-text"> <span id="score"></span></h2></div>
-                <div></div>
-                <div></div>
-                <div><input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()"> </div>
-                <div></div>        
+            <div id="game-over-screen" class="game-over-popup">
+                <h1 class="game-over-heading">Game Over</h1>
+                <p id="player-name" class="player-name"></p>
+                <div class="go-score-timer-container">
+                    <h2 class="go-score">Score: <span id="final-score"></span></h2>
+                    <h2 class="go-timer">Time: <span id="final-timer"></span></h2>
+                </div>
+                <p id="game-over-message" class="game-over-message"></p>
+                <input type="button" class="restart-button" value="Play Again" id="play-again" onclick="game_restart()">
             </div>
 
             <div class="button-container">
