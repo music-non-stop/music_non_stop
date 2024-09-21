@@ -26,7 +26,7 @@ function updateScoreDisplay() {
 // Flip a card over and play the associated track
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
-function card_clicked(n) {
+function cardClcked(n) {
     // If the timee of the last pick is 0, that means it is the opening move
     if(time_of_last_card_pick == 0) {
         time_of_last_card_pick = Date.now();
@@ -40,7 +40,7 @@ function card_clicked(n) {
     // If the card is among the covered cards, ignore the click
     if (isAmongUncoveredCards(n)) return
     // Flip the card over
-    flip_card_over(n);
+    flipCardOver(n);
     // Pick a card and see if it matches the previous card
     // game.pickCard(n) returns true if the cards match
     if (game.pickCard(n)) {
@@ -60,7 +60,7 @@ function card_clicked(n) {
         return;
     }
     // Flip the previously selected card back over
-    if (previous_card != null && flip_previous_card) flip_card_over(previous_card);
+    if (previous_card != null && flip_previous_card) flipCardOver(previous_card);
     previous_card = n;
     // Flag that if the card does not match the previous card, flip the previous card back over
     flip_previous_card = true;
@@ -79,13 +79,13 @@ function card_clicked(n) {
 }
 
 // Flip a card over
-function flip_card_over(n) {
+function flipCardOver(n) {
     const card = document.getElementById(`card-${n}`);
     card.classList.toggle('flip-card-over');
 }
 
 // Show the game over screen
-function game_over() {
+function gameOver() {
     const gameOverScreen = document.getElementById('game-over-screen');
     gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
@@ -93,10 +93,10 @@ function game_over() {
     // Get value from the DOM field named timer
     const timer = document.getElementById('timer').textContent;
     // Add results to the scoreboard
-    saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });
+    saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });    
 }
 
-function game_restart() {
+function gameRestart() {
     // Remove after testing
     scoreBoardData = loadScoreBoardData();
     resetTimer();
@@ -105,19 +105,19 @@ function game_restart() {
     // clear the covered cards array
     uncovered_cards = [];
     previous_card = null;
-    remove_cards_from_DOM();
+    removeCardsFromDOM();
     // Reinitialize the game cards
     const newGameCards = [];
     generateGameCards(newGameCards);
     embedGameCards(cardsContainer, newGameCards);
-    game = new Game(newGameCards, player, game_over);
+    game = new Game(newGameCards, player, gameOver);
     // Hide the game over screen
     const gameOverScreen = document.getElementById('game-over-screen');
     gameOverScreen.style.display = 'none';
 }
 
 // Remove all cards from the DOM
-function remove_cards_from_DOM() {
+function removeCardsFromDOM() {
     var elements = document.getElementsByClassName('flip-card');
     while (elements.length > 0) {
         elements[0].parentNode.removeChild(elements[0]);
@@ -165,7 +165,7 @@ function getCardImages() {
 }
 
 // Reassign the index property of each game card to match its new position in the array
-function reassign_gameCards_indexes(arr) {
+function reassignGameCardIndexes(arr) {
     for (let i = 0; i < gameCards.length; i++) {
         arr[i].index = i;
     }
@@ -184,7 +184,7 @@ function generateGameCards(arr) {
     // Shuffle the game cards
     shuffle(arr);
     // Reassign the index property of each game card to match its new position in the array
-    reassign_gameCards_indexes(arr);
+    reassignGameCardIndexes(arr);
 }
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
@@ -207,7 +207,7 @@ const cardsContainer = document.getElementById('cards-container');
 // Embed the game cards in the DOM
 embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
-game = new Game(gameCards, player, game_over);
+game = new Game(gameCards, player, gameOver);
 // Load the player data from local storage
 const playerData = loadPlayerData();
 if (playerData) {
