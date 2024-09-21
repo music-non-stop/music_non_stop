@@ -68,9 +68,14 @@ function game_over() {
     gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
     score.innerHTML = `Score: ${game.score}`;
+    saveScoreBoardData({ username: playerData.username, score: game.score });
 }
 
 function game_restart() {
+    // Remove after testing
+    scoreBoardData = loadScoreBoardData();
+    console.log(scoreBoardData);
+
     // clear the covered cards array
     uncovered_cards = [];
     previous_card = null;
@@ -184,3 +189,4 @@ if (playerData) {
 } else {
     console.log("Welcome new player!");
 }
+

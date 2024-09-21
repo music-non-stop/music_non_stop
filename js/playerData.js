@@ -30,3 +30,24 @@ function initializeGame() {
         console.log("Welcome new player!");
     }
 }
+
+function saveScoreBoardData(playerData) {
+    var currentData = localStorage.getItem('scoreBoardData');
+    if(currentData == null) {
+        currentData = [];
+        currentData.push(playerData);
+    }else {
+        currentData = JSON.parse(currentData);
+        currentData.push(playerData);
+    }
+    localStorage.setItem('scoreBoardData', JSON.stringify(currentData));
+}
+
+function loadScoreBoardData() {
+    const savedData = localStorage.getItem('scoreBoardData');
+    
+    if (savedData) {
+        return JSON.parse(savedData);
+    }
+    return null; // No data found
+}
