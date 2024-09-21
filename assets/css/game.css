@@ -183,6 +183,23 @@
 
 }
 
+/* Overall Game Over Screen Styling */
+#game-over-screen {
+  display: none; /* Initially hidden */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f7e7ce;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(145, 2, 0, 0.562), 0 4px 6px rgba(145, 2, 0, 0.562);
+  z-index: 100;
+  width: 400px;
+  max-width: 90%;
+  text-align: center;
+}
+
 /* Media Queries */
 @media (max-width: 768px) { 
   .grid-container {

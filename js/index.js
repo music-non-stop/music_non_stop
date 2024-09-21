@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     startButton.addEventListener("click", () => {
         const playerName = playerNameInput.value.trim();
-
+    
         if (playerName) {
+            localStorage.setItem("playerName", playerName);
+            
             modalMessage.textContent = `Welcome, ${playerName}! Get ready to play Music Non Stop!`;
             welcomeModal.style.display = "block";
             createConfetti();
