@@ -4,6 +4,9 @@
 
 #### Developed by Harmonic Hackers
 
+## Logo
+<img src="assets/images/logo.png">
+
 
 
 ## Game Overview
