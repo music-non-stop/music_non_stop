@@ -13,6 +13,8 @@ const NUMBER_OF_CARD_PAIRS = 6;
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
 uncovered_cards = [];
+// The time when the last card was picked
+time_of_last_card_pick = 0;
 
 
 // Function for updating score display panel
@@ -25,6 +27,10 @@ function updateScoreDisplay() {
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function card_clicked(n) {
+    // If the timee of the last pick is 0, that means it is the opening move
+    if(time_of_last_card_pick == 0) {
+        time_of_last_card_pick = Date.now();
+    }
     // Check if a card is among the uncovered cards
     function is_among_uncovered_cards(n) {
         return uncovered_cards.includes(n);
@@ -38,6 +44,8 @@ function card_clicked(n) {
     // Pick a card and see if it matches the previous card
     // game.pickCard(n) returns true if the cards match
     if (game.pickCard(n)) {
+        calculateExtraScore();
+
         // If the cards match, add them to the uncovered_cards array
         uncovered_cards.push(n);
         uncovered_cards.push(previous_card);
@@ -47,6 +55,8 @@ function card_clicked(n) {
 
         // Update the score display
         updateScoreDisplay();
+        // Set the time of the last card pick to the current time
+        time_of_last_card_pick = Date.now();
         return;
     }
     // Flip the previously selected card back over
@@ -54,6 +64,18 @@ function card_clicked(n) {
     previous_card = n;
     // Flag that if the card does not match the previous card, flip the previous card back over
     flip_previous_card = true;
+
+    function calculateExtraScore() {
+        let extra_score = 0;
+        // Calculate the time difference between the last two card picks
+        let time_difference = Date.now() - time_of_last_card_pick;
+        // Convert the time difference to seconds
+        let time_difference_seconds = time_difference / 1000;
+        // Calculate the extra score based on the time difference
+        extra_score = Math.floor(50 / time_difference_seconds);
+        // Add the extra score to the game score
+        game.addScore(extra_score);
+    }
 }
 
 // Flip a card over
@@ -182,7 +204,7 @@ const cardsContainer = document.getElementById('cards-container');
 embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
 game = new Game(gameCards, player, game_over);
-
+// Load the player data from local storage
 const playerData = loadPlayerData();
 if (playerData) {
     console.log(`Welcome back, ${playerData.username}! Your last score was: ${playerData.score}`);
