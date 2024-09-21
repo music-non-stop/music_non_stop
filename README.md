@@ -38,14 +38,14 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
 
 ## Logo
 
-**The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
-The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.**
+The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
+The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.
 
 <img src="/documentation/doc-image/logoforreadme.jpg">
 
 ## Game Overview
 
-**Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.**
+Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.
 
 ## How to Play:
 
@@ -73,7 +73,7 @@ There is no specific scoring system; the goal is to match all pairs as quickly a
 
 3. Practice makes perfect! The more you play, the better you’ll get at remembering the tunes.
 
-## Goals:
+## User Stories:
 
 As a developer, I want to create a repository and invite collaborators so that the project can be managed collaboratively and code can be version-controlled.
 
@@ -116,8 +116,6 @@ As a player, I want my score and username to be saved in local storage, so that 
 As a player, I want to be asked a trivia or challenge question after successfully pairing cards so that I can earn extra points and add an additional layer of complexity and engagement to the game.
 
 As a user/developer, I want a responsive navbar that transforms into a hamburger menu on smaller screens so that I can navigate the site easily regardless of the device I'm using.
-
-## User Stories:
 
 As a music lover, I want to play a game that features classical music tunes, so that I can enjoy classical music while having fun.
 
@@ -203,10 +201,17 @@ pause()
 prev()
 next()
 
+## Technologies used
+HTML
+CSS 
+JavaScript
+GitHub
+Git
+Photoshop
+
+
 ## Deployment & Local Development
 
-
-##
 
 ### Deployment
 
