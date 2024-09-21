@@ -9,11 +9,13 @@
 body, html {
     font-family: 'Crimson Pro', serif;
     background-color: #f7e7ce;
+    background-image: url(/assets/images/classical-music-background.jpg);
     display: flex;
     flex-direction: column;
     color: #2e2e2e;
     min-height: 100vh;
 }
+
 
 /* Navbar styling */
 .navbar {
