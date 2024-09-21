@@ -10,6 +10,8 @@ body, html {
     font-family: 'Crimson Pro', serif;
     background-color: #f7e7ce;
     background-image: url(/assets/images/classical-music-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     flex-direction: column;
     color: #2e2e2e;
