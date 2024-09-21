@@ -1,11 +1,12 @@
 class GameCard {
-    constructor(index, trackIndex, name, backgroundColor) {
+    constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage) {
         // use index for the card id
         this.index = index;
         this.trackIndex = trackIndex;
         this.name = name; 
         this.backgroundColor = backgroundColor;
-        
+        this.imgComposer = composerImage;
+        this.imgFace = faceImage;
     }
     // Render the card in the DOM
     render() {
@@ -13,10 +14,10 @@ class GameCard {
             <div class="flip-card">
                 <div id="card-${this.index}" class="flip-card-inner" onclick="card_clicked(${this.index})">
                     <div class="flip-card-front">
-                        <h4>Track ${this.trackIndex}</h4>
+                        <img src="${this.imgFace}" alt="Face Image" class="face-image">
                     </div>
                     <div class="flip-card-back" style="background-color: ${this.backgroundColor};" >
-                        <p>Listen and pick another card</p>
+                        <img src="${this.imgComposer}" alt="Composer Image" class="composer-image">
                         <p>${this.name}</p>
                     </div>
                 </div>

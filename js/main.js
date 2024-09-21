@@ -7,7 +7,7 @@ function shuffle(array) {
 }
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
-const NUMBER_OF_CARD_PAIRS = 5;
+const NUMBER_OF_CARD_PAIRS = 12;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
@@ -95,13 +95,20 @@ function remove_cards_from_DOM() {
 
 // Populate the gameCards array with GameCard objects
 function getGameCards(arr) {
+    const path_to_composer_images = './assets/images/composers/';
+    const path_to_face_images = './assets/images/card_faces/';
     var colors = getCardColors();
+    var composerImages = getComposerImages();
+    var faceImages = getCardImages();
+    // Shuffle the colors array
     shuffle(colors);
+    // Shuffle the face images array
+    shuffle(faceImages);
 
     for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++) {
         // assign filenames to the GameCard objects, based on the playlist array
-        arr.push(new GameCard(i, i, playlist[i], colors[i]));
-        arr.push(new GameCard(i, i, playlist[i], colors[i]));
+        arr.push(new GameCard(i, i, playlist[i], colors[i], path_to_composer_images+ composerImages[i], path_to_face_images + faceImages[0]));
+        arr.push(new GameCard(i, i, playlist[i], colors[i], path_to_composer_images+ composerImages[i], path_to_face_images + faceImages[0]));
     }
 }
 
@@ -111,7 +118,13 @@ function getCardColors(){
 }
 
 function getComposerImages(){
-    const images = ['Bach.png', 'Beethoven.png', 'Brahms.png', 'Chopin.png', 'Strauss.png', 'mozart.png', 'Rossini.png', 'Satie.png', 'Sibelius.png', 'Tchaikovski.png', 'Verdi.png', 'vivaldi.png'];
+    const images = ['Bach.png', 'Beethoven.jpg', 'Brahms.jpg', 'Chopin.jpeg', 'Johann_Strauss.jpg', 'mozart.jpg', 'Rossini.jpg', 'Satie.jpg', 'Sibelius.jpg', 'tchaikovsky.jpg', 'Verdi.jpg', 'vivaldi.jpg'];
+    return images;
+}
+
+// Get the names of the face up images for the game cards
+function getCardImages(){
+    const images = ['face1.webp', 'face2.webp', 'face3.webp', 'face4.webp', 'face5.webp'];    
     return images;
 }
 
