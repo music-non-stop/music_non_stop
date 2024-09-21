@@ -7,6 +7,7 @@ function shuffle(array) {
 }
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
+// The maximum number of card pairs is 12
 const NUMBER_OF_CARD_PAIRS = 12;
 
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
