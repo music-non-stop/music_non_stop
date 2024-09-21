@@ -1,20 +1,41 @@
 # Music Non Stop
 
-#### Music Non Stop is a classical music-themed memory card game. Designed to enhance your memory while appreciating classical music.
+Music Non Stop is a classical music-themed memory card game. Designed to enhance your memory while appreciating classical music.
 
-#### Developed by Harmonic Hackers
+![The website shown on a variety of screen sizes](/documentation/doc-images/amiresponsive.webp)
+
+Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music_non_stop/index.html)
+
+**Developed by:** Harmonic Hackers
+
+# Table of Contents
+- [Logo](#logo)
+- [Game Overview](#game-overview)
+- [How to Play](#how-to-play)
+- [Scoring](#scoring)
+- [Tips for Success](#tips-for-success)
+- [Goals](#goals)
+- [User Stories](#user-stories)
+- [Planning & Design](#planning--design)
+  - [Wireframes](#wireframes)
+  - [Colour palettes](#colour-palettes)
+- [JavaScript Audio](#javascript-audio)
+  - [MP3Player](#mp3player)
+    - [Constructor](#constructor)
+    - [Properties](#properties)
+    - [Methods](#methods)
+
 
 ## Logo
+
+**The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
+The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.**
+
 <img src="assets/images/logoforreadme.jpg">
-
-#### The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
-#### The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.
-
 
 
 ## Game Overview
-#### Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.
-
+**Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.**
 
 
 ## How to Play:
@@ -26,10 +47,8 @@
 #### 6. The game ends when all pairs have been matched.
 
 
-
 ## Scoring:
 #### There is no specific scoring system; the goal is to match all pairs as quickly as possible.
-
 
 
 ## Tips for Success:
