@@ -2,10 +2,13 @@
 
 let seconds = 0;
 let minutes = 0;
-const timerElement = document.getElementById('timer');
 timerInterval = null;
 
+const timerElement = document.getElementById('timer');
+
 function startTimer() {
+    if (timerInterval) return;
+
     timerInterval = setInterval(() => {
         seconds++;
         if (seconds === 60) {
@@ -13,8 +16,8 @@ function startTimer() {
             minutes++;
         }
 
-        formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
-        formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+        const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
         timerElement.textContent = `${formattedMinutes}:${formattedSeconds}`;
     }, 1000);
@@ -22,13 +25,16 @@ function startTimer() {
 
 // Stop timer when finishing game
 function stopTimer() {
-    clearInterval(timerInterval);      
+    clearInterval(timerInterval);
+    timerInterval = null;    
 }
 
 // Reset timer when restarting game
 function resetTimer() {
+    stopTimer(); // stop Timer before restart
     seconds = 0;
     minutes = 0;
+    timerElement.textContent = "00:00"; // 
 }
 
 
