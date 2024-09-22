@@ -2,7 +2,7 @@
 
 Music Non Stop is a classical music-themed memory card game. Designed to enhance your memory while appreciating classical music.
 
-![The website shown on a variety of screen sizes](/documentation/doc-images/amiresponsive.webp)
+![The website shown on a variety of screen sizes](/documentation/doc-image/amiresponsive.webp)
 
 Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music_non_stop/index.html)
 
@@ -17,6 +17,7 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
 - [Test](#test)
 - [Deployment & Local Development](#deployment--local-development)
 - [Credits](#credits)
+
 ---
 
 ## A Classical Memory Game for the Mind
@@ -57,7 +58,7 @@ Music Non Stop is a card game that trains your brain to improve your memory whil
 <summary>Scoring</summary>
 <br>
 
- - The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
+- The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
 - The game involves flipping cards and matching pairs. Points are awarded based on how quickly the pairs are matched.
 - The top 10 players, ranked by their scores in descending order, are displayed on the scoreboard.
 - Players can earn additional bonus points by answering trivia questions.
@@ -101,7 +102,7 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 - **Launch a Fully Functional Web Application:**<br>
   Deploy the final game on a live server so that users can easily access it, ensuring it performs well under different conditions and provides a smooth user experience.
- 
+
 </details>
 
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
@@ -210,14 +211,14 @@ We have created a class for playing audio files. Since we're going to use mp3-fo
 <details>
   <summary>MP3Player Class Documentation</summary>
 
-  ### MP3Player
+### MP3Player
 
-  #### Constructor
+#### Constructor
 
-  The constructor accepts two parameters **path** and **playlist**.
+The constructor accepts two parameters **path** and **playlist**.
 
-  - **path**: The path to the folder with the mp3-files. The path is relative to the HTML document in which the script is loaded.
-  - **playlist**: An array of audio file names without the extension. All files must be in mp3 format. Example:
+- **path**: The path to the folder with the mp3-files. The path is relative to the HTML document in which the script is loaded.
+- **playlist**: An array of audio file names without the extension. All files must be in mp3 format. Example:
 
   <code>
   // array with mp3 filenames  
@@ -230,27 +231,27 @@ We have created a class for playing audio files. Since we're going to use mp3-fo
   player.play(1);  
   </code>
 
-  #### Properties
+#### Properties
 
-  - **audio**
-  - **playBtn**
-  - **stopBtn**
-  - **prevBtn**
-  - **nextBtn**
-  - **tracks**
-  - **audio_files_folder_path**
-  - **trackIndex**
+- **audio**
+- **playBtn**
+- **stopBtn**
+- **prevBtn**
+- **nextBtn**
+- **tracks**
+- **audio_files_folder_path**
+- **trackIndex**
 
-  #### Methods
+#### Methods
 
-  The class implements all the essential methods for playing mp3 files:
+The class implements all the essential methods for playing mp3 files:
 
-  - `play(n)`
-  - `stop()`
-  - `pause()`
-  - `prev()`
-  - `next()`
-  
+- `play(n)`
+- `stop()`
+- `pause()`
+- `prev()`
+- `next()`
+
 </details>
 
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
@@ -285,6 +286,7 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 ### Test environment
 
 Testing was performed on the following devices
+
 - x
 - y
 
@@ -299,7 +301,7 @@ Testing was performed on the following devices
 - [JSHint](https://jshint.com/about/) was used to validate the JavaScript. Result is PASS
 - No warning or errors present in Dev Tools.
 - [Lighthouse chrome devtool]()
-   - add image
+  - add image
 
 </details>
 
@@ -307,9 +309,9 @@ Testing was performed on the following devices
 <summary>Test executed</summary>
 <br>
 
-| ID | Description | Expected Outcome | Result | Comment |
-| --- | --- | --- | --- | --- |
-| 01 |  |  | PASS/FAIL   |  |
+| ID  | Description | Expected Outcome | Result    | Comment |
+| --- | ----------- | ---------------- | --------- | ------- |
+| 01  |             |                  | PASS/FAIL |         |
 
 </details>
 
@@ -392,4 +394,4 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
   </details>
 
-  _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
