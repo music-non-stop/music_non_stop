@@ -13,6 +13,8 @@ const NUMBER_OF_CARD_PAIRS = 6;
 // These variables are used to keep track of the previously selected cards, so the clicks can be ignored
 flip_previous_card = false;
 uncovered_cards = [];
+// The time when the last card was picked
+time_of_last_card_pick = 0;
 
 
 // Function for updating score display panel
@@ -24,20 +26,26 @@ function updateScoreDisplay() {
 // Flip a card over and play the associated track
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
-function card_clicked(n) {
+function cardClcked(n) {
+    // If the timee of the last pick is 0, that means it is the opening move
+    if(time_of_last_card_pick == 0) {
+        time_of_last_card_pick = Date.now();
+    }
     // Check if a card is among the uncovered cards
-    function is_among_uncovered_cards(n) {
+    function isAmongUncoveredCards(n) {
         return uncovered_cards.includes(n);
     }
     // If the user clicked on the same card again ignore the click
     if (previous_card == n) return;
     // If the card is among the covered cards, ignore the click
-    if (is_among_uncovered_cards(n)) return
+    if (isAmongUncoveredCards(n)) return
     // Flip the card over
-    flip_card_over(n);
+    flipCardOver(n);
     // Pick a card and see if it matches the previous card
     // game.pickCard(n) returns true if the cards match
     if (game.pickCard(n)) {
+        calculateExtraScore();
+
         // If the cards match, add them to the uncovered_cards array
         uncovered_cards.push(n);
         uncovered_cards.push(previous_card);
@@ -47,46 +55,70 @@ function card_clicked(n) {
 
         // Update the score display
         updateScoreDisplay();
+        // Set the time of the last card pick to the current time
+        time_of_last_card_pick = Date.now();
         return;
     }
     // Flip the previously selected card back over
-    if (previous_card != null && flip_previous_card) flip_card_over(previous_card);
+    if (previous_card != null && flip_previous_card) flipCardOver(previous_card);
     previous_card = n;
     // Flag that if the card does not match the previous card, flip the previous card back over
     flip_previous_card = true;
+
+    function calculateExtraScore() {
+        let extra_score = 0;
+        // Calculate the time difference between the last two card picks
+        let time_difference = Date.now() - time_of_last_card_pick;
+        // Convert the time difference to seconds
+        let time_difference_seconds = time_difference / 1000;
+        // Calculate the extra score based on the time difference
+        extra_score = Math.floor(50 / time_difference_seconds);
+        // Add the extra score to the game score
+        game.addScore(extra_score);
+    }
 }
 
 // Flip a card over
-function flip_card_over(n) {
+function flipCardOver(n) {
     const card = document.getElementById(`card-${n}`);
     card.classList.toggle('flip-card-over');
 }
 
 // Show the game over screen
-function game_over() {
+function gameOver() {
     const gameOverScreen = document.getElementById('game-over-screen');
     gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
     score.innerHTML = `Score: ${game.score}`;
+    // Get value from the DOM field named timer
+    const timer = document.getElementById('timer').textContent;
+    // Add results to the scoreboard
+    saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });    
 }
 
-function game_restart() {
+function gameRestart() {
+    // Reset the timer back to 00:00
+    resetTimer();
+    // Set the html content of the score display to 0
+    const scoreDisplay = document.getElementById('score');
+    scoreDisplay.textContent = 0;
+
     // clear the covered cards array
     uncovered_cards = [];
     previous_card = null;
-    remove_cards_from_DOM();
+    removeCardsFromDOM();
     // Reinitialize the game cards
     const newGameCards = [];
     generateGameCards(newGameCards);
     embedGameCards(cardsContainer, newGameCards);
-    game = new Game(newGameCards, player, game_over);
+    game = new Game(newGameCards, player, gameOver);
     // Hide the game over screen
     const gameOverScreen = document.getElementById('game-over-screen');
     gameOverScreen.style.display = 'none';
 }
 
 // Remove all cards from the DOM
-function remove_cards_from_DOM() {
+function removeCardsFromDOM() {
     var elements = document.getElementsByClassName('flip-card');
     while (elements.length > 0) {
         elements[0].parentNode.removeChild(elements[0]);
@@ -134,7 +166,7 @@ function getCardImages() {
 }
 
 // Reassign the index property of each game card to match its new position in the array
-function reassign_gameCards_indexes(arr) {
+function reassignGameCardIndexes(arr) {
     for (let i = 0; i < gameCards.length; i++) {
         arr[i].index = i;
     }
@@ -153,7 +185,7 @@ function generateGameCards(arr) {
     // Shuffle the game cards
     shuffle(arr);
     // Reassign the index property of each game card to match its new position in the array
-    reassign_gameCards_indexes(arr);
+    reassignGameCardIndexes(arr);
 }
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
@@ -176,11 +208,14 @@ const cardsContainer = document.getElementById('cards-container');
 // Embed the game cards in the DOM
 embedGameCards(cardsContainer, gameCards);
 // Create a new Game object
-game = new Game(gameCards, player, game_over);
-
+game = new Game(gameCards, player, gameOver);
+// Load the player data from local storage
 const playerData = loadPlayerData();
 if (playerData) {
     console.log(`Welcome back, ${playerData.username}! Your last score was: ${playerData.score}`);
 } else {
     console.log("Welcome new player!");
 }
+
+// Remove scoreBoardData from local storage
+localStorage.removeItem('scoreBoardData');
