@@ -2,7 +2,7 @@
 
 Music Non Stop is a classical music-themed memory card game. Designed to enhance your memory while appreciating classical music.
 
-![The website shown on a variety of screen sizes](/documentation/doc-images/amiresponsive.webp)
+![The website shown on a variety of screen sizes](/documentation/doc-image/amiresponsive.webp)
 
 Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music_non_stop/index.html)
 
@@ -17,6 +17,7 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
 - [Test](#test)
 - [Deployment & Local Development](#deployment--local-development)
 - [Credits](#credits)
+
 ---
 
 ## A Classical Memory Game for the Mind
@@ -57,7 +58,7 @@ Music Non Stop is a card game that trains your brain to improve your memory whil
 <summary>Scoring</summary>
 <br>
 
- - The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
+- The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
 - The game involves flipping cards and matching pairs. Points are awarded based on how quickly the pairs are matched.
 - The top 10 players, ranked by their scores in descending order, are displayed on the scoreboard.
 - Players can earn additional bonus points by answering trivia questions.
@@ -101,7 +102,7 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 - **Launch a Fully Functional Web Application:**<br>
   Deploy the final game on a live server so that users can easily access it, ensuring it performs well under different conditions and provides a smooth user experience.
- 
+
 </details>
 
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
@@ -210,14 +211,14 @@ We have created a class for playing audio files. Since we're going to use mp3-fo
 <details>
   <summary>MP3Player Class Documentation</summary>
 
-  ### MP3Player
+### MP3Player
 
-  #### Constructor
+#### Constructor
 
-  The constructor accepts two parameters **path** and **playlist**.
+The constructor accepts two parameters **path** and **playlist**.
 
-  - **path**: The path to the folder with the mp3-files. The path is relative to the HTML document in which the script is loaded.
-  - **playlist**: An array of audio file names without the extension. All files must be in mp3 format. Example:
+- **path**: The path to the folder with the mp3-files. The path is relative to the HTML document in which the script is loaded.
+- **playlist**: An array of audio file names without the extension. All files must be in mp3 format. Example:
 
   <code>
   // array with mp3 filenames  
@@ -230,27 +231,27 @@ We have created a class for playing audio files. Since we're going to use mp3-fo
   player.play(1);  
   </code>
 
-  #### Properties
+#### Properties
 
-  - **audio**
-  - **playBtn**
-  - **stopBtn**
-  - **prevBtn**
-  - **nextBtn**
-  - **tracks**
-  - **audio_files_folder_path**
-  - **trackIndex**
+- **audio**
+- **playBtn**
+- **stopBtn**
+- **prevBtn**
+- **nextBtn**
+- **tracks**
+- **audio_files_folder_path**
+- **trackIndex**
 
-  #### Methods
+#### Methods
 
-  The class implements all the essential methods for playing mp3 files:
+The class implements all the essential methods for playing mp3 files:
 
-  - `play(n)`
-  - `stop()`
-  - `pause()`
-  - `prev()`
-  - `next()`
-  
+- `play(n)`
+- `stop()`
+- `pause()`
+- `prev()`
+- `next()`
+
 </details>
 
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
@@ -285,21 +286,43 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 ### Test environment
 
 Testing was performed on the following devices
+
 - x
 - y
 
 ### Responsiveness
 
-- [Am I Responsive]()
+- [Am I Responsive](https://ui.dev/amiresponsive?url=https://music-non-stop.github.io/music_non_stop/index.html)
 
 ### Validator, Accessibilty
 
-- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is PASS.
-- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is PASS
-- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. Result is PASS
+- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is **PASS**.
+  - [404 page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html)
+  - [Homepage](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html)
+  - [About Us](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html)
+  - [Scoreboard](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html)
+  - [Game](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html)
+  - [Feedbackform](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html) 
+- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is **PASS**.
+  - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Homepage](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [About Us](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Scoreboard](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Game](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Feedbackform](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [Lighthouse chrome devtool](/documentation/doc-image/lighthouse.webp)
 - No warning or errors present in Dev Tools.
-- [Lighthouse chrome devtool]()
-   - add image
+- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. We use the ES6 class property syntax for concise method declarations. Some tools may flag this as invalid, but it is fully supported in modern JavaScript environments. This project uses modern JavaScript (ES6+), including class properties and arrow functions for concise methods and proper `this` scoping. While some tools may flag this syntax, it is fully supported in modern environments. For compatibility with older browsers, consider using a transpiler like Babel. Result: **PASS**.
+
+### Validation Notes
+Regarding javascript: Vendor-specific warnings can be ignored if the code works in modern browsers. If issues arise in older environments, using Babel will help ensure compatibility.
+
+The CSS used in this project, including the Font Awesome library, may generate some warnings when checked through the W3C CSS Validator. These warnings are related to:
+1. **Vendor Prefixes**: Certain styles (e.g., `-webkit-` and `-moz-` prefixed properties) are flagged as vendor-specific extensions. These are included to ensure compatibility with older browsers and can safely be ignored.
+2. **CSS Variables**: The validator may flag dynamic CSS variables (e.g., `var(--fa-animation-delay)`) because they cannot be statically analyzed. However, CSS variables are fully supported in modern browsers, and their use is intentional for flexible styling.
+
+These warnings do not affect the functionality or appearance of the site. The styles are fully supported in all major browsers.
+
 
 </details>
 
@@ -307,9 +330,9 @@ Testing was performed on the following devices
 <summary>Test executed</summary>
 <br>
 
-| ID | Description | Expected Outcome | Result | Comment |
-| --- | --- | --- | --- | --- |
-| 01 |  |  | PASS/FAIL   |  |
+| ID  | Description | Expected Outcome | Result    | Comment |
+| --- | ----------- | ---------------- | --------- | ------- |
+| 01  |             |                  | PASS/FAIL |         |
 
 </details>
 
@@ -378,7 +401,8 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
   
 <details>
 <summary>Acknowledgements</summary>
-<br>  
+<br> 
+ 
 - Thanks to Code Institute for the chance to work on this hackathon.
 - Thanks to our facilitator [Vasilica Pavaloi](https://github.com/Vasi012)
 - Thanks to all team members, for their work and co-operation:
@@ -392,4 +416,4 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
   </details>
 
-  _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_

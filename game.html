@@ -26,6 +26,15 @@
         <div class="main-container"></div>
             <div class="game-header-container">
                 <h1>Music Non Stop</h1>
+                <div id="trivia-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" onclick="hideTriviaQuestion()">&times;</span>
+                        <div id="trivia-container"></div>
+                        <div id="feedback-message"></div> <!-- Placeholder for feedback -->
+                        <button id="close-button" class="modal-close-button" onclick="hideTriviaQuestion()" style="display:none;">Close</button>
+                    </div>
+                </div>
+                <h1>Classical Composers Await: Can You Make the Match?</h1>
                 <div class="score-timer-container">
                     <div class="score">Score: <span id="score">0</span></div>
                     <div class="timer"><span id="timer">0:00</span></div>
@@ -73,7 +82,6 @@
                     <input type="button" class="instructions-button" value="Instructions" id="show-instructions">
                 </div>
             </div>
-<div id="trivia-container"></div>
             <!-- Hidden Instructions Popup -->
             <div id="instructions-popup">
                 <h1>Instructions</h1>
