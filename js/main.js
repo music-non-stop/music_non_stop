@@ -5,6 +5,7 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
 }
+
 // How many card pairs for the game?
 // This setting will be used inside the getGameCards function
 // The maximum number of card pairs is 12
@@ -28,7 +29,7 @@ function updateScoreDisplay() {
 // Let the game object determine if the card matches the previous card
 function cardClcked(n) {
     // If the timee of the last pick is 0, that means it is the opening move
-    if(time_of_last_card_pick == 0) {
+    if (time_of_last_card_pick == 0) {
         time_of_last_card_pick = Date.now();
     }
     // Check if a card is among the uncovered cards
@@ -86,14 +87,35 @@ function flipCardOver(n) {
 
 // Show the game over screen
 function gameOver() {
+    function showModal(){       
+        // Update the final score
+        document.getElementById('final-score').textContent = game.score;
+
+        // Get the final time from the timer element
+        const finalTime = document.getElementById('timer').textContent;
+        document.getElementById('final-timer').textContent = finalTime;
+
+        // Retrieve player name from localStorage, fallback to "Player" if not found
+        const playerName = localStorage.getItem("playerName") || "Player";
+        document.getElementById('player-name').textContent = playerName;
+
+        // Set the game over message based on the score
+        const message = this.score >= 10 ? "You're a music master!" : "Better luck next time!";
+        document.getElementById('game-over-message').textContent = message;
+
+        // Show the game over popup
+        document.getElementById('game-over-screen').style.display = 'flex';
+    }
     const gameOverScreen = document.getElementById('game-over-screen');
     gameOverScreen.style.display = 'grid';
     const score = document.getElementById('score');
     score.innerHTML = `Score: ${game.score}`;
     // Get value from the DOM field named timer
     const timer = document.getElementById('timer').textContent;
+    // Show the Modal Game Over screen
+    showModal();
     // Add results to the scoreboard
-    saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });    
+    saveScoreBoardData({ username: playerData.username, score: game.score, time: timer });
 }
 
 function gameRestart() {
