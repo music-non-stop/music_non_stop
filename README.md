@@ -25,6 +25,7 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
       - [Constructor](#constructor)
       - [Properties](#properties)
       - [Methods](#methods)
+- [Test](#test)
 - [Deployment & Local Development](#deployment--local-development)
   - [Deployment](#deployment)
   - [Local Development](#local-development)
@@ -213,6 +214,40 @@ Git
 Photoshop
 paint.net
 
+## Test
+
+<details>
+<summary>Test Details</summary>
+
+### Test environment
+
+Testing was performed on the following devices
+- x
+- y
+
+### Responsiveness
+
+- [Am I Responsive]()
+
+### Validator, Accessibilty
+
+- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is PASS.
+- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is PASS
+- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. Result is PASS
+- No warning or errors present in Dev Tools.
+- [Lighthouse chrome devtool]()
+   - add image
+
+</details>
+
+<details>
+<summary>Test executed</summary>
+
+| ID | Description | Expected Outcome | Result | Comment |
+| --- | --- | --- | --- | --- |
+| 01 |  |  | PASS/FAIL   |  |
+
+</details>
 
 ## Deployment & Local Development
 
