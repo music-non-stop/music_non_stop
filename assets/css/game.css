@@ -100,6 +100,11 @@
   width: 200px;
 }
 
+.instructions-button:hover, .restart-button:hover {
+  box-shadow: 3px 3px 3px rgba(0, 77, 64, 0.8);
+  transform: scale(1.3);
+}
+
 /* Player Buttons */
 #play {
   color: black;
