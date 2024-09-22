@@ -63,7 +63,10 @@ Music Non Stop is a card game that trains your brain to improve your memory whil
 
 ## Scoring:
 
-There is no specific scoring system; the goal is to match all pairs as quickly as possible.
+- The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
+- The game involves flipping cards and matching pairs. Points are awarded based on how quickly the pairs are matched.
+- The top 10 players, ranked by their scores in descending order, are displayed on the scoreboard.
+- Players can earn additional bonus points by answering trivia questions.
 
 ## Tips for Success:
 
