@@ -32,14 +32,19 @@
             </div>
             
             <div id="game-over-screen" class="game-over-popup">
-                <h1 class="game-over-heading">Game Over</h1>
-                <p id="player-name" class="player-name"></p>
-                <div class="go-score-timer-container">
-                    <h2 class="go-score">Score: <span id="final-score"></span></h2>
-                    <h2 class="go-timer">Time: <span id="final-timer"></span></h2>
+                <div class="game-over-heading"><h1>Game Over</h1></div>
+                <h2 id="player-name" class="player-name"></h2>
+                <div class="game-over-content">
+                    <div class="go-score-timer-container">
+                        <h2 class="go-score">Score: <span id="final-score"></span></h2>
+                        <h2 class="go-timer">Time: <span id="final-timer"></span></h2>
+                    </div>
+                    <p id="game-over-message" class="game-over-message"></p>
+                    <div class="game-over-buttons">
+                        <button class="play-again" id="play-again" onclick="gameRestart()">Play Again</button>
+                        <button class="scoreboard-button" id="scoreboard" onclick="on_scoreboard_button_click()">Scoreboard</button>
+                    </div>
                 </div>
-                <p id="game-over-message" class="game-over-message"></p>
-                <input type="button" class="restart-button" value="Play Again" id="play-again" onclick="gameRestart()">
             </div>
 
             <div class="button-container">

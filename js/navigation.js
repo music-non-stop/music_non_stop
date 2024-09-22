@@ -30,3 +30,7 @@ on_about_button_click = () => {
 on_instructions_button_click = () => {
     window.location.href = root_url + '/instructions.html';
 }
+
+on_scoreboard_button_click = () => {
+    window.location.href = root_url + '/scoreboard.html';
+}
