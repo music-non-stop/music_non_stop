@@ -10,75 +10,80 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
 
 # Table of Contents
 
-- [Logo](#logo)
-- [Game Overview](#game-overview)
-- [How to Play](#how-to-play)
-- [Scoring](#scoring)
-- [Tips for Success](#tips-for-success)
+- [A Classical Memory Game for the Mind](#musicnonstop-a-classical-memory-game-for-the-mind)
 - [Goals](#goals)
 - [User Stories](#user-stories)
 - [Planning & Design](#planning--design)
-  - [Wireframes](#wireframes)
-  - [Colour palettes](#colour-palettes)
-  - [JavaScript Audio](#javascript-audio)
-    - [MP3Player](#mp3player)
-      - [Constructor](#constructor)
-      - [Properties](#properties)
-      - [Methods](#methods)
 - [Test](#test)
 - [Deployment & Local Development](#deployment--local-development)
-  - [Deployment](#deployment)
-  - [Local Development](#local-development)
-    - [How to Fork](#how-to-fork)
-    - [How to Clone](#how-to-clone)
 - [Credits](#credits)
-  - [Content](#content)
-  - [Acknowledgments](#acknowledgments)
-
 ---
 
-## Logo
+## A Classical Memory Game for the Mind
+
+<details>
+<summary>Logo</summary>
+<br>
 
 The violin is a quintessential instrument in classical music, making it an excellent choice to represent this genre. It immediately signals to users that the game is centered around classical music.
 The text “MusicNonStop” suggests continuous play and engagement, which is essential for a memory game. It implies that the game will keep players mentally active and entertained.
 
 <img src="/documentation/doc-image/logoforreadme.jpg">
 
-## Game Overview
+</details>
+
+<details>
+<summary>Game Overview</summary>
+<br>
 
 Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.
 
-## How to Play:
+</details>
+
+<details>
+<summary>How to play</summary>
+<br>
 
 1. The game will start the timer as soon as you begin.
-
 2. Click on any two cards to flip them over and listen to the tunes.
-
 3. If the cards play the same tune, you have found a match. The cards will remain face up.
-
 4. If the cards do not match, they will flip back over after a short delay.
-
 5. Keep selecting two cards at a time, trying to remember the tunes and their locations.
-
 6. The game ends when all pairs have been matched.
 
-## Scoring:
+</details>
 
-- The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
+<details>
+<summary>Scoring</summary>
+<br>
+
+ - The scoring system rewards players with extra points for faster card matches. The quicker you match the cards, the more points you earn. Extra points are calculated based on the time between card picks. The game also saves your score and time, which are displayed at the end and recorded on the scoreboard.
 - The game involves flipping cards and matching pairs. Points are awarded based on how quickly the pairs are matched.
 - The top 10 players, ranked by their scores in descending order, are displayed on the scoreboard.
 - Players can earn additional bonus points by answering trivia questions.
 
-## Tips for Success:
+</details>
+
+<details>
+<summary>Tips for Success</summary>
+<br>
 
 1. Pay close attention to the tunes that each card plays.
-
 2. Try to remember the location of each tune to make matching easier.
-
 3. Practice makes perfect! The more you play, the better you’ll get at remembering the tunes.
 
-## User Stories:
+</details>
 
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+
+
+
+## User Stories
+
+<details>
+<summary>List of US</summary>
+<br>
+  
 As a developer, I want to create a repository and invite collaborators so that the project can be managed collaboratively and code can be version-controlled.
 
 As a Scrum Master, I want to create a Kanban board so that tasks can be tracked and organized for better project workflow management.
@@ -131,11 +136,17 @@ As a competitive player, I want a game that tracks my time and performance, so t
 
 As a classical music enthusiast, I want a game that includes a variety of famous classical pieces, so that I can test my knowledge and discover new music.
 
+</details>
+
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+
 ## Planning & Design
 
 The development process for this project followed an Agile methodology, emphasizing continuous improvement throughout the development lifecycle. We assigned tasks to each other, which helped us distribute the workload efficiently and ensured clarity on responsibilities.
 
-### Wireframes
+<details>
+<summary>Wireframes</summary>
+<br>
 
 <img src="documentation/wireframes/about_us.png">
 <img src="documentation/wireframes/game.png">
@@ -144,7 +155,11 @@ The development process for this project followed an Agile methodology, emphasiz
 <img src="documentation/wireframes/instructions.png">
 <img src="documentation/wireframes/scoreboard.png">
 
-### Colour palettes
+</details>
+
+<details>
+<summary>Colour palettes</summary>
+<br>
 
 <img src="/documentation/doc-image/img_8611.png">
 
@@ -158,61 +173,81 @@ Dark Charcoal (#2E2E2E): This color adds contrast and depth, much like the drama
 
 Soft Coral Pink (#F08080): This color introduces a touch of modernity and freshness, perhaps symbolizing new interpretations or contemporary performances of classical pieces. It adds a lively and inviting element to the palette.
 
+</details>
+
 ## JavaScript Audio
 
 We have created a class for playing audio files. Since we're going to use mp3-format it is named 'MP3Player'. The class is defined in mp3-player.js.
 
-### MP3Player
+<details>
+  <summary>MP3Player Class Documentation</summary>
 
-#### Constructor
+  ### MP3Player
 
-The constructor accepts two parameters **path** and **playlist**
+  #### Constructor
 
-**path** is the path to the folder with the mp3-files. The path is relative to the html document in which the script is loaded.
-**playlist** is an array of audio file names without the extension. All files must be in mp3 format. Example
+  The constructor accepts two parameters **path** and **playlist**.
 
-<code>
+  - **path**: The path to the folder with the mp3-files. The path is relative to the HTML document in which the script is loaded.
+  - **playlist**: An array of audio file names without the extension. All files must be in mp3 format. Example:
 
-// array with mp3 filenames
-const playlist = { "symphony1", "symphony2", "mozart-track1", "bach-track1"};
-// path to the folder with the files
-const path = "./js/audio/"
-// create an instance of the mp3-player
-cont player = MP3Player(path, playlist);
-// Pöay the first track from the list (which is symphony1.mp3)
-player.play(1);
+  <code>
+  // array with mp3 filenames  
+  const playlist = ["symphony1", "symphony2", "mozart-track1", "bach-track1"];  
+  // path to the folder with the files  
+  const path = "./js/audio/"  
+  // create an instance of the mp3-player  
+  const player = new MP3Player(path, playlist);  
+  // Play the first track from the list (which is symphony1.mp3)  
+  player.play(1);  
+  </code>
 
-</code>
+  #### Properties
 
-#### Properties
+  - **audio**
+  - **playBtn**
+  - **stopBtn**
+  - **prevBtn**
+  - **nextBtn**
+  - **tracks**
+  - **audio_files_folder_path**
+  - **trackIndex**
 
-audio
-playBtn
-stopBtn
-prevBtn
-nextBtn
-tracks
-audio_files_foler_path
-trackIndex
+  #### Methods
 
-#### Methods
+  The class implements all the essential methods for playing mp3 files:
 
-The class implements all the essential methods for playing mp3 files. Play.stop, pause, previous, next.
+  - `play(n)`
+  - `stop()`
+  - `pause()`
+  - `prev()`
+  - `next()`
+  
+</details>
 
-play(n)
-stop()
-pause()
-prev()
-next()
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 ## Technologies used
-HTML
-CSS 
-JavaScript
-GitHub
-Git
-Photoshop
-paint.net
+
+<details>
+<summary>List of Technologies</summary>
+<br>
+  
+- HTML
+- CSS 
+- JavaScript
+- GitHub
+- Git
+- Photoshop
+- paint.net
+- am I responsive
+- Bootstrap
+- jQuery
+- Cloudflare
+
+</details>
+
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 ## Test
 
@@ -242,6 +277,7 @@ Testing was performed on the following devices
 
 <details>
 <summary>Test executed</summary>
+<br>
 
 | ID | Description | Expected Outcome | Result | Comment |
 | --- | --- | --- | --- | --- |
@@ -249,11 +285,14 @@ Testing was performed on the following devices
 
 </details>
 
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+
 ## Deployment & Local Development
 
-
-### Deployment
-
+<details>
+<summary>Deployment</summary>
+<br>
+  
 Github Pages was used to deploy the live website. The instructions to achieve this are below:
 
 1. Log in (or sign up) to Github.
@@ -265,7 +304,12 @@ Github Pages was used to deploy the live website. The instructions to achieve th
 
 This site is deployed using GitHub Pages - [Music Non Stop](https://github.com/music-non-stop/music_non_stop/)
 
-### Local Development
+</details>
+
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+
+<details>
+<summary>Local Deployment</summary>
 
 #### How to Fork
 
@@ -285,19 +329,26 @@ To clone the Music Non Stop repository:
 4. Open the terminal in your code editor and change the current working directory to the location you want to use for the cloned directory.
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
 
+</details>
+
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
+
 ## Credits
 
+<details>
+<summary>Content</summary>
+<br>
+- Website content created by the developer. Images sourced from free resources unless otherwise stated.
 - The images and sounds on the "Error: Page Not Found" are sourced from DaCapoAlCoda.com, [C note in treble clef](https://www.dacapoalcoda.com/c-music-note) and [F note in treble clef](https://www.dacapoalcoda.com/f-music-note)
 -  Code  on the "Error: Page Not Found" was inspired by:
     * [mdn HTMLMediaElement: play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)
     * [W3Schools HTML DOM Audio Object](https://www.w3schools.com/jsref/dom_obj_audio.asp)
 
-### Content
-
-Website content crafted by the developer.
-
-###  Acknowledgments
-
+</details>
+  
+<details>
+<summary>Acknowledgements</summary>
+<br>  
 - Thanks to Code Institute for the chance to work on this hackathon.
 - Thanks to our facilitator [Vasilica Pavaloi](https://github.com/Vasi012)
 - Thanks to all team members, for their work and co-operation:
@@ -308,4 +359,7 @@ Website content crafted by the developer.
   - [Kiko Climent](https://github.com/Kiko-Climent)
   - [Monica Iancu](https://github.com/Monicaular)
   - [Julia Karpa](https://github.com/Julia-Karpa)
-  
+
+  </details>
+
+  _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
