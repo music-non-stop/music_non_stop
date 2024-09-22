@@ -110,30 +110,12 @@ class Game {
 
     // Method for calling a function supplied for game over
 
-    onGameOver(callback) {
-        // Stop the timer
-        this.stopTimer();
-
-        // Update the final score
-        document.getElementById('final-score').textContent = this.score;
-
-        // Get the final time from the timer element
-        const finalTime = document.getElementById('timer').textContent;
-        document.getElementById('final-timer').textContent = finalTime;
-
-        // Retrieve player name from localStorage, fallback to "Player" if not found
-        const playerName = localStorage.getItem("playerName") || "Player";
-        document.getElementById('player-name').textContent = playerName;
-
-        // Set the game over message based on the score
-        const message = this.score >= 10 ? "You're a music master!" : "Better luck next time!";
-        document.getElementById('game-over-message').textContent = message;
-
-        // Show the game over popup
-        document.getElementById('game-over-screen').style.display = 'flex';
-
-        // Call the callback function
-        callback();
+    onGameOver(callback) {        
+        // Call the callback function after a delay
+        // The main.js needs to get through the last function first
+        setTimeout(() => {
+            callback();
+        }, 1000);        
     }
 
     startTimer() {
