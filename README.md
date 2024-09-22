@@ -76,7 +76,35 @@ Music Non Stop is a card game that trains your brain to improve your memory whil
 
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
+## Goals
 
+<details>
+<summary>List of Goals</summary>
+ 
+- **Enhance Cognitive Skills Through Classical Music:**<br>
+  The primary goal of "Music Non Stop" is to help users improve their memory and auditory recognition through the pairing of classical music tunes, combining entertainment with cognitive development.
+
+- **Provide an Engaging and Fun Experience:**<br>
+  Create an enjoyable, intuitive, and visually appealing memory game for users of all ages that encourages repeated play and continuous mental stimulation.
+
+- **Design for Inclusivity:**<br>
+  Develop a responsive, user-friendly interface that adapts to different screen sizes, ensuring the game is accessible across a variety of devices, including mobile, tablet, and desktop.
+
+- **Create a Structured and Maintainable Codebase:**<br>
+  Build the game's functionality using clean, modular, and well-documented code to ensure that future updates or maintenance can be carried out seamlessly.
+
+- **Ensure a Cohesive Visual and Audio Identity:**<br>
+  Carefully choose colors, typography, and sound to create a harmonious and immersive experience that aligns with the classical music theme, making the game both aesthetically pleasing and musically enriching.
+
+- **Incorporate Feedback for Continuous Improvement:**<br>
+  Develop a feedback mechanism to gather user insights and suggestions, allowing for continuous improvement and updates to the game based on real user experiences.
+
+- **Launch a Fully Functional Web Application:**<br>
+  Deploy the final game on a live server so that users can easily access it, ensuring it performs well under different conditions and provides a smooth user experience.
+ 
+</details>
+
+_<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 ## User Stories
 
@@ -338,11 +366,13 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 <details>
 <summary>Content</summary>
 <br>
+ 
 - Website content created by the developer. Images sourced from free resources unless otherwise stated.
 - The images and sounds on the "Error: Page Not Found" are sourced from DaCapoAlCoda.com, [C note in treble clef](https://www.dacapoalcoda.com/c-music-note) and [F note in treble clef](https://www.dacapoalcoda.com/f-music-note)
 -  Code  on the "Error: Page Not Found" was inspired by:
     * [mdn HTMLMediaElement: play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)
     * [W3Schools HTML DOM Audio Object](https://www.w3schools.com/jsref/dom_obj_audio.asp)
+-  Trivia questions sourced from [Trivia Nerd](https://www.trivianerd.com/topic/classical-music-trivia)
 
 </details>
   
