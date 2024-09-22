@@ -183,9 +183,9 @@
 
 }
 
-/* Overall Game Over Screen Styling */
+/* Game Over Popup Styling */
 #game-over-screen {
-  display: none; /* Initially hidden */
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -195,9 +195,91 @@
   border-radius: 15px;
   box-shadow: 0 10px 25px rgba(145, 2, 0, 0.562), 0 4px 6px rgba(145, 2, 0, 0.562);
   z-index: 100;
-  width: 400px;
-  max-width: 90%;
+  max-width: 100%;
+  width: 600px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.game-over-heading h1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 20px;
+}
+
+.player-name {
+  font-size: 24px;
+  font-weight: 500;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.game-over-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.go-score-timer-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.go-score, .go-timer {
+  font-size: 20px;
+  color: #555555;
+  width: 45%;
+}
+
+#final-score, #final-timer {
+  font-weight: bold;
+  color: #000000;
+}
+
+.game-over-message {
+  font-size: 18px;
+  color: #666666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.game-over-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.play-again, .scoreboard-button {
+  background-color: #f08080;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 45%;
+}
+
+.play-again:hover {
+  background-color: #ed6060;
+}
+
+.scoreboard-button {
+  background-color: #004d40;
+}
+
+.scoreboard-button:hover {
+  background-color: #012a23;
 }
 
 /* Media Queries */
@@ -228,5 +310,33 @@
 
   .flip-card {
       max-width: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  #game-over-screen {
+      width: 90%;
+      padding: 20px;
+  }
+
+  .go-score-timer-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .go-score, .go-timer {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 10px;
+  }
+
+  .game-over-buttons {
+      flex-direction: column;
+      width: 100%;
+      gap: 10px;
+  }
+
+  .play-again, .scoreboard-button {
+      width: 100%;
   }
 }
