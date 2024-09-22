@@ -44,6 +44,10 @@ function loadFooter() {
         <a href="https://codeinstitute.net" target="_blank" class="footer-link">
             <i class="fa-regular fa-circle"></i>
         </a>
+        <a href="feedbackform.html" target="_blank" class="footer-link">
+            <i class="fas fa-comments"></i>
+        </a>
+
     </footer>`;
     document.body.insertAdjacentHTML('beforeend', footerHtml);
 }
