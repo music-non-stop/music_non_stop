@@ -2,7 +2,7 @@ function loadNavbar() {
     const navbarHtml = `
     <nav class="navbar">
         <div class="logo">
-            <img src="assets/images/logo.png" alt="Music Non Stop logo" class="logo-img">
+            <a href="index.html"><img src="assets/images/logo.png" alt="Music Non Stop logo" class="logo-img"></a>
         </div>
         <div class="burger-menu" id="burger-menu">
             <div class="bar"></div>
