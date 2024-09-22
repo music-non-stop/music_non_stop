@@ -273,41 +273,73 @@ function displayTriviaQuestion() {
   // Display the question
   const triviaContainer = document.getElementById("trivia-container");
   triviaContainer.innerHTML = `
-          <h3>Bonus Question!</h3>
-          <p>${selectedQuestion.question}</p>
-          ${newArr
+      <div class="trivia-container">
+        <h3 class="bonus-heading">Bonus Question!</h3>
+        <p class="bonus-question">${selectedQuestion.question}</p>
+        ${newArr
             .map(
-              (option) => `
-              <label>
-                <input type="radio" name="trivia-option" value="${option}" /> ${option}
-              </label>
-          `
+                (option) => `
+                <label class="bonus-answer">
+                    <input class="radio-answer" type="radio" name="trivia-option" value="${option}" /> ${option}
+                </label> <br>
+            `
             )
             .join("")}
-          <button onclick="checkTriviaAnswer('${
-            selectedQuestion.answer
-          }')">Submit</button>
-      `;
-  triviaContainer.style.display = "block";
+        <button class="submit-button" onclick="checkTriviaAnswer('${selectedQuestion.answer}')">Submit</button>
+      </div>
+  `;
+  
+  // Clear any previous feedback
+  document.getElementById("feedback-message").innerText = "";
+  document.getElementById("close-button").style.display = "none"; // Hide close button initially
+  
+  // Show the modal
+  const modal = document.getElementById("trivia-modal");
+  modal.style.display = "block";
 }
 
 function hideTriviaQuestion() {
-  document.getElementById("trivia-container").style.display = "none";
+  // Hide the modal
+  const modal = document.getElementById("trivia-modal");
+  modal.style.display = "none";
 }
 
 function checkTriviaAnswer(correctAnswer) {
   const selectedOption = document.querySelector(
-    'input[name="trivia-option"]:checked'
+      'input[name="trivia-option"]:checked'
   );
-  const userAnswer = selectedOption.value;
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-    alert("Correct! You earned extra points!");
-    game.addScore(3);
-    updateScoreDisplay();
-  } else {
-    alert(`Wrong! The correct answer was: ${correctAnswer}`);
+
+  // Ensure an option is selected
+  if (!selectedOption) {
+      document.getElementById("feedback-message").innerText = "Please select an answer.";
+      return;
   }
-  hideTriviaQuestion();
+
+  const userAnswer = selectedOption.value;
+  const feedbackMessage = document.getElementById("feedback-message");
+
+  // Clear the trivia question after submission
+  const triviaContainer = document.getElementById("trivia-container");
+  triviaContainer.innerHTML = "";
+
+  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+      feedbackMessage.innerText = "Correct! You earned extra points!";
+      game.addScore(3);
+      updateScoreDisplay();
+  } else {
+      feedbackMessage.innerText = `Wrong! The correct answer was: ${correctAnswer}`;
+  }
+
+  // Show the close button
+  document.getElementById("close-button").style.display = "block";
+}
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+  const modal = document.getElementById("trivia-modal");
+  if (event.target === modal) {
+      hideTriviaQuestion();
+  }
 }
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
