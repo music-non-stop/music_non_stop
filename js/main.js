@@ -17,6 +17,9 @@ uncovered_cards = [];
 // The time when the last card was picked
 time_of_last_card_pick = 0;
 
+// Contains current answer of trivia question:
+let correctTriviaAnswer = "";
+
 // Function for updating score display panel
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById("score");
@@ -277,35 +280,37 @@ function displayTriviaQuestion() {
           <p>${selectedQuestion.question}</p>
           ${newArr
             .map(
-              (option) => `
+              (option, index) => `
               <label>
-                <input type="radio" name="trivia-option" value="${option}" /> ${option}
+                <input type="radio" id="option${index}" name="trivia-option" value="${option}" /> ${option}
               </label>
           `
             )
-            .join("")}
-          <button onclick="checkTriviaAnswer('${
-            selectedQuestion.answer
-          }')">Submit</button>
-      `;
+            .join("")}`;
+            
   triviaContainer.style.display = "block";
+  correctTriviaAnswer = selectedQuestion.answer;
+  for (let i = 0; i < 4; i++) {
+    const radioEl = document.getElementById(`option${i}`);
+    radioEl.addEventListener("click", checkTriviaAnswer);
+  }
 }
 
 function hideTriviaQuestion() {
   document.getElementById("trivia-container").style.display = "none";
 }
 
-function checkTriviaAnswer(correctAnswer) {
+function checkTriviaAnswer() {
   const selectedOption = document.querySelector(
     'input[name="trivia-option"]:checked'
   );
   const userAnswer = selectedOption.value;
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+  if (userAnswer.toLowerCase() === correctTriviaAnswer.toLowerCase()) {
     alert("Correct! You earned extra points!");
     game.addScore(3);
     updateScoreDisplay();
   } else {
-    alert(`Wrong! The correct answer was: ${correctAnswer}`);
+    alert(`Wrong! The correct answer was: ${correctTriviaAnswer}`);
   }
   hideTriviaQuestion();
 }
