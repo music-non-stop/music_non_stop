@@ -44,7 +44,7 @@ function saveScoreBoardData(playerData) {
 }
 
 function loadScoreBoardData() {
-    const savedData = localStorage.getItem('scoreBoardData');
+    const savedData = localStorage.getItem('score-board-data');
     
     if (savedData) {
         return JSON.parse(savedData);
