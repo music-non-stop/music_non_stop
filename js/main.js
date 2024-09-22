@@ -111,8 +111,8 @@ function gameOver() {
   }
   const gameOverScreen = document.getElementById("game-over-screen");
   gameOverScreen.style.display = "grid";
-  const score = document.getElementById("score");
-  score.innerHTML = `Score: ${game.score}`;
+  const finalScore = document.getElementById("final-score");
+  finalScore.textContent = `Score: ${game.score}`;
   // Get value from the DOM field named timer
   const timer = document.getElementById("timer").textContent;
   // Show the Modal Game Over screen
@@ -276,9 +276,10 @@ function displayTriviaQuestion() {
   // Display the question
   const triviaContainer = document.getElementById("trivia-container");
   triviaContainer.innerHTML = `
-          <h3>Bonus Question!</h3>
-          <p>${selectedQuestion.question}</p>
-          ${newArr
+      <div class="trivia-container">
+        <h3 class="bonus-heading">Bonus Question!</h3>
+        <p class="bonus-question">${selectedQuestion.question}</p>
+        ${newArr
             .map(
               (option, index) => `
               <label>
@@ -294,16 +295,26 @@ function displayTriviaQuestion() {
     const radioEl = document.getElementById(`option${i}`);
     radioEl.addEventListener("click", checkTriviaAnswer);
   }
+
 }
 
 function hideTriviaQuestion() {
-  document.getElementById("trivia-container").style.display = "none";
+  // Hide the modal
+  const modal = document.getElementById("trivia-modal");
+  modal.style.display = "none";
 }
 
 function checkTriviaAnswer() {
   const selectedOption = document.querySelector(
-    'input[name="trivia-option"]:checked'
+      'input[name="trivia-option"]:checked'
   );
+
+  // Ensure an option is selected
+  if (!selectedOption) {
+      document.getElementById("feedback-message").innerText = "Please select an answer.";
+      return;
+  }
+
   const userAnswer = selectedOption.value;
   if (userAnswer.toLowerCase() === correctTriviaAnswer.toLowerCase()) {
     alert("Correct! You earned extra points!");
@@ -312,7 +323,6 @@ function checkTriviaAnswer() {
   } else {
     alert(`Wrong! The correct answer was: ${correctTriviaAnswer}`);
   }
-  hideTriviaQuestion();
 }
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object

@@ -113,57 +113,75 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 <summary>List of US</summary>
 <br>
   
-As a developer, I want to create a repository and invite collaborators so that the project can be managed collaboratively and code can be version-controlled.
+- [**As a developer**, I want **to create a repository and invite collaborators** so that **the project can be managed collaboratively and code can be version-controlled**.](https://github.com/music-non-stop/music_non_stop/issues/5)
 
-As a Scrum Master, I want to create a Kanban board so that tasks can be tracked and organized for better project workflow management.
+- [As a **Scrum Master**, I want **to create a Kanban board** so that **tasks can be tracked and organized for better project workflow management**.](https://github.com/music-non-stop/music_non_stop/issues/6)
 
-As a developer, I want to create wireframes so that the layout and user flow are planned and validated before development.
+- [As a **developer**, I want **to create audio files** so that **the game has appropriate sound effects and music to enhance the user experience**.](https://github.com/music-non-stop/music_non_stop/issues/7)
 
-As a developer, I want to create audio files so that the game has appropriate sound effects and music to enhance the user experience.
+- [As a **developer**, I want **to create wireframes** so that **the layout and user flow are planned and validated before development**.](https://github.com/music-non-stop/music_non_stop/issues/8)
 
-As a developer, I want to create a color palette so that the site has a cohesive and appealing visual identity.
+- [As a **developer**, I want to create a **color palette** so that the site has a **cohesive and appealing visual identity**.](https://github.com/music-non-stop/music_non_stop/issues/16)
 
-As a developer, I want to choose typography so that the site has consistent and readable fonts that enhance user experience.
+- [As a **developer**, I want **to choose typography** so that **the site has consistent and readable fonts that enhance user experience**.](https://github.com/music-non-stop/music_non_stop/issues/17)
 
-As a developer, I want to create a README file so that others can understand the project structure and purpose easily.
+- [**As a developer**, I want **to create a README file** so that **others can understand the project structure and purpose easily**.](https://github.com/music-non-stop/music_non_stop/issues/18)
 
-As a developer, I want to create game instructions so that users can quickly learn how to play and enjoy the game.
+- [As a **developer**, I want **to create game instructions** so that **users can quickly learn how to play and enjoy the game**.](https://github.com/music-non-stop/music_non_stop/issues/19)
 
-As a developer, I want to code the game logic so that the game functions according to the specified rules and provides an engaging experience.
+- [As a **developer**, I want **to code the game logic** so that **the game functions according to the specified rules and provides an engaging experience**.](https://github.com/music-non-stop/music_non_stop/issues/20)
 
-As a developer, I want to create a 404 page so that users have a friendly and helpful experience when encountering a broken link.
+- [As a **developer**, I want **to create an index/landing page** so that **users are greeted with a clear and engaging introduction to the site**.](https://github.com/music-non-stop/music_non_stop/issues/21)
 
-As a developer, I want to create an About page so that users can learn more about the project and its creators.
+- [As a **developer**, I want **to create an About page** so that **users can learn more about the project and its creators**.](https://github.com/music-non-stop/music_non_stop/issues/22)
 
-As a developer, I want to create an index/landing page so that users are greeted with a clear and engaging introduction to the site.
+- [As a **developer**, I want **to create a global CSS structure** so that **the site's styles are organized and consistent across all pages**.](https://github.com/music-non-stop/music_non_stop/issues/23)
 
-As a developer, I want to create a global CSS structure so that the site's styles are organized and consistent across all pages.
+- [As a **developer**, I want **to deploy the site** so that **users can access and interact with the project online**.](https://github.com/music-non-stop/music_non_stop/issues/24)
 
-As a developer, I want to add a favicon so that the site has a recognizable icon in the browser tab, enhancing brand identity.
+- [As a **developer**, I want **to create a feedback form** so that **users can provide their thoughts and suggestions, helping to improve the site**.](https://github.com/music-non-stop/music_non_stop/issues/25)
 
-As a developer, I want to deploy the site so that users can access and interact with the project online.
+- [As a developer, I want to create or find images for the memory game cards front/face down so that the game is visually engaging and fun for players.](https://github.com/music-non-stop/music_non_stop/issues/26)
 
-As a developer, I want to create a feedback form so that users can provide their thoughts and suggestions, helping to improve the site.
+- [As a **developer**, I want **to create a 404 page** so that **users have a friendly and helpful experience when encountering a broken link**.](https://github.com/music-non-stop/music_non_stop/issues/27)
 
-As a developer, I want to create or find images for the memory game cards so that the game is visually engaging and fun for players.
+- [As a **developer**, I want **to add a favicon** so that **the site has a recognizable icon in the browser tab, enhancing brand identity**.](https://github.com/music-non-stop/music_non_stop/issues/28)
 
-As a developer, I want to create a game landing page so that users have a visually engaging and functional entry point to the game.
+- [As a **developer**, I want to **create a game landing page** so that users **have a visually engaging and functional entry point** to the game.](https://github.com/music-non-stop/music_non_stop/issues/30)
 
-As a player, I want my score and username to be saved in local storage, so that I can continue where I left off and track my performance over time.
+- [As a **player**, I want **my score and username** to be **saved in local storage**, so that I can continue where I left off and track my performance over time.](https://github.com/music-non-stop/music_non_stop/issues/35)
 
-As a player, I want to be asked a trivia or challenge question after successfully pairing cards so that I can earn extra points and add an additional layer of complexity and engagement to the game.
+- [As a **player**, I want to be **asked a trivia or challenge question after successfully pairing cards** so that I can **earn extra points and add an additional layer of complexity and engagement** to the game.](https://github.com/music-non-stop/music_non_stop/issues/43)
 
-As a user/developer, I want a responsive navbar that transforms into a hamburger menu on smaller screens so that I can navigate the site easily regardless of the device I'm using.
+- [As **a user/developer**, I want **a responsive navbar** that transforms into a hamburger menu on smaller screens so that **I can navigate the site easily** regardless of the device I'm using.
+](https://github.com/music-non-stop/music_non_stop/issues/45)
 
-As a music lover, I want to play a game that features classical music tunes, so that I can enjoy classical music while having fun.
+- [As a **developer**,  want to **create a timer on the game page** so that **players can track how long they take to complete the game.**](https://github.com/music-non-stop/music_non_stop/issues/56)
 
-As a parent, I want a game that is educational and entertaining for my children, so that they can improve their memory skills and develop an appreciation for classical music.
+- [As a developer, I want to create a Game class that encapsulates the core game logic, independently tracks the game's state and progress, and communicates with the presentation layer to determine when the game ends. This will *keep the game logic separate from the UI, ensuring maintainability and reusability.](https://github.com/music-non-stop/music_non_stop/issues/59)
 
-As a teacher, I want to use a game in my classroom that helps students improve their auditory memory and concentration, so that they can enhance their learning abilities in a fun and engaging way.
+- [As a **developer**, I want **to create a GameCard class that encapsulates all properties of a game card, allowing it to be easily managed, extended, and rendered within the game UI**. This will **help ensure a flexible and reusable structure for the card components**.](https://github.com/music-non-stop/music_non_stop/issues/60)
 
-As a competitive player, I want a game that tracks my time and performance, so that I can challenge myself to improve and compete with friends and family.
+- [As a **developer**, I want **to implement an MP3Player class that can easily load and play audio files**, so **that I can create a simple and efficient way to manage and control music or sound playback within the application**.](https://github.com/music-non-stop/music_non_stop/issues/61)
 
-As a classical music enthusiast, I want a game that includes a variety of famous classical pieces, so that I can test my knowledge and discover new music.
+- [As a user, **I want to be able to play a memory card game on any webpage**, so I **can enjoy a fun and interactive experience with feedback when the game ends, and the ability to restart the game at any time**.](https://github.com/music-non-stop/music_non_stop/issues/63)
+
+- [Create players score at game page](https://github.com/music-non-stop/music_non_stop/issues/66)
+As  a **developer**, I want to **implement a scoring system on the game page** so that **players can see their scores based on their performance and matches**.
+
+- [As a **developer**, I want to **implement play/pause/stop functionality for audio** so that **users have a seamless listening experience and can easily manage playback**.](https://github.com/music-non-stop/music_non_stop/issues/74)
+
+- [As a **developer**, I want to **create a matching feature for the  card game that displays additional info**  when a pair is matched so **that players can learn more about the classical music theme while playing the game**.](https://github.com/music-non-stop/music_non_stop/issues/75)
+
+- [As a **developer**, I want to **implement a modal that displays game instructions when the button is pressed** so that **players can easily understand the rules and how to play the game**.](https://github.com/music-non-stop/music_non_stop/issues/77)
+
+- [As a **developer**, I want to **display a message at game over that thanks the player and shows their score and time taken** so that **players can see their performance and feel acknowledged for playing the game**.
+](https://github.com/music-non-stop/music_non_stop/issues/78)
+
+- [As a developer, I want to **create or find images for the memory game cards front/face** up so that **the game is visually engaging and fun for players**.](https://github.com/music-non-stop/music_non_stop/issues/80)
+
+- [As a **user**, I want **to see the top ten results on the scoreboard with player names, scores, and times**, so **I can track my performance and compare it with others**.](https://github.com/music-non-stop/music_non_stop/issues/108)
+
 
 </details>
 
@@ -292,15 +310,37 @@ Testing was performed on the following devices
 
 ### Responsiveness
 
-- [Am I Responsive]()
+- [Am I Responsive](https://ui.dev/amiresponsive?url=https://music-non-stop.github.io/music_non_stop/index.html)
 
 ### Validator, Accessibilty
 
-- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is PASS.
-- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is PASS
-- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. Result is PASS
+- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is **PASS**.
+  - [404 page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html)
+  - [Homepage](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html)
+  - [About Us](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html)
+  - [Scoreboard](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html)
+  - [Game](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html)
+  - [Feedbackform](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html) 
+- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is **PASS**.
+  - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Homepage](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [About Us](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Scoreboard](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Game](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Feedbackform](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [Lighthouse chrome devtool](/documentation/doc-image/lighthouse.webp)
 - No warning or errors present in Dev Tools.
-- [Lighthouse chrome devtool]((/documentation/doc-image/lighthouse.webp)
+- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. We use the ES6 class property syntax for concise method declarations. Some tools may flag this as invalid, but it is fully supported in modern JavaScript environments. This project uses modern JavaScript (ES6+), including class properties and arrow functions for concise methods and proper `this` scoping. While some tools may flag this syntax, it is fully supported in modern environments. For compatibility with older browsers, consider using a transpiler like Babel. Result: **PASS**.
+
+### Validation Notes
+Regarding javascript: Vendor-specific warnings can be ignored if the code works in modern browsers. If issues arise in older environments, using Babel will help ensure compatibility.
+
+The CSS used in this project, including the Font Awesome library, may generate some warnings when checked through the W3C CSS Validator. These warnings are related to:
+1. **Vendor Prefixes**: Certain styles (e.g., `-webkit-` and `-moz-` prefixed properties) are flagged as vendor-specific extensions. These are included to ensure compatibility with older browsers and can safely be ignored.
+2. **CSS Variables**: The validator may flag dynamic CSS variables (e.g., `var(--fa-animation-delay)`) because they cannot be statically analyzed. However, CSS variables are fully supported in modern browsers, and their use is intentional for flexible styling.
+
+These warnings do not affect the functionality or appearance of the site. The styles are fully supported in all major browsers.
+
 
 </details>
 
@@ -379,7 +419,8 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
   
 <details>
 <summary>Acknowledgements</summary>
-<br>  
+<br> 
+ 
 - Thanks to Code Institute for the chance to work on this hackathon.
 - Thanks to our facilitator [Vasilica Pavaloi](https://github.com/Vasi012)
 - Thanks to all team members, for their work and co-operation:
