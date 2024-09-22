@@ -292,7 +292,7 @@ Testing was performed on the following devices
 
 ### Responsiveness
 
-- [Am I Responsive]()
+- [Am I Responsive](https://ui.dev/amiresponsive?url=https://music-non-stop.github.io/music_non_stop/index.html)
 
 ### Validator, Accessibilty
 
