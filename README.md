@@ -300,8 +300,7 @@ Testing was performed on the following devices
 - [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is PASS
 - [JSHint](https://jshint.com/about/) was used to validate the JavaScript. Result is PASS
 - No warning or errors present in Dev Tools.
-- [Lighthouse chrome devtool]()
-  - add image
+- [Lighthouse chrome devtool]((/documentation/doc-image/lighthouse.webp)
 
 </details>
 
