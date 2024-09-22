@@ -57,7 +57,7 @@ class Game {
     }
 
     pickCard(n) {
-        if(this.hideTriviaQuestionsCallback !== null) {
+        if (this.hideTriviaQuestionsCallback !== null) {
             this.hideTriviaQuestionsCallback();
         }
         // Play the song associated with the card    
@@ -96,7 +96,9 @@ class Game {
             if (this.isGameOver()) {
                 this.onGameOver(this.gameOverCallback);
             }
-            this.showTrivaQuestionsCallback();
+            if (this.showTrivaQuestionsCallback !== null) {
+                this.showTrivaQuestionsCallback();
+            }
             return true;
         }
         return false;

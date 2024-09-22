@@ -1,9 +1,9 @@
 const scoreBoardData = loadScoreBoardData();
-
+rank = 1;
 
 function renderScoreBoardData() {
     const scoreBoard = document.getElementById('scoreboard-table');
-    rank = 1;
+    
 
     if (scoreBoardData) {
         scoreBoardData.sort((a, b) => b.score - a.score);
