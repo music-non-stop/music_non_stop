@@ -17,6 +17,9 @@ uncovered_cards = [];
 // The time when the last card was picked
 time_of_last_card_pick = 0;
 
+// Contains current answer of trivia question:
+let correctTriviaAnswer = "";
+
 // Function for updating score display panel
 function updateScoreDisplay() {
   const scoreDisplay = document.getElementById("score");
@@ -278,24 +281,21 @@ function displayTriviaQuestion() {
         <p class="bonus-question">${selectedQuestion.question}</p>
         ${newArr
             .map(
-                (option) => `
-                <label class="bonus-answer">
-                    <input class="radio-answer" type="radio" name="trivia-option" value="${option}" /> ${option}
-                </label> <br>
-            `
+              (option, index) => `
+              <label>
+                <input type="radio" id="option${index}" name="trivia-option" value="${option}" /> ${option}
+              </label>
+          `
             )
-            .join("")}
-        <button class="submit-button" onclick="checkTriviaAnswer('${selectedQuestion.answer}')">Submit</button>
-      </div>
-  `;
-  
-  // Clear any previous feedback
-  document.getElementById("feedback-message").innerText = "";
-  document.getElementById("close-button").style.display = "none"; // Hide close button initially
-  
-  // Show the modal
-  const modal = document.getElementById("trivia-modal");
-  modal.style.display = "block";
+            .join("")}`;
+            
+  triviaContainer.style.display = "block";
+  correctTriviaAnswer = selectedQuestion.answer;
+  for (let i = 0; i < 4; i++) {
+    const radioEl = document.getElementById(`option${i}`);
+    radioEl.addEventListener("click", checkTriviaAnswer);
+  }
+
 }
 
 function hideTriviaQuestion() {
@@ -304,7 +304,7 @@ function hideTriviaQuestion() {
   modal.style.display = "none";
 }
 
-function checkTriviaAnswer(correctAnswer) {
+function checkTriviaAnswer() {
   const selectedOption = document.querySelector(
       'input[name="trivia-option"]:checked'
   );
@@ -316,29 +316,12 @@ function checkTriviaAnswer(correctAnswer) {
   }
 
   const userAnswer = selectedOption.value;
-  const feedbackMessage = document.getElementById("feedback-message");
-
-  // Clear the trivia question after submission
-  const triviaContainer = document.getElementById("trivia-container");
-  triviaContainer.innerHTML = "";
-
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-      feedbackMessage.innerText = "Correct! You earned extra points!";
-      game.addScore(3);
-      updateScoreDisplay();
+  if (userAnswer.toLowerCase() === correctTriviaAnswer.toLowerCase()) {
+    alert("Correct! You earned extra points!");
+    game.addScore(3);
+    updateScoreDisplay();
   } else {
-      feedbackMessage.innerText = `Wrong! The correct answer was: ${correctAnswer}`;
-  }
-
-  // Show the close button
-  document.getElementById("close-button").style.display = "block";
-}
-
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-  const modal = document.getElementById("trivia-modal");
-  if (event.target === modal) {
-      hideTriviaQuestion();
+    alert(`Wrong! The correct answer was: ${correctTriviaAnswer}`);
   }
 }
 
