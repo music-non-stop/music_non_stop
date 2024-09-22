@@ -31,4 +31,17 @@ function renderScoreBoardData() {
     }
 }
 
+function appendGameToNavBar() {
+    const navLinks = document.getElementById('nav-links');
+    const gameLink = document.createElement('li');
+    gameLink.innerHTML = '<a href="game.html">Game</a>';
+    navLinks.insertBefore(gameLink, navLinks.children[2]);
+}
+
 renderScoreBoardData();
+// Append a Game link to the navbar after the first two links
+document.addEventListener('DOMContentLoaded', function() {
+    appendGameToNavBar();    
+ }, false);
+
+

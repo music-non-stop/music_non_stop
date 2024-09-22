@@ -43,7 +43,7 @@ function saveScoreBoardData(playerData) {
     localStorage.setItem('score-board-data', JSON.stringify(currentData));
 }
 
-function loadscore-board-data() {
+function loadScoreBoardData() {
     const savedData = localStorage.getItem('scoreBoardData');
     
     if (savedData) {
