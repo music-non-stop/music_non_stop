@@ -82,15 +82,14 @@ body {
     width: 70%;
     height: 70%;
     background-color: rgba(0, 0, 0, 0.898);
-    /* display: flex;
     justify-content: center;
-    align-items: center; */
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    display: flex;
+    /* grid-template-columns: 1fr 1fr 1fr; */
     z-index: 100;
   }
 
-  #game-over-screen {
+   #game-over-screen {
     display: none;
   }
 
