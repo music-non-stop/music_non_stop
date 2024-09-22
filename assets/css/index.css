@@ -9,7 +9,7 @@
 body, html {
     font-family: 'Crimson Pro', serif;
     background-color: #f7e7ce;
-    background-image: url(/assets/images/cassical-music-background-edit.png);
+    background-image: url("../images/cassical-music-background-edit.png");
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
