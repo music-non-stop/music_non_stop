@@ -27,6 +27,8 @@ body {
     box-sizing: border-box; 
 }
 
+
+
 .feedback-form h2 {
     margin-bottom: 20px;
 }
@@ -34,6 +36,16 @@ body {
 .feedback-form label {
     display: block;
     margin-bottom: 5px;
+}
+
+.feedback-form .radio-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.feedback-form input[type="radio"] {
+    margin-right: 2px; 
 }
 
 .feedback-form input,

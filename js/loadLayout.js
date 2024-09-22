@@ -38,12 +38,16 @@ function loadNavbar() {
 function loadFooter() {
     const footerHtml = `
     <footer class="footer">
-        <a href="https://github.com" target="_blank" class="footer-link">
+        <a href="https://github.com/music-non-stop/music_non_stop" target="_blank" class="footer-link">
             <i class="fa-brands fa-github"></i>
         </a>
         <a href="https://codeinstitute.net" target="_blank" class="footer-link">
             <i class="fa-regular fa-circle"></i>
         </a>
+        <a href="feedbackform.html" target="_blank" class="footer-link">
+            <i class="fas fa-comments"></i>
+        </a>
+
     </footer>`;
     document.body.insertAdjacentHTML('beforeend', footerHtml);
 }
