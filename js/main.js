@@ -108,8 +108,8 @@ function gameOver() {
   }
   const gameOverScreen = document.getElementById("game-over-screen");
   gameOverScreen.style.display = "grid";
-  const score = document.getElementById("score");
-  score.innerHTML = `Score: ${game.score}`;
+  const finalScore = document.getElementById("final-score");
+  finalScore.textContent = `Score: ${game.score}`;
   // Get value from the DOM field named timer
   const timer = document.getElementById("timer").textContent;
   // Show the Modal Game Over screen
