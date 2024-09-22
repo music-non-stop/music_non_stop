@@ -285,8 +285,7 @@ function displayTriviaQuestion() {
     hideTriviaFeedBack();
     // Display the question
     const triviaContainer = document.getElementById("trivia-container");
-    triviaContainer.innerHTML = `      
-        <div class="trivia-entire-line">Bonus Question!</div>
+    triviaContainer.innerHTML = `
         <div class="trivia-entire-line">${selectedQuestion.question}</div>
         <div class="trivia-option-line">
         ${newArr
@@ -322,6 +321,14 @@ function hideTriviaQuestion() {
     modal.style.display = "none";
 }
 
+
+function showEmptyTriviaMessageContainer() {
+    const feedbackMessage = document.getElementById("feedback-message");
+    feedbackMessage.className = "trivia-message-success";
+    feedbackMessage.textContent = "Here you will see a BONUS question to score some EXTRA points !";
+    feedbackMessage.style.display = "flex";
+}
+
 function checkTriviaAnswer() {
     const selectedOption = document.querySelector(
         'input[name="trivia-option"]:checked'
@@ -339,23 +346,25 @@ function checkTriviaAnswer() {
         game.addScore(3);
         updateScoreDisplay();
         hideTriviaQuestion();
+        showEmptyTriviaMessageContainer();
     } else {
         showTriviaFeedBackFail(`Wrong! The correct answer was: ${correctTriviaAnswer}`);
         hideTriviaQuestion();
+        showEmptyTriviaMessageContainer();
     }
 }
 
 function showTriviaFeedBackSuccess(message) {
     const feedbackMessage = document.getElementById("trivia-message");
     feedbackMessage.textContent = message;
-    feedbackMessage.style.display = "block";
+    feedbackMessage.style.display = "flex";
     feedbackMessage.className = "trivia-message-success";
 }
 
 function showTriviaFeedBackFail(message) {
     const feedbackMessage = document.getElementById("trivia-message");
     feedbackMessage.textContent = message;
-    feedbackMessage.style.display = "block";
+    feedbackMessage.style.display = "flex";
     feedbackMessage.className = "trivia-message-fail";
 }
 
@@ -404,3 +413,5 @@ const playerData = loadPlayerData();
 
 game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
 game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
+// Hide the empty trivia container
+hideTriviaQuestion();

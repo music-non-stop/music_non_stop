@@ -433,10 +433,13 @@
 }
 
 .trivia-entire-line {
-  display: grid;
+  display: flex;
   text-align: center;
-  width: 100%;
-  height: auto;
+  font-size: 20px;
+  font-weight: bold;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  height: 50%;
 }
 
 .trivia-option-line {
@@ -450,18 +453,20 @@
 .trivia-message-success {
   color: #004d40;
   background-color: #a3d0a260;
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
-  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   height: 80px;
 }
 
 .trivia-message-fail {
   color: #e74c3c;
   background-color: #e071712d;
-  font-size: 30px;
+  font-size: 25px;
   display: flex;
-  text-align: center;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   height: 80px;
 }
 
