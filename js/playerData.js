@@ -32,7 +32,7 @@ function initializeGame() {
 }
 
 function saveScoreBoardData(playerData) {
-    var currentData = localStorage.getItem('scoreBoardData');
+    var currentData = localStorage.getItem('score-board-data');
     if(currentData == null) {
         currentData = [];
         currentData.push(playerData);
@@ -40,10 +40,10 @@ function saveScoreBoardData(playerData) {
         currentData = JSON.parse(currentData);
         currentData.push(playerData);
     }
-    localStorage.setItem('scoreBoardData', JSON.stringify(currentData));
+    localStorage.setItem('score-board-data', JSON.stringify(currentData));
 }
 
-function loadScoreBoardData() {
+function loadscore-board-data() {
     const savedData = localStorage.getItem('scoreBoardData');
     
     if (savedData) {
