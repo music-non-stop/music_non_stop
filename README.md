@@ -292,15 +292,37 @@ Testing was performed on the following devices
 
 ### Responsiveness
 
-- [Am I Responsive]()
+- [Am I Responsive](https://ui.dev/amiresponsive?url=https://music-non-stop.github.io/music_non_stop/index.html)
 
 ### Validator, Accessibilty
 
-- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is PASS.
-- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is PASS
-- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. Result is PASS
+- [W3C](https://www.w3.org/developers/tools/) was used to validate the HTML on all pages of the website. Result is **PASS**.
+  - [404 page](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html)
+  - [Homepage](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html)
+  - [About Us](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html)
+  - [Scoreboard](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html)
+  - [Game](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html)
+  - [Feedbackform](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html) 
+- [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is **PASS**.
+  - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Homepage](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [About Us](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Scoreboard](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Game](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+  - [Feedbackform](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+- [Lighthouse chrome devtool](/documentation/doc-image/lighthouse.webp)
 - No warning or errors present in Dev Tools.
-- [Lighthouse chrome devtool]((/documentation/doc-image/lighthouse.webp)
+- [JSHint](https://jshint.com/about/) was used to validate the JavaScript. We use the ES6 class property syntax for concise method declarations. Some tools may flag this as invalid, but it is fully supported in modern JavaScript environments. This project uses modern JavaScript (ES6+), including class properties and arrow functions for concise methods and proper `this` scoping. While some tools may flag this syntax, it is fully supported in modern environments. For compatibility with older browsers, consider using a transpiler like Babel. Result: **PASS**.
+
+### Validation Notes
+Regarding javascript: Vendor-specific warnings can be ignored if the code works in modern browsers. If issues arise in older environments, using Babel will help ensure compatibility.
+
+The CSS used in this project, including the Font Awesome library, may generate some warnings when checked through the W3C CSS Validator. These warnings are related to:
+1. **Vendor Prefixes**: Certain styles (e.g., `-webkit-` and `-moz-` prefixed properties) are flagged as vendor-specific extensions. These are included to ensure compatibility with older browsers and can safely be ignored.
+2. **CSS Variables**: The validator may flag dynamic CSS variables (e.g., `var(--fa-animation-delay)`) because they cannot be statically analyzed. However, CSS variables are fully supported in modern browsers, and their use is intentional for flexible styling.
+
+These warnings do not affect the functionality or appearance of the site. The styles are fully supported in all major browsers.
+
 
 </details>
 
@@ -379,7 +401,8 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
   
 <details>
 <summary>Acknowledgements</summary>
-<br>  
+<br> 
+ 
 - Thanks to Code Institute for the chance to work on this hackathon.
 - Thanks to our facilitator [Vasilica Pavaloi](https://github.com/Vasi012)
 - Thanks to all team members, for their work and co-operation:
