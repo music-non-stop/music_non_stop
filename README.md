@@ -208,6 +208,7 @@ JavaScript
 GitHub
 Git
 Photoshop
+paint.net
 
 
 ## Deployment & Local Development
@@ -247,6 +248,11 @@ To clone the Music Non Stop repository:
 5. Type 'git clone' into the terminal and then paste the link you copied in step 3. Press enter.
 
 ## Credits
+
+- The images and sounds on the "Error: Page Not Found" are sourced from DaCapoAlCoda.com, [C note in treble clef](https://www.dacapoalcoda.com/c-music-note) and [F note in treble clef](https://www.dacapoalcoda.com/f-music-note)
+-  Code  on the "Error: Page Not Found" was inspired by:
+    * [mdn HTMLMediaElement: play() method](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/play)
+    * [W3Schools HTML DOM Audio Object](https://www.w3schools.com/jsref/dom_obj_audio.asp)
 
 ### Content
 
