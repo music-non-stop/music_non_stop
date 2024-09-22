@@ -216,6 +216,3 @@ if (playerData) {
 } else {
     console.log("Welcome new player!");
 }
-
-// Remove scoreBoardData from local storage
-localStorage.removeItem('scoreBoardData');
