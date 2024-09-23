@@ -49,11 +49,21 @@
 }
 
 .instructions-button {
-margin-bottom: 25px;
+    margin-bottom: 25px;
+    background-color: #038d76;
+    border: 2px solid #004d40;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Cormorant Garamond', serif;
+    margin-top: 10px;
+    display: block;
+    transition: box-shadow 0.3s;
 }
 
-.start-button,
-.instructions-button {
+.start-button {
     background-color: #004d40;
     color: white;
     padding: 10px 20px;
@@ -67,14 +77,8 @@ margin-bottom: 25px;
     transition: box-shadow 0.3s;
 }
 
-.start-button,
-.instructions-button:hover {
+.start-button:hover {
     box-shadow: 0 0 10px #f08080, 0 0 20px #f08080;
-}
-
-.start-button,
-.instructions-button:active {
-    transform: scale(0.95);
 }
 
 /* Modal Styling */
