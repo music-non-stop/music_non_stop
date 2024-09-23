@@ -34,7 +34,8 @@ function resetTimer() {
     stopTimer(); // stop Timer before restart
     seconds = 0;
     minutes = 0;
-    timerElement.textContent = "00:00"; // 
+    timerElement.textContent = "00:00"; //
+    startTimer(); 
 }
 
 

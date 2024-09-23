@@ -118,19 +118,7 @@ class Game {
         }, 1000);        
     }
 
-    startTimer() {
-        this.timerInterval = setInterval(() => {
-            this.timer++;
-            const minutes = Math.floor(this.timer / 60);
-            const seconds = this.timer % 60;
-            document.getElementById('timer').textContent =
-                `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        }, 1000);
-    }
-
-    stopTimer() {
-        clearInterval(this.timerInterval);
-    }
+    
 
     addScore(extraScore) {
         this.score += extraScore;
@@ -142,6 +130,10 @@ class Game {
     // Setter for the hideTriviaQuestionsCallback
     addHideTriviaQuestionsCallback(callback) {
         this.hideTriviaQuestionsCallback = callback;
+    }
+
+    stopPlayback() {
+        this.mp3player.stop();
     }
 }
 

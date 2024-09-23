@@ -144,6 +144,7 @@ function gameRestart() {
   // Hide the game over screen
   const gameOverScreen = document.getElementById("game-over-screen");
   gameOverScreen.style.display = "none";
+  game.stopPlayback();
 }
 
 // Remove all cards from the DOM
