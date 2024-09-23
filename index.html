@@ -10,9 +10,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
     <!-- Stylesheet -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="assets/css/homepage.css">
+    <link rel="stylesheet" href="./assets/css/instructions.css">
 </head>
 <body>
 
@@ -24,9 +26,30 @@
             <p class="description">
                 Welcome to Music Non Stop! Match the cards to hear beautiful classical melodies. Enter your name to start and let's play!
             </p>
+            <button class="instructions-button" id="show-instructions">See Instructions</button>
             <input type="text" id="player-name" placeholder="Enter your name" class="input-field">
             <button id="start-game" class="start-button">Submit</button>
         </div>
+        <!-- Hidden Instructions Popup -->
+        <div id="instructions-popup">
+            <h1>Instructions</h1>
+            <h2>Objective:</h2>
+            <p>Match all 12 pairs of cards that play the same tune.</p>
+            <h2>How to Play:</h2>
+            <ul>
+                <li>The game will start the timer as soon as you begin.</li>
+                <li>Click on any two cards to flip them over and listen to the tunes.</li>
+                <li>If the cards play the same tune, you have found a match. The cards will remain face up.</li>
+                <li>If the cards do not match, they will flip back over after a short delay.</li>
+                <li>Keep selecting two cards at a time, trying to remember the tunes and their locations.</li>
+                <li>The game ends when all pairs have been matched.</li>
+            </ul>
+            <h2>Winning the Game:</h2>
+            <p>The goal is to match all pairs as quickly as possible. Your final time will be displayed when the last pair is matched.</p>
+            <button class="close-btn" id="close-instructions">Close</button>
+        </div>
+
+        <div id="overlay"></div>
     </div>
 
     <!-- Load Footer -->
@@ -53,5 +76,6 @@
     <script src="js/loadLayout.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/playerData.js"></script>
+    <script src="./js/instructions.js"></script>
 </body>
 </html>
