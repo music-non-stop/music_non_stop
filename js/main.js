@@ -101,10 +101,10 @@ function gameOver() {
         const playerName = localStorage.getItem("playerName") || "Player";
         document.getElementById("player-name").textContent = playerName;
 
-        // Set the game over message based on the score
-        const message =
-            this.score >= 10 ? "You're a music master!" : "Better luck next time!";
-        document.getElementById("game-over-message").textContent = message;
+    // Set the game over message based on the score
+    const message =
+      this.score >= 10 ? "You're a music master!" : "A graceful attempt! Ready for another movement?";
+    document.getElementById("game-over-message").textContent = message;
 
         // Show the game over popup
         document.getElementById("game-over-screen").style.display = "flex";
@@ -136,22 +136,19 @@ function gameRestart() {
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.textContent = 0;
 
-    // clear the covered cards array
-    uncovered_cards = [];
-    previous_card = null;
-    removeCardsFromDOM();
-    // Reinitialize the game cards
-    const newGameCards = [];
-    generateGameCards(newGameCards);
-    embedGameCards(cardsContainer, newGameCards);
-    game = new Game(newGameCards, player, gameOver);
-    // Add callbacks for trivia questions
-    game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
-    game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
-
-    // Hide the game over screen
-    const gameOverScreen = document.getElementById("game-over-screen");
-    gameOverScreen.style.display = "none";
+  // clear the covered cards array
+  uncovered_cards = [];
+  previous_card = null;
+  removeCardsFromDOM();
+  // Reinitialize the game cards
+  const newGameCards = [];
+  generateGameCards(newGameCards);
+  embedGameCards(cardsContainer, newGameCards);
+  game = new Game(newGameCards, player, gameOver);
+  // Hide the game over screen
+  const gameOverScreen = document.getElementById("game-over-screen");
+  gameOverScreen.style.display = "none";
+  game.stopPlayback();
 }
 
 // Remove all cards from the DOM
@@ -372,6 +369,7 @@ function hideTriviaFeedBack() {
     const feedbackMessage = document.getElementById("trivia-message");
     feedbackMessage.style.display = "none";
 }
+
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
 // Each name in the playlist must match the name of an MP3 file in the audio folder
