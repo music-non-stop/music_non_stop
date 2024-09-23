@@ -14,6 +14,7 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
 - [Goals](#goals)
 - [User Stories](#user-stories)
 - [Planning & Design](#planning--design)
+- [Code Architecture and Key Components](#Code-Architecture-and-Key-Components)
 - [Test](#test)
 - [Deployment & Local Development](#deployment--local-development)
 - [Credits](#credits)
@@ -221,19 +222,36 @@ Soft Coral Pink (#F08080): This color introduces a touch of modernity and freshn
 
 </details>
 
-## Main.js
-The main.js file is crucial in our project as it serves as the central hub where all the functions are defined. This file acts as the pivot point of our website, orchestrating the various functionalities and ensuring that everything runs smoothly.
 
-## JavaScript Audio
+## Code Architecture and Key Components
 
-We have created a class for playing audio files. Since we're going to use mp3-format it is named 'MP3Player'. The class is defined in mp3-player.js.
+### Main Game Control
 
 <details>
-  <summary>MP3Player Class Documentation</summary>
+<summary>main.js</summary><br>
+ 
+The main.js file is crucial in our project as it serves as the central hub where all the functions are defined. This file acts as the pivot point of our website, orchestrating the various functionalities and ensuring that everything runs smoothly. Without it, the site would be a static display with no interactive features. Here’s what it controls:
 
-### MP3Player
+- Game mechanics: Card flipping, matching, and score updates.
+- Event handling: Managing user actions, such as clicking cards and answering trivia.
+- Shuffling: Randomizing card order to keep the game fresh.
+- Display: Dynamically updating the game board, score, and game-over screens.
+- Game state management: Tracking uncovered cards, timing, and player progress.
 
-#### Constructor
+</details>
+
+### JavaScript Audio
+The MP3Player class is responsible for handling audio playback during the game. It plays classical music when cards are flipped and controls audio functions like play, pause, and stop. 
+The class is defined in mp3-player.js.
+
+<details>
+<summary>MP3Player Class Documentation</summary>
+
+#### MP3Player
+
+##### Constructor
+
+The MP3Player class is responsible for handling audio playback during the game. It plays classical music when cards are flipped and controls audio functions like play, pause, and stop. The class is initialized with:
 
 The constructor accepts two parameters **path** and **playlist**.
 
@@ -251,7 +269,7 @@ The constructor accepts two parameters **path** and **playlist**.
   player.play(1);  
   </code>
 
-#### Properties
+##### Properties
 
 - **audio**
 - **playBtn**
@@ -262,7 +280,7 @@ The constructor accepts two parameters **path** and **playlist**.
 - **audio_files_folder_path**
 - **trackIndex**
 
-#### Methods
+##### Methods
 
 The class implements all the essential methods for playing mp3 files:
 
@@ -274,46 +292,40 @@ The class implements all the essential methods for playing mp3 files:
 
 </details>
 
-## Game Logic
+### Game Logic
+
+<details>
+<summary>Class Games</summary><br>
 
 The game logic is defined in a class called Game. This class encapsulates the rules and the flow of the game.
 It is decoupled from the presentation layer.
 
-### Game class
-<details>
-<summary>JavaScript class for game logic</summary>
+#### Game class
 
-#### Constructor
-<code>
+JavaScript class for game logic
 
-constructor(cards, mp3player, gameOverCallback)
+##### Constructor
 
-<code>
+```constructor(cards, mp3player, gameOverCallback)```
 
 The constructor takes a deck of cards(cards) a reference to the instance of the MP3Player for playing music.
 And lastly a callback function, which a presentation layer component can supply, to execute when the game is over.
 
-#### Important methods
-- addScore(number) : is used for adding some extra score to the current game
-- pickCard(number) : is used by the presentation layer to let the game know which card the player has picked
-- addShowTriviaQuestionsCallback(callback) : Add a callback function for the event when the trivia question need to appear
-- addHideTriviaQuestionsCallback(callback) : Add a callback function for the event when the trivia question need to dissapear
-- stopPlayback() : Stop the playback of whichever track is playing
+##### Important methods
 
-</details>
+- ```addScore(number)```: is used for adding some extra score to the current game
+- ```pickCard(number)```: is used by the presentation layer to let the game know which card the player has picked
+- ```addShowTriviaQuestionsCallback(callback)```: Add a callback function for the event when the trivia question need to appear
+- ```addHideTriviaQuestionsCallback(callback)```: Add a callback function for the event when the trivia question need to dissapear
+- ```stopPlayback()```: Stop the playback of whichever track is playing
 
-### GameCard class
-<ummary>This class encapsulates all the essential properties of a card for the game. </summary>
+#### GameCard class
 
-<details>
+This class encapsulates all the essential properties of a card for the game. 
 
-#### Constructor
+##### Constructor
 
-<code>
-
-constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage) 
-
-</code>
+```constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage)```
 
 - index : the index of the associated card in the array, that is used by the Game object
 - trackIndex : the index of the associated track in the playlist
@@ -322,8 +334,7 @@ constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage)
 - composerImage : path to the image of the associated composer
 - faceImage : path to the image that is user as the face side of all the cards in the deck
 
-
-#### Methods
+##### Methods
 
 This class only has the render() method, which renders it as a HTML-Element.
 
