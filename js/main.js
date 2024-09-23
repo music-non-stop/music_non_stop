@@ -329,7 +329,7 @@ function hideTriviaQuestion() {
 
 
 function showEmptyTriviaMessageContainer() {
-    const feedbackMessage = document.getElementById("feedback-message");
+    const feedbackMessage = document.getElementById("trivia-message");
     feedbackMessage.className = "trivia-message-success";
     feedbackMessage.textContent = "Here you will see a BONUS question to score some EXTRA points !";
     feedbackMessage.style.display = "flex";
@@ -349,7 +349,7 @@ function checkTriviaAnswer() {
     const userAnswer = selectedOption.value;
     if (userAnswer.toLowerCase() === correctTriviaAnswer.toLowerCase()) {
         showTriviaFeedBackSuccess("Correct! You earned extra points!");
-        game.addScore(3);
+        game.addScore(30);
         updateScoreDisplay();
         hideTriviaQuestion();
         showEmptyTriviaMessageContainer();
