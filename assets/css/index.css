@@ -6,7 +6,8 @@
     box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
     font-family: 'Crimson Pro', serif;
     background-color: #f7e7ce;
     background-image: url("../images/cassical-music-background-edit.png");
@@ -18,6 +19,16 @@ body, html {
     min-height: 100vh;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
 
 /* Navbar styling */
 .navbar {
