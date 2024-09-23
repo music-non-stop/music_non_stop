@@ -1,9 +1,9 @@
 // Fisher-Yates shuffle algorithm
 function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * i);
-    [array[i], array[j]] = [array[j], array[i]];
-  }
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * i);
+        [array[i], array[j]] = [array[j], array[i]];
+    }
 }
 
 // How many card pairs for the game?
@@ -22,115 +22,119 @@ let correctTriviaAnswer = "";
 
 // Function for updating score display panel
 function updateScoreDisplay() {
-  const scoreDisplay = document.getElementById("score");
-  scoreDisplay.textContent = `${game.score}`;
+    const scoreDisplay = document.getElementById("score");
+    scoreDisplay.textContent = `${game.score}`;
 }
 
 // Flip a card over and play the associated track
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function cardClcked(n) {
-  // If the timee of the last pick is 0, that means it is the opening move
-  if (time_of_last_card_pick == 0) {
-    time_of_last_card_pick = Date.now();
-  }
-  // Check if a card is among the uncovered cards
-  function isAmongUncoveredCards(n) {
-    return uncovered_cards.includes(n);
-  }
-  // If the user clicked on the same card again ignore the click
-  if (previous_card == n) return;
-  // If the card is among the covered cards, ignore the click
-  if (isAmongUncoveredCards(n)) return;
-  // Flip the card over
-  flipCardOver(n);
-  // Pick a card and see if it matches the previous card
-  // game.pickCard(n) returns true if the cards match
-  if (game.pickCard(n)) {
-    calculateExtraScore();
+    // If the timee of the last pick is 0, that means it is the opening move
+    if (time_of_last_card_pick == 0) {
+        time_of_last_card_pick = Date.now();
+    }
+    // Check if a card is among the uncovered cards
+    function isAmongUncoveredCards(n) {
+        return uncovered_cards.includes(n);
+    }
+    // If the user clicked on the same card again ignore the click
+    if (previous_card == n) return;
+    // If the card is among the covered cards, ignore the click
+    if (isAmongUncoveredCards(n)) return;
+    // Flip the card over
+    flipCardOver(n);
+    // Pick a card and see if it matches the previous card
+    // game.pickCard(n) returns true if the cards match
+    if (game.pickCard(n)) {
+        calculateExtraScore();
 
-    // If the cards match, add them to the uncovered_cards array
-    uncovered_cards.push(n);
-    uncovered_cards.push(previous_card);
+        // If the cards match, add them to the uncovered_cards array
+        uncovered_cards.push(n);
+        uncovered_cards.push(previous_card);
 
+        previous_card = n;
+        flip_previous_card = false;
+
+        // Update the score display
+        updateScoreDisplay();
+        // Set the time of the last card pick to the current time
+        time_of_last_card_pick = Date.now();
+        return;
+    }
+    // Flip the previously selected card back over
+    if (previous_card != null && flip_previous_card) flipCardOver(previous_card);
     previous_card = n;
-    flip_previous_card = false;
+    // Flag that if the card does not match the previous card, flip the previous card back over
+    flip_previous_card = true;
 
-    // Update the score display
-    updateScoreDisplay();
-    // Set the time of the last card pick to the current time
-    time_of_last_card_pick = Date.now();
-    return;
-  }
-  // Flip the previously selected card back over
-  if (previous_card != null && flip_previous_card) flipCardOver(previous_card);
-  previous_card = n;
-  // Flag that if the card does not match the previous card, flip the previous card back over
-  flip_previous_card = true;
-
-  function calculateExtraScore() {
-    let extra_score = 0;
-    // Calculate the time difference between the last two card picks
-    let time_difference = Date.now() - time_of_last_card_pick;
-    // Convert the time difference to seconds
-    let time_difference_seconds = time_difference / 1000;
-    // Calculate the extra score based on the time difference
-    extra_score = Math.floor(50 / time_difference_seconds);
-    // Add the extra score to the game score
-    game.addScore(extra_score);
-  }
+    function calculateExtraScore() {
+        let extra_score = 0;
+        // Calculate the time difference between the last two card picks
+        let time_difference = Date.now() - time_of_last_card_pick;
+        // Convert the time difference to seconds
+        let time_difference_seconds = time_difference / 1000;
+        // Calculate the extra score based on the time difference
+        extra_score = Math.floor(50 / time_difference_seconds);
+        // Add the extra score to the game score
+        game.addScore(extra_score);
+    }
 }
 
 // Flip a card over
 function flipCardOver(n) {
-  const card = document.getElementById(`card-${n}`);
-  card.classList.toggle("flip-card-over");
+    const card = document.getElementById(`card-${n}`);
+    card.classList.toggle("flip-card-over");
 }
 
 // Show the game over screen
 function gameOver() {
-  function showModal() {
-    // Update the final score
-    document.getElementById("final-score").textContent = game.score;
+    function showModal() {
+        // Update the final score
+        document.getElementById("final-score").textContent = game.score;
 
-    // Get the final time from the timer element
-    const finalTime = document.getElementById("timer").textContent;
-    document.getElementById("final-timer").textContent = finalTime;
+        // Get the final time from the timer element
+        const finalTime = document.getElementById("timer").textContent;
+        document.getElementById("final-timer").textContent = finalTime;
 
-    // Retrieve player name from localStorage, fallback to "Player" if not found
-    const playerName = localStorage.getItem("playerName") || "Player";
-    document.getElementById("player-name").textContent = playerName;
+        // Retrieve player name from localStorage, fallback to "Player" if not found
+        const playerName = localStorage.getItem("playerName") || "Player";
+        document.getElementById("player-name").textContent = playerName;
 
     // Set the game over message based on the score
     const message =
       this.score >= 10 ? "You're a music master!" : "A graceful attempt! Ready for another movement?";
     document.getElementById("game-over-message").textContent = message;
 
-    // Show the game over popup
-    document.getElementById("game-over-screen").style.display = "flex";
-  }
-  const gameOverScreen = document.getElementById("game-over-screen");
-  gameOverScreen.style.display = "grid";
-  const finalScore = document.getElementById("final-score");
-  finalScore.textContent = `Score: ${game.score}`;
-  // Get value from the DOM field named timer
-  const timer = document.getElementById("timer").textContent;
-  // Show the Modal Game Over screen
-  showModal();
-  // Add results to the scoreboard
-  saveScoreBoardData({
-    username: playerData.username,
-    score: game.score,
-    time: timer,
-  });
+        // Show the game over popup
+        document.getElementById("game-over-screen").style.display = "flex";
+    }
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.style.display = "grid";
+    const finalScore = document.getElementById("final-score");
+    finalScore.textContent = `Score: ${game.score}`;
+    // Get value from the DOM field named timer
+    const timer = document.getElementById("timer").textContent;
+    // Before showing the modal, hide the trivia question and trivia feedback
+    hideTriviaQuestion();
+    hideTriviaFeedBack();
+    removeTriviaEventListeners();
+    // Show the Modal Game Over screen
+    showModal();
+    // Add results to the scoreboard
+    saveScoreBoardData({
+        username: playerData.username,
+        score: game.score,
+        time: timer,
+    });
 }
 
 function gameRestart() {
-  // Reset the timer back to 00:00
-  resetTimer();
-  // Set the html content of the score display to 0
-  const scoreDisplay = document.getElementById("score");
-  scoreDisplay.textContent = 0;
+    // Reset the timer back to 00:00
+    resetTimer();
+    // Set the html content of the score display to 0
+    const scoreDisplay = document.getElementById("score");
+    scoreDisplay.textContent = 0;
 
   // clear the covered cards array
   uncovered_cards = [];
@@ -149,220 +153,239 @@ function gameRestart() {
 
 // Remove all cards from the DOM
 function removeCardsFromDOM() {
-  var elements = document.getElementsByClassName("flip-card");
-  while (elements.length > 0) {
-    elements[0].parentNode.removeChild(elements[0]);
-  }
+    var elements = document.getElementsByClassName("flip-card");
+    while (elements.length > 0) {
+        elements[0].parentNode.removeChild(elements[0]);
+    }
 }
 
 // Populate the gameCards array with GameCard objects
 function getGameCards(arr) {
-  const path_to_composer_images = "./assets/images/composers/";
-  const path_to_face_images = "./assets/images/card_faces/";
-  var colors = getCardColors();
-  var composerImages = getComposerImages();
-  var faceImages = getCardImages();
-  // Shuffle the colors array
-  shuffle(colors);
-  // Shuffle the face images array
-  shuffle(faceImages);
-  // array index track number in the playlist
-  let trackIndex = 0;
-  // Assign random track index between 0 and 5 to trackIndex
-  trackIndex = Math.floor(Math.random() * 6);
+    const path_to_composer_images = "./assets/images/composers/";
+    const path_to_face_images = "./assets/images/card_faces/";
+    var colors = getCardColors();
+    var composerImages = getComposerImages();
+    var faceImages = getCardImages();
+    // Shuffle the colors array
+    shuffle(colors);
+    // Shuffle the face images array
+    shuffle(faceImages);
+    // array index track number in the playlist
+    let trackIndex = 0;
+    // Assign random track index between 0 and 5 to trackIndex
+    trackIndex = Math.floor(Math.random() * 6);
 
-  for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++, trackIndex++) {
-    // assign filenames to the GameCard objects, based on the playlist array
-    arr.push(
-      new GameCard(
-        i,
-        trackIndex,
-        playlist[trackIndex],
-        colors[i],
-        path_to_composer_images + composerImages[trackIndex],
-        path_to_face_images + faceImages[0]
-      )
-    );
-    arr.push(
-      new GameCard(
-        i,
-        trackIndex,
-        playlist[trackIndex],
-        colors[i],
-        path_to_composer_images + composerImages[trackIndex],
-        path_to_face_images + faceImages[0]
-      )
-    );
-  }
+    for (let i = 0; i < NUMBER_OF_CARD_PAIRS; i++, trackIndex++) {
+        // assign filenames to the GameCard objects, based on the playlist array
+        arr.push(
+            new GameCard(
+                i,
+                trackIndex,
+                playlist[trackIndex],
+                colors[i],
+                path_to_composer_images + composerImages[trackIndex],
+                path_to_face_images + faceImages[0]
+            )
+        );
+        arr.push(
+            new GameCard(
+                i,
+                trackIndex,
+                playlist[trackIndex],
+                colors[i],
+                path_to_composer_images + composerImages[trackIndex],
+                path_to_face_images + faceImages[0]
+            )
+        );
+    }
 }
 
 function getCardColors() {
-  const colors = [
-    "red",
-    "blue",
-    "green",
-    "orange",
-    "purple",
-    "pink",
-    "brown",
-    "grey",
-    "black",
-    "cyan",
-    "magenta",
-    "darkblue",
-  ];
-  return colors;
+    const colors = [
+        "red",
+        "blue",
+        "green",
+        "orange",
+        "purple",
+        "pink",
+        "brown",
+        "grey",
+        "black",
+        "cyan",
+        "magenta",
+        "darkblue",
+    ];
+    return colors;
 }
 
 function getComposerImages() {
-  const images = [
-    "Bach.png",
-    "Beethoven.jpg",
-    "Brahms.jpg",
-    "chopin.jpeg",
-    "Johann_Strauss.jpg",
-    "mozart.jpg",
-    "Rossini.jpg",
-    "Satie.jpg",
-    "Sibelius.jpg",
-    "tchaikovsky.jpg",
-    "Verdi.jpg",
-    "vivaldi.jpg",
-  ];
-  return images;
+    const images = [
+        "Bach.png",
+        "Beethoven.jpg",
+        "Brahms.jpg",
+        "chopin.jpeg",
+        "Johann_Strauss.jpg",
+        "mozart.jpg",
+        "Rossini.jpg",
+        "Satie.jpg",
+        "Sibelius.jpg",
+        "tchaikovsky.jpg",
+        "Verdi.jpg",
+        "vivaldi.jpg",
+    ];
+    return images;
 }
 
 // Get the names of the face up images for the game cards
 function getCardImages() {
-  const images = [
-    "face1.webp",
-    "face2.webp",
-    "face3.webp",
-    "face4.webp",
-    "face5.webp",
-  ];
-  return images;
+    const images = [
+        "face1.webp",
+        "face2.webp",
+        "face3.webp",
+        "face4.webp",
+        "face5.webp",
+    ];
+    return images;
 }
 
 // Reassign the index property of each game card to match its new position in the array
 function reassignGameCardIndexes(arr) {
-  for (let i = 0; i < gameCards.length; i++) {
-    arr[i].index = i;
-  }
+    for (let i = 0; i < gameCards.length; i++) {
+        arr[i].index = i;
+    }
 }
 
 // Embed the game cards in the DOM
 function embedGameCards(cardsContainer, arrGameCards) {
-  arrGameCards.forEach((card) => {
-    cardsContainer.innerHTML += card.render();
-  });
+    arrGameCards.forEach((card) => {
+        cardsContainer.innerHTML += card.render();
+    });
 }
 // Generate the game cards
 function generateGameCards(arr) {
-  // Poulate the gameCards array with GameCard objects
-  getGameCards(arr);
-  // Shuffle the game cards
-  shuffle(arr);
-  // Reassign the index property of each game card to match its new position in the array
-  reassignGameCardIndexes(arr);
+    // Poulate the gameCards array with GameCard objects
+    getGameCards(arr);
+    // Shuffle the game cards
+    shuffle(arr);
+    // Reassign the index property of each game card to match its new position in the array
+    reassignGameCardIndexes(arr);
 }
 
 // Example Function to display a trivia question that can be integrated into game logic:
 function displayTriviaQuestion() {
-  // Randomly select a trivia question
-  const randomIndex = Math.floor(Math.random() * triviaQuestions.length);
-  const selectedQuestion = triviaQuestions[randomIndex];
-  let newArr = selectedQuestion.options.slice();
-  shuffle(newArr);
-  // Display the question
-  const triviaContainer = document.getElementById("trivia-container");
-  triviaContainer.innerHTML = `
-      <div class="trivia-container">
-        <h3 class="bonus-heading">Bonus Question!</h3>
-        <p class="optional-message">The bonus question is optional. If you'd prefer not to answer, feel free to close the trivia.</p>
-        <p class="bonus-question">${selectedQuestion.question}</p>
+    // Randomly select a trivia question
+    const randomIndex = Math.floor(Math.random() * triviaQuestions.length);
+    const selectedQuestion = triviaQuestions[randomIndex];
+    let newArr = selectedQuestion.options.slice();
+    shuffle(newArr);
+    // Hide the feedback message
+    hideTriviaFeedBack();
+    // Display the question
+    const triviaContainer = document.getElementById("trivia-container");
+    triviaContainer.innerHTML = `
+        <div class="trivia-entire-line">${selectedQuestion.question}</div>
+        <div class="trivia-option-line">
         ${newArr
             .map(
-                (option) => `
-                <label class="bonus-answer">
-                    <input class="radio-answer" type="radio" name="trivia-option" value="${option}" /> ${option}
-                </label> <br>
-            `
+                (option, index) => `
+              <div class="trivia-option-item">
+                <input type="radio" id="option${index}" name="trivia-option" value="${option}" /> ${option}
+              </div>
+          `
             )
-            .join("")}
-        <button class="submit-button" onclick="checkTriviaAnswer('${selectedQuestion.answer}')">Submit</button>
-      </div>
-  `;
-  
-  // Clear any previous feedback
-  document.getElementById("feedback-message").innerText = "";
-  document.getElementById("close-button").style.display = "none"; // Hide close button initially
-  
-  // Show the modal
-  const modal = document.getElementById("trivia-modal");
-  modal.style.display = "block";
+            .join("")} </div>`;
+
+    triviaContainer.style.display = "block";
+    correctTriviaAnswer = selectedQuestion.answer;
+    for (let i = 0; i < 4; i++) {
+        const radioEl = document.getElementById(`option${i}`);
+        radioEl.addEventListener("click", checkTriviaAnswer);
+    }
+
+}
+
+// Remove trivia event listeners
+function removeTriviaEventListeners() {
+    for (let i = 0; i < 4; i++) {
+        const radioEl = document.getElementById(`option${i}`);
+        radioEl.removeEventListener("click", checkTriviaAnswer);
+    }
 }
 
 function hideTriviaQuestion() {
-  // Hide the modal
-  const modal = document.getElementById("trivia-modal");
-  modal.style.display = "none";
+    // Hide the modal
+    const modal = document.getElementById("trivia-container");
+    modal.style.display = "none";
 }
 
-function checkTriviaAnswer(correctAnswer) {
-  const selectedOption = document.querySelector(
-      'input[name="trivia-option"]:checked'
-  );
 
-  // Ensure an option is selected
-  if (!selectedOption) {
-      document.getElementById("feedback-message").innerText = "Please select an answer.";
-      return;
-  }
-
-  const userAnswer = selectedOption.value;
-  const feedbackMessage = document.getElementById("feedback-message");
-
-  // Clear the trivia question after submission
-  const triviaContainer = document.getElementById("trivia-container");
-  triviaContainer.innerHTML = "";
-
-  if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-      feedbackMessage.innerText = "Correct! You earned extra points!";
-      game.addScore(3);
-      updateScoreDisplay();
-  } else {
-      feedbackMessage.innerText = `Wrong! The correct answer was: ${correctAnswer}`;
-  }
-
-  // Show the close button
-  document.getElementById("close-button").style.display = "block";
+function showEmptyTriviaMessageContainer() {
+    const feedbackMessage = document.getElementById("feedback-message");
+    feedbackMessage.className = "trivia-message-success";
+    feedbackMessage.textContent = "Here you will see a BONUS question to score some EXTRA points !";
+    feedbackMessage.style.display = "flex";
 }
 
-// Close modal when clicking outside of it
-window.onclick = function(event) {
-  const modal = document.getElementById("trivia-modal");
-  if (event.target === modal) {
-      hideTriviaQuestion();
-  }
+function checkTriviaAnswer() {
+    const selectedOption = document.querySelector(
+        'input[name="trivia-option"]:checked'
+    );
+
+    // Ensure an option is selected
+    if (!selectedOption) {
+        document.getElementById("feedback-message").innerText = "Please select an answer.";
+        return;
+    }
+
+    const userAnswer = selectedOption.value;
+    if (userAnswer.toLowerCase() === correctTriviaAnswer.toLowerCase()) {
+        showTriviaFeedBackSuccess("Correct! You earned extra points!");
+        game.addScore(3);
+        updateScoreDisplay();
+        hideTriviaQuestion();
+        showEmptyTriviaMessageContainer();
+    } else {
+        showTriviaFeedBackFail(`Wrong! The correct answer was: ${correctTriviaAnswer}`);
+        hideTriviaQuestion();
+        showEmptyTriviaMessageContainer();
+    }
+}
+
+function showTriviaFeedBackSuccess(message) {
+    const feedbackMessage = document.getElementById("trivia-message");
+    feedbackMessage.textContent = message;
+    feedbackMessage.style.display = "flex";
+    feedbackMessage.className = "trivia-message-success";
+}
+
+function showTriviaFeedBackFail(message) {
+    const feedbackMessage = document.getElementById("trivia-message");
+    feedbackMessage.textContent = message;
+    feedbackMessage.style.display = "flex";
+    feedbackMessage.className = "trivia-message-fail";
+}
+
+function hideTriviaFeedBack() {
+    const feedbackMessage = document.getElementById("trivia-message");
+    feedbackMessage.style.display = "none";
 }
 
 
 // playlist for the MP3Player class. Each track in the playlist is associated with a GameCard object
 // Each name in the playlist must match the name of an MP3 file in the audio folder
 const playlist = [
-  "Bach",
-  "Beethoven",
-  "Brahms",
-  "Chopin",
-  "Johann Strauss",
-  "Mozart",
-  "Rossini",
-  "Satie",
-  "Sibelius",
-  "Tchaikovski",
-  "Verdi",
-  "Vivaldi",
+    "Bach",
+    "Beethoven",
+    "Brahms",
+    "Chopin",
+    "Johann Strauss",
+    "Mozart",
+    "Rossini",
+    "Satie",
+    "Sibelius",
+    "Tchaikovski",
+    "Verdi",
+    "Vivaldi",
 ];
 
 // Path to the audio files
@@ -388,3 +411,5 @@ const playerData = loadPlayerData();
 
 game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
 game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
+// Hide the empty trivia container
+hideTriviaQuestion();
