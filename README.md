@@ -221,6 +221,9 @@ Soft Coral Pink (#F08080): This color introduces a touch of modernity and freshn
 
 </details>
 
+## Main.js
+The main.js file is crucial in our project as it serves as the central hub where all the functions are defined. This file acts as the pivot point of our website, orchestrating the various functionalities and ensuring that everything runs smoothly.
+
 ## JavaScript Audio
 
 We have created a class for playing audio files. Since we're going to use mp3-format it is named 'MP3Player'. The class is defined in mp3-player.js.
