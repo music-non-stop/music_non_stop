@@ -103,7 +103,7 @@ function gameOver() {
 
     // Set the game over message based on the score
     const message =
-      this.score >= 10 ? "You're a music master!" : "Better luck next time!";
+      this.score >= 10 ? "You're a music master!" : "A graceful attempt! Ready for another movement?";
     document.getElementById("game-over-message").textContent = message;
 
     // Show the game over popup
