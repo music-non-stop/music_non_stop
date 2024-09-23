@@ -424,6 +424,5 @@ const playerData = loadPlayerData();
 
 game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
 game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
-game.addShowEmptyTriviaMessageContainerCallback(showEmptyTriviaMessageContainer);
 // Hide the empty trivia container
 hideTriviaQuestion();
