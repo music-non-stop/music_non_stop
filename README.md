@@ -271,6 +271,61 @@ The class implements all the essential methods for playing mp3 files:
 
 </details>
 
+## Game Logic
+
+The game logic is defined in a class called Game. This class encapsulates the rules and the flow of the game.
+It is decoupled from the presentation layer.
+
+### Game class
+<details>
+<summary>JavaScript class for game logic</summary>
+
+#### Constructor
+<code>
+
+constructor(cards, mp3player, gameOverCallback)
+
+<code>
+
+The constructor takes a deck of cards(cards) a reference to the instance of the MP3Player for playing music.
+And lastly a callback function, which a presentation layer component can supply, to execute when the game is over.
+
+#### Important methods
+- addScore(number) : is used for adding some extra score to the current game
+- pickCard(number) : is used by the presentation layer to let the game know which card the player has picked
+- addShowTriviaQuestionsCallback(callback) : Add a callback function for the event when the trivia question need to appear
+- addHideTriviaQuestionsCallback(callback) : Add a callback function for the event when the trivia question need to dissapear
+- stopPlayback() : Stop the playback of whichever track is playing
+
+</details>
+
+### GameCard class
+<ummary>This class encapsulates all the essential properties of a card for the game. </summary>
+
+<details>
+
+#### Constructor
+
+<code>
+
+constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage) 
+
+</code>
+
+- index : the index of the associated card in the array, that is used by the Game object
+- trackIndex : the index of the associated track in the playlist
+- name : name of the audio file
+- backgroundColor : background-color of the flipside of the card in case an image fails to load
+- composerImage : path to the image of the associated composer
+- faceImage : path to the image that is user as the face side of all the cards in the deck
+
+
+#### Methods
+
+This class only has the render() method, which renders it as a HTML-Element.
+
+</details>
+
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 ## Technologies used
