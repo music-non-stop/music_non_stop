@@ -382,8 +382,22 @@ Due to time constraints, we couldn't fit this user story into our schedule.
 
 Manual testing was performed on the following devices. No automatic tests were executed.
 
-- x
-- y
+| Device Type        | Model                       | Resolution    | Expected Outcome                   | Result | Comment |
+| ------------------ | --------------------------- | ------------- | ---------------------------------- | ------ | ------- |
+| Mobile Phones      | iPhone 14/15                | 390 x 844     | Page displays correctly            |        | Some Horizontal scrolling on landing page        |
+|                    | Samsung Galaxy S23/S24      | 412 x 919     | Page displays correctly            | PASS       |         |
+|                    | Google Pixel 7/8            | 412 x 915     | Page displays correctly            | PASS       |         |
+| Tablets            | iPad (10th Generation)      | 820 x 1180    | Page displays correctly            |        |         |
+|                    | iPad Pro (M2)               | 1024 x 1366   | Page displays correctly            | PASS       |         |
+|                    | Samsung Galaxy Tab S9       | 800 x 1280    | Page displays correctly            | PASS       |         |
+|                    | Microsoft Surface Pro 9     | 912 x 1368    | Page displays correctly            | PASS       |         |
+| Laptops            | MacBook Air (M2)            | 1440 x 900    | Page displays correctly            | PASS        |         |
+|                    | Dell XPS 13                 | 1280 x 800    | Page displays correctly            | PASS       |         |
+|                    | HP Spectre x360             | 1366 x 768    | Page displays correctly            | PASS       |         |
+| Desktops           | iMac (24-inch M1)           | 1920 x 1080   | Page displays correctly            | PASS       |         |
+|                    | Dell Inspiron Desktop       | 1920 x 1080   | Page displays correctly            | PASS       |         |
+|                    | HP Envy Desktop             | 2560 x 1440   | Page displays correctly            |        |         |
+  
 
 
 ### Responsiveness
