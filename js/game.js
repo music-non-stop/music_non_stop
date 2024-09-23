@@ -54,6 +54,11 @@ class Game {
         this.secondCard = null;
         this.score = 0;
         this.cards_uncovered = 0;
+        this.mp3player.stop();
+    }
+
+    stopPlayback() {
+        this.mp3player.stop();
     }
 
     pickCard(n) {
@@ -136,13 +141,3 @@ class Game {
         this.mp3player.stop();
     }
 }
-
-// Initialize the game
-document.addEventListener('DOMContentLoaded', () => {
-    const cardData = []; // Populate this with your card data
-    const mp3player = new MP3Player(); // Ensure this is defined
-    const game = new Game(cardData, mp3player, () => {
-        console.log('Game Over');
-    });
-    game.startTimer(); // Start the timer when the game starts
-});

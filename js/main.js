@@ -136,19 +136,23 @@ function gameRestart() {
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.textContent = 0;
 
-  // clear the covered cards array
-  uncovered_cards = [];
-  previous_card = null;
-  removeCardsFromDOM();
-  // Reinitialize the game cards
-  const newGameCards = [];
-  generateGameCards(newGameCards);
-  embedGameCards(cardsContainer, newGameCards);
-  game = new Game(newGameCards, player, gameOver);
-  // Hide the game over screen
-  const gameOverScreen = document.getElementById("game-over-screen");
-  gameOverScreen.style.display = "none";
-  game.stopPlayback();
+    // clear the covered cards array
+    uncovered_cards = [];
+    previous_card = null;
+    removeCardsFromDOM();
+    // Reinitialize the game cards
+    const newGameCards = [];
+    generateGameCards(newGameCards);
+    embedGameCards(cardsContainer, newGameCards);
+    game = new Game(newGameCards, player, gameOver);
+    // Add callbacks for trivia questions
+    game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
+    game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
+    
+    
+    // Hide the game over screen
+    const gameOverScreen = document.getElementById("game-over-screen");
+    gameOverScreen.style.display = "none";
 }
 
 // Remove all cards from the DOM
