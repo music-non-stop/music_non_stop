@@ -416,9 +416,96 @@ These warnings do not affect the functionality or appearance of the site. The st
 <summary>Test executed</summary>
 <br>
 
-| ID  | Description | Expected Outcome | Result    | Comment |
-| --- | ----------- | ---------------- | --------- | ------- |
-| 01  |             |                  | PASS/FAIL |         |
+#### Landing Page
+
+| ID  | Description                    | Expected Outcome                                                     | Result | Comment |
+| --- | ------------------------------ | -------------------------------------------------------------------- | ------ | ------- |
+| 01  | Page Load                      | Page loads without errors and all assets are present                 |        |         |
+| 02  | Title and Favicon Verification | Title displays "Music Non Stop - Memory Game" and favicon is visible | PASS   |         |
+| 03  | Accessibility of Buttons       | All buttons can be activated via keyboard                            | FAIL   |         |
+| 04  | Player Name Input              | Player can enter a name and submit                                   | PASS   |         |
+| 05  | Instructions Button            | Instructions popup appears when "See Instructions" is clicked        | PASS   |         |
+| 06  | Game Start Button              | Game starts after entering name and clicking "Submit"                | PASS   |         |
+| 10  | Responsiveness                 | Page adjusts correctly on different screen sizes                     | PASS   |         |
+| 11  | Content Visibility             | All content is visible without overlapping or cut-off                | PASS   |         |
+| 12  | Error Handling                 | Appropriate error messages display when needed                       |        |         |
+| 13  | Button Style Consistency       | All buttons maintain consistent styles across the page               | PASS   |         |
+| 14  | Overlay Functionality          | Overlay appears when modals are active and blocks interaction        | PASS   |         |
+| 15  | Instruction Clarity            | Instructions are clear and easy to understand                        | PASS   |         |
+| 16  | Performance Check              | Page loads within acceptable time (e.g., < 2 seconds)                |        |         |
+
+#### Game Page
+
+| ID  | Description                     | Expected Outcome                                                 | Result | Comment |
+| --- | ------------------------------- | ---------------------------------------------------------------- | ------ | ------- |
+| 01  | Page Load                       | Page loads without errors and all assets are present             |        |         |
+| 02  | Favicon Links                   | Favicon links are valid and display correctly in the browser     | PASS   |         |
+| 03  | Title Check                     | Page title is "Game Page"                                        | PASS   |         |
+| 04  | Score Display                   | Initial score displays as "Score: 0"                             | PASS   |         |
+| 05  | Timer Display                   | Initial timer displays as "0:00"                                 | PASS   |         |
+| 06  | Card Injection                  | Cards are injected into the `#cards-container`                   | PASS       |         |
+| 07  | Game Over Screen Visibility     | Game over screen is hidden initially and appears after game ends | PASS   |         |
+| 08  | Player Name Visibility          | Player name displays correctly on the game over screen           | PASS       |         |
+| 09  | Final Score Display             | Final score is displayed correctly on game over screen           | PASS       |         |
+| 10  | Final Timer Display             | Final timer displays correctly on game over screen               | PASS       |         |
+| 11  | Try Again Button Functionality  | "Try Again" button restarts the game without errors              | PASS       |         |
+| 12  | Play Again Button Functionality | "Play Again" button restarts the game without errors             | PASS       |         |
+| 13  | Scoreboard Button Functionality | "Scoreboard" button opens the scoreboard correctly               |       |         |
+| 14  | Audio Control Buttons           | Play, pause, and stop buttons function correctly                 | PASS       |         |
+| 15  | Instructions Popup Visibility   | Instructions popup appears when "Instructions" button is clicked | PASS   |         |
+| 16  | Overlay Functionality           | Overlay is displayed when instructions or modals are active      | PASS   |         |
+| 17  | Instructions Content Clarity    | Instructions are clear and understandable                        | PASS       |         |
+| 18  | Instructions Close Button       | Close button in instructions popup functions correctly           | PASS       |         |
+| 19  | Responsiveness                  | Page adjusts correctly across different screen sizes             | PASS       |         |
+| 20  | Game Functionality              | Game logic runs without errors during play                       |        |         |
+| 21  | Error Handling                  | Appropriate error messages display when errors occur             |        |         |
+
+#### About Page
+
+| ID  | Description                       | Expected Outcome                                       | Result | Comment |
+| --- | --------------------------------- | ------------------------------------------------------ | ------ | ------- |
+| 01  | Check page title                  | Title should be "About Us"                             | PASS       |         |
+| 02  | Verify team member photos         | All team member images should load correctly           |PASS        |         |
+| 03  | Validate LinkedIn links           | All LinkedIn links should navigate to correct profiles |        |         |
+| 04  | Validate GitHub links             | All GitHub links should navigate to correct profiles   |        |         |
+| 05  | Check accessibility of buttons    | Buttons should be keyboard accessible                  |        |         |
+| 06  | Test responsive design            | Cards should stack vertically on smaller screens       |        |         |
+| 07  | Verify alt text for images        | All images should have meaningful alt text             |        |         |
+| 08  | Check introductory text           | Text should describe the team's collaborative spirit   |        |         |
+| 09  | Ensure CSS styles apply correctly | All elements should have the intended styles           |        |         |
+| 10  | Validate footer functionality     | Footer should load correctly and contain all links     |        |         |
+
+#### Scoreboard Page
+
+| ID  | Description                              | Expected Outcome                                              | Result | Comment |
+| --- | ---------------------------------------- | ------------------------------------------------------------- | ------ | ------- |
+| 01  | Check page title                         | Title should be "Scoreboard"                                  |        |         |
+| 02  | Verify scoreboard header                 | Header should display "Scoreboard"                            |        |         |
+| 03  | Check presence of scoreboard table       | Table should exist with appropriate columns                   |        |         |
+| 04  | Validate column headers                  | Columns should display "Rank", "Username", "Score", "Time"    |        |         |
+| 05  | Ensure table is empty at initial load    | Table should have no rows of data                             |        |         |
+| 06  | Test dynamic data loading                | Table should populate with player data from playerData.js     |        |         |
+| 07  | Check footer functionality               | Footer should load correctly and contain all links            |        |         |
+| 08  | Validate CSS styles for scoreboard       | Scoreboard should have the intended styles                    |        |         |
+| 09  | Ensure accessibility for table elements  | Table should be keyboard accessible                           |        |         |
+| 10  | Test responsiveness of scoreboard layout | Scoreboard should display correctly on different screen sizes |        |         |
+
+#### Feedback Form/Page
+
+| ID  | Description                                 | Expected Outcome                                                          | Result | Comment |
+| --- | ------------------------------------------- | ------------------------------------------------------------------------- | ------ | ------- |
+| 01  | Check page title                            | Title should be "Feedback Form"                                           |        |         |
+| 02  | Verify form header                          | Header should display "Music Non Stop Feedback"                           |        |         |
+| 03  | Check presence of feedback form             | Form should exist with all specified input fields                         |        |         |
+| 04  | Validate input fields                       | All fields (name, email, composer, rating, improvement) should be present |        |         |
+| 05  | Test required fields                        | All required fields should trigger validation on submit                   |        |         |
+| 06  | Check radio buttons                         | Yes and No radio buttons should be selectable                             |        |         |
+| 07  | Validate rating input                       | Rating input should accept numbers between 1 and 10                       |        |         |
+| 08  | Ensure modal functionality                  | Modal should display after form submission                                |        |         |
+| 09  | Test modal close functionality              | Modal should close when the close button is clicked                       |        |         |
+| 10  | Check accessibility for form elements       | Form elements should be accessible via keyboard navigation                |        |         |
+| 11  | Test responsiveness of feedback form layout | Form should display correctly on different screen sizes                   |        |         |
+| 12  | Validate CSS styles for feedback form       | Feedback form should have the intended styles              
 
 </details>
 
