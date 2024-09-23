@@ -183,6 +183,8 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 - [As a **user**, I want **to see the top ten results on the scoreboard with player names, scores, and times**, so **I can track my performance and compare it with others**.](https://github.com/music-non-stop/music_non_stop/issues/108)
 
+- [As a **developer/tester** I want to **execute tests for specific features or functions** so that I **can ensure that each functionality works as intended and meets the defined requirements**.](https://github.com/music-non-stop/music_non_stop/issues/143)
+
 
 </details>
 
