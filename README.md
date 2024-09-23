@@ -426,19 +426,19 @@ These warnings do not affect the functionality or appearance of the site. The st
 | 04  | Player Name Input              | Player can enter a name and submit                                   | PASS   |         |
 | 05  | Instructions Button            | Instructions popup appears when "See Instructions" is clicked        | PASS   |         |
 | 06  | Game Start Button              | Game starts after entering name and clicking "Submit"                | PASS   |         |
-| 10  | Responsiveness                 | Page adjusts correctly on different screen sizes                     | PASS   |         |
-| 11  | Content Visibility             | All content is visible without overlapping or cut-off                | PASS   |         |
-| 12  | Error Handling                 | Appropriate error messages display when needed                       |        |         |
-| 13  | Button Style Consistency       | All buttons maintain consistent styles across the page               | PASS   |         |
-| 14  | Overlay Functionality          | Overlay appears when modals are active and blocks interaction        | PASS   |         |
-| 15  | Instruction Clarity            | Instructions are clear and easy to understand                        | PASS   |         |
-| 16  | Performance Check              | Page loads within acceptable time (e.g., < 2 seconds)                |        |         |
+| 07  | Responsiveness                 | Page adjusts correctly on different screen sizes                     | PASS   |         |
+| 08  | Content Visibility             | All content is visible without overlapping or cut-off                | PASS   |         |
+| 09  | Error Handling                 | Appropriate error messages display when needed                       |        |         |
+| 10  | Button Style Consistency       | All buttons maintain consistent styles across the page               | PASS   |         |
+| 11  | Overlay Functionality          | Overlay appears when modals are active and blocks interaction        | PASS   |         |
+| 12  | Instruction Clarity            | Instructions are clear and easy to understand                        | PASS   |         |
+| 13  | Performance Check              | Page loads within acceptable time (e.g., < 2 seconds)                | PASS   |         |
 
 #### Game Page
 
 | ID  | Description                     | Expected Outcome                                                 | Result | Comment |
 | --- | ------------------------------- | ---------------------------------------------------------------- | ------ | ------- |
-| 01  | Page Load                       | Page loads without errors and all assets are present             |        |         |
+| 01  | Page Load                       | Page loads without errors and all assets are present             | PASS       |         |
 | 02  | Favicon Links                   | Favicon links are valid and display correctly in the browser     | PASS   |         |
 | 03  | Title Check                     | Page title is "Game Page"                                        | PASS   |         |
 | 04  | Score Display                   | Initial score displays as "Score: 0"                             | PASS   |         |
@@ -457,7 +457,7 @@ These warnings do not affect the functionality or appearance of the site. The st
 | 17  | Instructions Content Clarity    | Instructions are clear and understandable                        | PASS       |         |
 | 18  | Instructions Close Button       | Close button in instructions popup functions correctly           | PASS       |         |
 | 19  | Responsiveness                  | Page adjusts correctly across different screen sizes             | PASS       |         |
-| 20  | Game Functionality              | Game logic runs without errors during play                       |        |         |
+| 20  | Game Functionality              | Game logic runs without errors during play                       | PASS       |         |
 | 21  | Error Handling                  | Appropriate error messages display when errors occur             |        |         |
 
 #### About Page
@@ -466,40 +466,35 @@ These warnings do not affect the functionality or appearance of the site. The st
 | --- | --------------------------------- | ------------------------------------------------------ | ------ | ------- |
 | 01  | Check page title                  | Title should be "About Us"                             | PASS       |         |
 | 02  | Verify team member photos         | All team member images should load correctly           |PASS        |         |
-| 03  | Validate LinkedIn links           | All LinkedIn links should navigate to correct profiles |        |         |
-| 04  | Validate GitHub links             | All GitHub links should navigate to correct profiles   |        |         |
+| 03  | Validate LinkedIn links           | All LinkedIn links should navigate to correct profiles | PASS       |         |
+| 04  | Validate GitHub links             | All GitHub links should navigate to correct profiles   | PASS       |         |
 | 05  | Check accessibility of buttons    | Buttons should be keyboard accessible                  |        |         |
-| 06  | Test responsive design            | Cards should stack vertically on smaller screens       |        |         |
-| 07  | Verify alt text for images        | All images should have meaningful alt text             |        |         |
-| 08  | Check introductory text           | Text should describe the team's collaborative spirit   |        |         |
-| 09  | Ensure CSS styles apply correctly | All elements should have the intended styles           |        |         |
-| 10  | Validate footer functionality     | Footer should load correctly and contain all links     |        |         |
+| 06  | Verify alt text for images        | All images should have meaningful alt text             |        |         |
+| 07  | Ensure CSS styles apply correctly | All elements should have the intended styles           | PASS       |         |
 
 #### Scoreboard Page
 
 | ID  | Description                              | Expected Outcome                                              | Result | Comment |
 | --- | ---------------------------------------- | ------------------------------------------------------------- | ------ | ------- |
-| 01  | Check page title                         | Title should be "Scoreboard"                                  |        |         |
-| 02  | Verify scoreboard header                 | Header should display "Scoreboard"                            |        |         |
-| 03  | Check presence of scoreboard table       | Table should exist with appropriate columns                   |        |         |
-| 04  | Validate column headers                  | Columns should display "Rank", "Username", "Score", "Time"    |        |         |
-| 05  | Ensure table is empty at initial load    | Table should have no rows of data                             |        |         |
-| 06  | Test dynamic data loading                | Table should populate with player data from playerData.js     |        |         |
-| 07  | Check footer functionality               | Footer should load correctly and contain all links            |        |         |
-| 08  | Validate CSS styles for scoreboard       | Scoreboard should have the intended styles                    |        |         |
-| 09  | Ensure accessibility for table elements  | Table should be keyboard accessible                           |        |         |
-| 10  | Test responsiveness of scoreboard layout | Scoreboard should display correctly on different screen sizes |        |         |
+| 01  | Check page title                         | Title should be "Scoreboard"                                  | PASS       |         |
+| 02  | Check presence of scoreboard table       | Table should exist with appropriate columns                   | PASS       |         |
+| 03  | Validate table headers                  | Table headers should display "Rank", "Username", "Score", "Time"    | PASS       |         |
+| 04  | Ensure table is empty at initial load    | Table should have no rows of data                             | PASS       |         |
+| 05  | Test dynamic data loading                | Table should populate with player data from playerData.js     |  PASS      |         |
+| 06  | Validate CSS styles for scoreboard       | Scoreboard should have the intended styles                    | PASS       |         |
+| 07  | Ensure accessibility for table elements  | Table should be keyboard accessible                           |        |         |
+| 08  | Test responsiveness of scoreboard layout | Scoreboard should display correctly on different screen sizes | PASS       |         |
 
 #### Feedback Form/Page
 
 | ID  | Description                                 | Expected Outcome                                                          | Result | Comment |
 | --- | ------------------------------------------- | ------------------------------------------------------------------------- | ------ | ------- |
-| 01  | Check page title                            | Title should be "Feedback Form"                                           |        |         |
-| 02  | Verify form header                          | Header should display "Music Non Stop Feedback"                           |        |         |
-| 03  | Check presence of feedback form             | Form should exist with all specified input fields                         |        |         |
-| 04  | Validate input fields                       | All fields (name, email, composer, rating, improvement) should be present |        |         |
+| 01  | Check page title                            | Title should be "Feedback Form"                                           | PASS       |         |
+| 02  | Verify form header                          | Header should display "Music Non Stop Feedback"                           |PASS        |         |
+| 03  | Check presence of feedback form             | Form should exist with all specified input fields                         |PASSS        |         |
+| 04  | Validate input fields                       | All fields (name, email, composer, rating, improvement) should be present |PASS        |         |
 | 05  | Test required fields                        | All required fields should trigger validation on submit                   |        |         |
-| 06  | Check radio buttons                         | Yes and No radio buttons should be selectable                             |        |         |
+| 06  | Check radio buttons                         | Yes and No radio buttons should be selectable                             | PASS       |         |
 | 07  | Validate rating input                       | Rating input should accept numbers between 1 and 10                       |        |         |
 | 08  | Ensure modal functionality                  | Modal should display after form submission                                |        |         |
 | 09  | Test modal close functionality              | Modal should close when the close button is clicked                       |        |         |
