@@ -158,7 +158,7 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 - [As a **developer**,  want to **create a timer on the game page** so that **players can track how long they take to complete the game.**](https://github.com/music-non-stop/music_non_stop/issues/56)
 
-- [As a developer, I want to create a Game class that encapsulates the core game logic, independently tracks the game's state and progress, and communicates with the presentation layer to determine when the game ends. This will *keep the game logic separate from the UI, ensuring maintainability and reusability.](https://github.com/music-non-stop/music_non_stop/issues/59)
+- [As a **developer**, I want to **create a Game class that encapsulates the core game logic, independently tracks the game's state and progress, and communicates with the presentation layer to determine when the game ends**. This will **keep the game logic separate from the UI, ensuring maintainability and reusability.**](https://github.com/music-non-stop/music_non_stop/issues/59)
 
 - [As a **developer**, I want **to create a GameCard class that encapsulates all properties of a game card, allowing it to be easily managed, extended, and rendered within the game UI**. This will **help ensure a flexible and reusable structure for the card components**.](https://github.com/music-non-stop/music_non_stop/issues/60)
 
@@ -166,8 +166,7 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 - [As a user, **I want to be able to play a memory card game on any webpage**, so I **can enjoy a fun and interactive experience with feedback when the game ends, and the ability to restart the game at any time**.](https://github.com/music-non-stop/music_non_stop/issues/63)
 
-- [Create players score at game page](https://github.com/music-non-stop/music_non_stop/issues/66)
-As  a **developer**, I want to **implement a scoring system on the game page** so that **players can see their scores based on their performance and matches**.
+- [As  a **developer**, I want to **implement a scoring system on the game page** so that **players can see their scores based on their performance and matches**.](https://github.com/music-non-stop/music_non_stop/issues/66)
 
 - [As a **developer**, I want to **implement play/pause/stop functionality for audio** so that **users have a seamless listening experience and can easily manage playback**.](https://github.com/music-non-stop/music_non_stop/issues/74)
 
