@@ -287,17 +287,19 @@ function displayTriviaQuestion() {
     // Display the question
     const triviaContainer = document.getElementById("trivia-container");
     triviaContainer.innerHTML = `
-        <div class="trivia-entire-line">${selectedQuestion.question}</div>
-        <div class="trivia-option-line">
-        ${newArr
-            .map(
-                (option, index) => `
-              <div class="trivia-option-item">
-                <input type="radio" id="option${index}" name="trivia-option" value="${option}" /> ${option}
-              </div>
-          `
-            )
-            .join("")} </div>`;
+        <div class="trivia container">
+            <div class="trivia-entire-line">${selectedQuestion.question}</div>
+            <div class="trivia-option-line">
+            ${newArr
+                .map(
+                    (option, index) => `
+                <div class="trivia-option-item">
+                    <input class="trivia-option" type="radio" id="option${index}" name="trivia-option" value="${option}" /> ${option}
+                </div>
+            `
+                )
+                .join("")} </div>
+        </div>`;
 
     triviaContainer.style.display = "block";
     correctTriviaAnswer = selectedQuestion.answer;
