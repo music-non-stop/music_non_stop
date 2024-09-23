@@ -51,7 +51,7 @@
 .instructions-button {
     margin-bottom: 25px;
     background-color: #038d76;
-    border: 2px solid #004d40;
+    border: none;
     color: white;
     padding: 10px 20px;
     font-size: 18px;
@@ -79,6 +79,10 @@
 
 .start-button:hover {
     box-shadow: 0 0 10px #f08080, 0 0 20px #f08080;
+}
+
+.instructions-button:hover {
+    box-shadow: 0 0 10px #388e3c, 0 0 20px #388e3c;
 }
 
 /* Modal Styling */
