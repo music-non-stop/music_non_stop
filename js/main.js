@@ -30,6 +30,8 @@ function updateScoreDisplay() {
 // Signal the game object that a card has been picked
 // Let the game object determine if the card matches the previous card
 function cardClcked(n) {
+    showEmptyTriviaMessageContainer();
+
     // If the timee of the last pick is 0, that means it is the opening move
     if (time_of_last_card_pick == 0) {
         time_of_last_card_pick = Date.now();
@@ -109,16 +111,16 @@ function gameOver() {
         // Show the game over popup
         document.getElementById("game-over-screen").style.display = "flex";
     }
+    // Before showing the modal, hide the trivia question and trivia feedback
+    hideTriviaQuestion();
+    hideTriviaFeedBack();
+    removeTriviaEventListeners();
     const gameOverScreen = document.getElementById("game-over-screen");
     gameOverScreen.style.display = "grid";
     const finalScore = document.getElementById("final-score");
     finalScore.textContent = `Score: ${game.score}`;
     // Get value from the DOM field named timer
     const timer = document.getElementById("timer").textContent;
-    // Before showing the modal, hide the trivia question and trivia feedback
-    hideTriviaQuestion();
-    hideTriviaFeedBack();
-    removeTriviaEventListeners();
     // Show the Modal Game Over screen
     showModal();
     // Add results to the scoreboard
@@ -130,12 +132,14 @@ function gameOver() {
 }
 
 function gameRestart() {
+    // Show the empty trivia message container
+    showEmptyTriviaMessageContainer();
     // Reset the timer back to 00:00
     resetTimer();
     // Set the html content of the score display to 0
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.textContent = 0;
-
+    
     // clear the covered cards array
     uncovered_cards = [];
     previous_card = null;
@@ -145,7 +149,7 @@ function gameRestart() {
     generateGameCards(newGameCards);
     embedGameCards(cardsContainer, newGameCards);
     game = new Game(newGameCards, player, gameOver);
-    // Add callbacks for trivia questions
+    // Add callbacks for trivia questions   
     game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
     game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
     
@@ -347,11 +351,11 @@ function checkTriviaAnswer() {
         game.addScore(30);
         updateScoreDisplay();
         hideTriviaQuestion();
-        showEmptyTriviaMessageContainer();
+        
     } else {
         showTriviaFeedBackFail(`Wrong! The correct answer was: ${correctTriviaAnswer}`);
         hideTriviaQuestion();
-        showEmptyTriviaMessageContainer();
+        
     }
 }
 
@@ -415,5 +419,6 @@ const playerData = loadPlayerData();
 
 game.addShowTriviaQuestionsCallback(displayTriviaQuestion);
 game.addHideTriviaQuestionsCallback(hideTriviaQuestion);
+game.addShowEmptyTriviaMessageContainerCallback(showEmptyTriviaMessageContainer);
 // Hide the empty trivia container
 hideTriviaQuestion();

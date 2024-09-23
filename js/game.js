@@ -42,7 +42,7 @@ class Game {
         // Callback function for game over
         this.gameOverCallback = gameOverCallback;
         // Callback function for showing trivia questions
-        this.showTrivaQuestionsCallback = null;
+        this.showTrivaQuestionsCallback = null;        
         // Callback fucntion for hiding trivia questions
         this.hideTriviaQuestionsCallback = null;
         this.timer = 0;
@@ -98,11 +98,13 @@ class Game {
             this.score++;
             this.cards_uncovered += 2;
 
-            if (this.isGameOver()) {
-                this.onGameOver(this.gameOverCallback);
-            }
             if (this.showTrivaQuestionsCallback !== null) {
                 this.showTrivaQuestionsCallback();
+            }
+
+            if (this.isGameOver()) {
+                this.hideTriviaQuestionsCallback();                
+                this.onGameOver(this.gameOverCallback);
             }
             return true;
         }
@@ -135,7 +137,7 @@ class Game {
     // Setter for the hideTriviaQuestionsCallback
     addHideTriviaQuestionsCallback(callback) {
         this.hideTriviaQuestionsCallback = callback;
-    }
+    }    
 
     stopPlayback() {
         this.mp3player.stop();
