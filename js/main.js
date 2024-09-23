@@ -90,6 +90,8 @@ function flipCardOver(n) {
 // Show the game over screen
 function gameOver() {
     function showModal() {
+        player.stop()
+        stopTimer()
         // Update the final score
         document.getElementById("final-score").textContent = game.score;
 
@@ -132,6 +134,7 @@ function gameOver() {
 function gameRestart() {
     // Reset the timer back to 00:00
     resetTimer();
+    player.stop()
     // Set the html content of the score display to 0
     const scoreDisplay = document.getElementById("score");
     scoreDisplay.textContent = 0;
