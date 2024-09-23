@@ -14,7 +14,8 @@ Visit the deployed site: [Music Non Stop](https://music-non-stop.github.io/music
 - [Goals](#goals)
 - [User Stories](#user-stories)
 - [Planning & Design](#planning--design)
-- [Code Architecture and Key Components](#Code-Architecture-and-Key-Components)
+- [Code Architecture and Key Components](#code-architecture-and-Key-Components)
+- [Future Feature](#future-feature)
 - [Test](#test)
 - [Deployment & Local Development](#deployment--local-development)
 - [Credits](#credits)
@@ -364,6 +365,12 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
+## Future Feature
+
+Due to time constraints, we couldn't fit this user story into our schedule.
+
+- [As a **developer**, I want to **create a matching feature for the  card game that displays additional info**  when a pair is matched so **that players can learn more about the classical music theme while playing the game**.](https://github.com/music-non-stop/music_non_stop/issues/75)
+
 ## Test
 
 <details>
@@ -371,10 +378,11 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 ### Test environment
 
-Testing was performed on the following devices
+Manual testing was performed on the following devices. No automatic tests were executed.
 
 - x
 - y
+
 
 ### Responsiveness
 
@@ -413,7 +421,7 @@ These warnings do not affect the functionality or appearance of the site. The st
 </details>
 
 <details>
-<summary>Test executed</summary>
+<summary>Test Executed</summary>
 <br>
 
 #### Landing Page
