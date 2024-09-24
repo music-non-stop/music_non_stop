@@ -398,7 +398,9 @@ Manual testing was performed on the following devices. No automatic tests were e
 |                    | Dell Inspiron Desktop       | 1920 x 1080   | Page displays correctly            | PASS       |         |
 |                    | HP Envy Desktop             | 2560 x 1440   | Page displays correctly            |        |         |
   
+#### Browsers:
 
+The app was tested on the latest versions of Google Chrome, Firefox and Microsoft Edge.
 
 ### Responsiveness
 
