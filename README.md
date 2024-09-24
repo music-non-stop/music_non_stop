@@ -158,9 +158,9 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 - [As a **player**, I want to be **asked a trivia or challenge question after successfully pairing cards** so that I can **earn extra points and add an additional layer of complexity and engagement** to the game.](https://github.com/music-non-stop/music_non_stop/issues/43)
 
 - [As **a user/developer**, I want **a responsive navbar** that transforms into a hamburger menu on smaller screens so that **I can navigate the site easily** regardless of the device I'm using.
-](https://github.com/music-non-stop/music_non_stop/issues/45)
+  ](https://github.com/music-non-stop/music_non_stop/issues/45)
 
-- [As a **developer**,  want to **create a timer on the game page** so that **players can track how long they take to complete the game.**](https://github.com/music-non-stop/music_non_stop/issues/56)
+- [As a **developer**, want to **create a timer on the game page** so that **players can track how long they take to complete the game.**](https://github.com/music-non-stop/music_non_stop/issues/56)
 
 - [As a **developer**, I want to **create a Game class that encapsulates the core game logic, independently tracks the game's state and progress, and communicates with the presentation layer to determine when the game ends**. This will **keep the game logic separate from the UI, ensuring maintainability and reusability.**](https://github.com/music-non-stop/music_non_stop/issues/59)
 
@@ -170,23 +170,22 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 - [As a user, **I want to be able to play a memory card game on any webpage**, so I **can enjoy a fun and interactive experience with feedback when the game ends, and the ability to restart the game at any time**.](https://github.com/music-non-stop/music_non_stop/issues/63)
 
-- [As  a **developer**, I want to **implement a scoring system on the game page** so that **players can see their scores based on their performance and matches**.](https://github.com/music-non-stop/music_non_stop/issues/66)
+- [As a **developer**, I want to **implement a scoring system on the game page** so that **players can see their scores based on their performance and matches**.](https://github.com/music-non-stop/music_non_stop/issues/66)
 
 - [As a **developer**, I want to **implement play/pause/stop functionality for audio** so that **users have a seamless listening experience and can easily manage playback**.](https://github.com/music-non-stop/music_non_stop/issues/74)
 
-- [As a **developer**, I want to **create a matching feature for the  card game that displays additional info**  when a pair is matched so **that players can learn more about the classical music theme while playing the game**.](https://github.com/music-non-stop/music_non_stop/issues/75)
+- [As a **developer**, I want to **create a matching feature for the card game that displays additional info** when a pair is matched so **that players can learn more about the classical music theme while playing the game**.](https://github.com/music-non-stop/music_non_stop/issues/75)
 
 - [As a **developer**, I want to **implement a modal that displays game instructions when the button is pressed** so that **players can easily understand the rules and how to play the game**.](https://github.com/music-non-stop/music_non_stop/issues/77)
 
 - [As a **developer**, I want to **display a message at game over that thanks the player and shows their score and time taken** so that **players can see their performance and feel acknowledged for playing the game**.
-](https://github.com/music-non-stop/music_non_stop/issues/78)
+  ](https://github.com/music-non-stop/music_non_stop/issues/78)
 
 - [As a developer, I want to **create or find images for the memory game cards front/face** up so that **the game is visually engaging and fun for players**.](https://github.com/music-non-stop/music_non_stop/issues/80)
 
 - [As a **user**, I want **to see the top ten results on the scoreboard with player names, scores, and times**, so **I can track my performance and compare it with others**.](https://github.com/music-non-stop/music_non_stop/issues/108)
 
 - [As a **developer/tester** I want to **execute tests for specific features or functions** so that I **can ensure that each functionality works as intended and meets the defined requirements**.](https://github.com/music-non-stop/music_non_stop/issues/143)
-
 
 </details>
 
@@ -227,7 +226,6 @@ Soft Coral Pink (#F08080): This color introduces a touch of modernity and freshn
 
 </details>
 
-
 ## Code Architecture and Key Components
 
 ### Main Game Control
@@ -246,7 +244,8 @@ The main.js file is crucial in our project as it serves as the central hub where
 </details>
 
 ### JavaScript Audio
-The MP3Player class is responsible for handling audio playback during the game. It plays classical music when cards are flipped and controls audio functions like play, pause, and stop. 
+
+The MP3Player class is responsible for handling audio playback during the game. It plays classical music when cards are flipped and controls audio functions like play, pause, and stop.
 The class is defined in mp3-player.js.
 
 <details>
@@ -311,26 +310,26 @@ JavaScript class for game logic
 
 ##### Constructor
 
-```constructor(cards, mp3player, gameOverCallback)```
+`constructor(cards, mp3player, gameOverCallback)`
 
 The constructor takes a deck of cards(cards) a reference to the instance of the MP3Player for playing music.
 And lastly a callback function, which a presentation layer component can supply, to execute when the game is over.
 
 ##### Important methods
 
-- ```addScore(number)```: is used for adding some extra score to the current game
-- ```pickCard(number)```: is used by the presentation layer to let the game know which card the player has picked
-- ```addShowTriviaQuestionsCallback(callback)```: Add a callback function for the event when the trivia question need to appear
-- ```addHideTriviaQuestionsCallback(callback)```: Add a callback function for the event when the trivia question need to dissapear
-- ```stopPlayback()```: Stop the playback of whichever track is playing
+- `addScore(number)`: is used for adding some extra score to the current game
+- `pickCard(number)`: is used by the presentation layer to let the game know which card the player has picked
+- `addShowTriviaQuestionsCallback(callback)`: Add a callback function for the event when the trivia question need to appear
+- `addHideTriviaQuestionsCallback(callback)`: Add a callback function for the event when the trivia question need to dissapear
+- `stopPlayback()`: Stop the playback of whichever track is playing
 
 #### GameCard class
 
-This class encapsulates all the essential properties of a card for the game. 
+This class encapsulates all the essential properties of a card for the game.
 
 ##### Constructor
 
-```constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage)```
+`constructor(index, trackIndex, name, backgroundColor, composerImage, faceImage)`
 
 - index : the index of the associated card in the array, that is used by the Game object
 - trackIndex : the index of the associated track in the playlist
@@ -373,7 +372,7 @@ _<span style="color: blue;">[Back to Content](#table-of-contents)</span>_
 
 Due to time constraints, we couldn't fit this user story into our schedule.
 
-- [As a **developer**, I want to **create a matching feature for the  card game that displays additional info**  when a pair is matched so **that players can learn more about the classical music theme while playing the game**.](https://github.com/music-non-stop/music_non_stop/issues/75)
+- [As a **developer**, I want to **create a matching feature for the card game that displays additional info** when a pair is matched so **that players can learn more about the classical music theme while playing the game**.](https://github.com/music-non-stop/music_non_stop/issues/75)
 
 ## Test
 
@@ -384,22 +383,22 @@ Due to time constraints, we couldn't fit this user story into our schedule.
 
 Manual testing was performed on the following devices. No automatic tests were executed.
 
-| Device Type        | Model                       | Resolution    | Expected Outcome                   | Result | Comment |
-| ------------------ | --------------------------- | ------------- | ---------------------------------- | ------ | ------- |
-| Mobile Phones      | iPhone 14/15                | 390 x 844     | Page displays correctly            |        | Some Horizontal scrolling on landing page        |
-|                    | Samsung Galaxy S23/S24      | 412 x 919     | Page displays correctly            | PASS       |         |
-|                    | Google Pixel 7/8            | 412 x 915     | Page displays correctly            | PASS       |         |
-| Tablets            | iPad (10th Generation)      | 820 x 1180    | Page displays correctly            |        |         |
-|                    | iPad Pro (M2)               | 1024 x 1366   | Page displays correctly            | PASS       |         |
-|                    | Samsung Galaxy Tab S9       | 800 x 1280    | Page displays correctly            | PASS       |         |
-|                    | Microsoft Surface Pro 9     | 912 x 1368    | Page displays correctly            | PASS       |         |
-| Laptops            | MacBook Air (M2)            | 1440 x 900    | Page displays correctly            | PASS        |         |
-|                    | Dell XPS 13                 | 1280 x 800    | Page displays correctly            | PASS       |         |
-|                    | HP Spectre x360             | 1366 x 768    | Page displays correctly            | PASS       |         |
-| Desktops           | iMac (24-inch M1)           | 1920 x 1080   | Page displays correctly            | PASS       |         |
-|                    | Dell Inspiron Desktop       | 1920 x 1080   | Page displays correctly            | PASS       |         |
-|                    | HP Envy Desktop             | 2560 x 1440   | Page displays correctly            |        |         |
-  
+| Device Type   | Model                   | Resolution  | Expected Outcome        | Result | Comment                                   |
+| ------------- | ----------------------- | ----------- | ----------------------- | ------ | ----------------------------------------- |
+| Mobile Phones | iPhone 14/15            | 390 x 844   | Page displays correctly |        | Some Horizontal scrolling on landing page |
+|               | Samsung Galaxy S23/S24  | 412 x 919   | Page displays correctly | PASS   |                                           |
+|               | Google Pixel 7/8        | 412 x 915   | Page displays correctly | PASS   |                                           |
+| Tablets       | iPad (10th Generation)  | 820 x 1180  | Page displays correctly |        |                                           |
+|               | iPad Pro (M2)           | 1024 x 1366 | Page displays correctly | PASS   |                                           |
+|               | Samsung Galaxy Tab S9   | 800 x 1280  | Page displays correctly | PASS   |                                           |
+|               | Microsoft Surface Pro 9 | 912 x 1368  | Page displays correctly | PASS   |                                           |
+| Laptops       | MacBook Air (M2)        | 1440 x 900  | Page displays correctly | PASS   |                                           |
+|               | Dell XPS 13             | 1280 x 800  | Page displays correctly | PASS   |                                           |
+|               | HP Spectre x360         | 1366 x 768  | Page displays correctly | PASS   |                                           |
+| Desktops      | iMac (24-inch M1)       | 1920 x 1080 | Page displays correctly | PASS   |                                           |
+|               | Dell Inspiron Desktop   | 1920 x 1080 | Page displays correctly | PASS   |                                           |
+|               | HP Envy Desktop         | 2560 x 1440 | Page displays correctly |        |                                           |
+
 #### Browsers:
 
 The app was tested on the latest versions of Google Chrome, Firefox and Microsoft Edge.
@@ -416,7 +415,7 @@ The app was tested on the latest versions of Google Chrome, Firefox and Microsof
   - [About Us](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fabout.html)
   - [Scoreboard](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fscoreboard.html)
   - [Game](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Fgame.html)
-  - [Feedbackform](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html) 
+  - [Feedbackform](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html)
 - [W3C jigsaw](https://www.w3.org/developers/tools/) was used to validate the CSS. Result is **PASS**.
   - [404 page](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2F404.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
   - [Homepage](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
@@ -426,22 +425,23 @@ The app was tested on the latest versions of Google Chrome, Firefox and Microsof
   - [Feedbackform](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmusic-non-stop.github.io%2Fmusic_non_stop%2Ffeedbackform.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
 - [Lighthouse chrome devtool](/documentation/doc-image/lighthouse.webp)
 - There are three errors present in devtool:
- - In index.js:40
-   -  Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')
- - In instructions.js:6 and 13
-   -  Uncaught ReferenceError: pauseTimer is not defined
-   -  instructions.js:13 Uncaught ReferenceError: startTimer is not defined
+- In index.js:40
+  - Uncaught TypeError: Cannot read properties of null (reading 'addEventListener')
+- In instructions.js:6 and 13
+  - Uncaught ReferenceError: pauseTimer is not defined
+  - instructions.js:13 Uncaught ReferenceError: startTimer is not defined
 - [JSHint](https://jshint.com/about/) was used to validate the JavaScript. We use the ES6 class property syntax for concise method declarations. Some tools may flag this as invalid, but it is fully supported in modern JavaScript environments. This project uses modern JavaScript (ES6+), including class properties and arrow functions for concise methods and proper `this` scoping. While some tools may flag this syntax, it is fully supported in modern environments. For compatibility with older browsers, consider using a transpiler like Babel. Result: **PASS**.
 
 ### Validation Notes
+
 Regarding javascript: Vendor-specific warnings can be ignored if the code works in modern browsers. If issues arise in older environments, using Babel will help ensure compatibility.
 
 The CSS used in this project, including the Font Awesome library, may generate some warnings when checked through the W3C CSS Validator. These warnings are related to:
+
 1. **Vendor Prefixes**: Certain styles (e.g., `-webkit-` and `-moz-` prefixed properties) are flagged as vendor-specific extensions. These are included to ensure compatibility with older browsers and can safely be ignored.
 2. **CSS Variables**: The validator may flag dynamic CSS variables (e.g., `var(--fa-animation-delay)`) because they cannot be statically analyzed. However, CSS variables are fully supported in modern browsers, and their use is intentional for flexible styling.
 
 These warnings do not affect the functionality or appearance of the site. The styles are fully supported in all major browsers.
-
 
 </details>
 
@@ -507,15 +507,15 @@ These warnings do not affect the functionality or appearance of the site. The st
 
 #### Scoreboard Page
 
-| ID  | Description                              | Expected Outcome                                              | Result | Comment |
-| --- | ---------------------------------------- | ------------------------------------------------------------- | ------ | ------- |
-| 01  | Check page title                         | Title should be "Scoreboard"                                  | PASS   |         |
-| 02  | Check presence of scoreboard table       | Table should exist with appropriate columns                   | PASS   |         |
-| 03  | Validate table headers                   | Table headers should display "Rank", "Username", "Score", "Time"    | PASS |     |
-| 04  | Ensure table is empty at initial load    | Table should have no rows of data                             | PASS             |
-| 05  | Test dynamic data loading                | Table should populate with player data from playerData.js     |  PASS  |         |
-| 06  | Validate CSS styles for scoreboard       | Scoreboard should have the intended styles                    | PASS   |         |
-| 07  | Test responsiveness of scoreboard layout | Scoreboard should display correctly on different screen sizes | PASS   |         |
+| ID  | Description                              | Expected Outcome                                                 | Result | Comment |
+| --- | ---------------------------------------- | ---------------------------------------------------------------- | ------ | ------- |
+| 01  | Check page title                         | Title should be "Scoreboard"                                     | PASS   |         |
+| 02  | Check presence of scoreboard table       | Table should exist with appropriate columns                      | PASS   |         |
+| 03  | Validate table headers                   | Table headers should display "Rank", "Username", "Score", "Time" | PASS   |         |
+| 04  | Ensure table is empty at initial load    | Table should have no rows of data                                | PASS   |
+| 05  | Test dynamic data loading                | Table should populate with player data from playerData.js        | PASS   |         |
+| 06  | Validate CSS styles for scoreboard       | Scoreboard should have the intended styles                       | PASS   |         |
+| 07  | Test responsiveness of scoreboard layout | Scoreboard should display correctly on different screen sizes    | PASS   |         |
 
 #### Feedback Form/Page
 
@@ -532,8 +532,7 @@ These warnings do not affect the functionality or appearance of the site. The st
 | 09  | Test modal close functionality              | Modal should close when the close button is clicked                       | PASS   |         |
 | 10  | Check accessibility for form elements       | Form elements should be accessible via keyboard navigation                | PASS   |         |
 | 11  | Test responsiveness of feedback form layout | Form should display correctly on different screen sizes                   | PASS   |         |
-| 12  | Validate CSS styles for feedback form       | Feedback form should have the intended styles                             | PASS   |         |  
-
+| 12  | Validate CSS styles for feedback form       | Feedback form should have the intended styles                             | PASS   |         |
 
 </details>
 
