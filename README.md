@@ -39,7 +39,8 @@ The text “MusicNonStop” suggests continuous play and engagement, which is es
 <summary>Game Overview</summary>
 <br>
 
-Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 24 cards featuring 12 unique pairs.
+Music Non Stop is a card game that trains your brain to improve your memory while bringing the beauty of classical music to your ears. Designed for music lovers of all ages, this game challenges players to match pairs of cards that play the same classical tune. There are 12 cards featuring 6 unique pairs.
+For each successful match, a bonus trivia question will pop up with multiple answer options. You can choose to answer the question for bonus points, or skip it and continue with the memory card game.
 
 </details>
 
@@ -52,7 +53,8 @@ Music Non Stop is a card game that trains your brain to improve your memory whil
 3. If the cards play the same tune, you have found a match. The cards will remain face up.
 4. If the cards do not match, they will flip back over after a short delay.
 5. Keep selecting two cards at a time, trying to remember the tunes and their locations.
-6. The game ends when all pairs have been matched.
+6. For each successful match, a bonus trivia question will pop up with multiple answer options. You can choose to answer the question for bonus points, or skip it and continue with the memory card game.
+7. The game ends when all pairs have been matched.
 
 </details>
 
