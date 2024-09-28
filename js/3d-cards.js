@@ -1,3 +1,5 @@
+const NUMBER_OF_CUBES = 12;
+
 class Cube3d {
     // Empty constructor
     constructor() { }
@@ -7,10 +9,10 @@ class Cube3d {
         return `
             <div id="cube-${id}" class="cube" onclick="rotateCube(${id})">
                 <<div class="cube">
-                <div class="cube-front">Front</div>
+                <div class="cube-front"><img src="./assets/images/card_faces/face1.webp" alt="image of composer"></div>
                 <div class="cube-back">Back</div>
-                <div class="cube-top">Top</div>
-                <div class="cube-bottom">Bottom</div>
+                <div class="cube-top"><img src="./assets/images/composers/Bach.png" alt="image of composer"></div>
+                <div class="cube-bottom">Composer Name <p>Title of the track </p></div>
                 <div class="cube-left">Left</div>
                 <div class="cube-right">Right</div>
             </div>`;
@@ -18,7 +20,7 @@ class Cube3d {
 }
 
 function renderCubes() {
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < NUMBER_OF_CUBES; i++) {
         let cube = new Cube3d();
         let cubeHtml = cube.render(i);
         document.getElementById('cubes-container').innerHTML += cubeHtml;
@@ -30,12 +32,12 @@ function rotateCube(id) {
     cube.className = 'cube cube-rotate-up';
     // wait for 1 second and them rotate-down
     setTimeout(() => {        
-        cube.className = 'cube cube-rotate-down';
+        cube.className ='cube cube-rotate-down';
     }, 1000);
     // wait for 1 second and them rotate-to-front
     setTimeout(() => {        
         cube.className = 'cube cube-rotate-to-front';
-    }, 2000);
+    }, 4000);
 }
 
 renderCubes();
