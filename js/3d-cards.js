@@ -1,8 +1,14 @@
 const NUMBER_OF_CUBES = 12;
 
-class Cube3d {
-    // Empty constructor
-    constructor() { }
+class Cube3d {    
+    constructor({index, trackIndex, name, backgroundColor, composerImage, faceImage}) {
+        this.index = index;
+        this.trackIndex = trackIndex;
+        this.name = name;
+        this.backgroundColor = backgroundColor;
+        this.imgComposer = composerImage;
+        this.imgFace = faceImage;
+     }
 
     // Render the 3D cube
     render(id) {
