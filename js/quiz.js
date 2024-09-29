@@ -26,12 +26,13 @@ class Quiz {
 
     renderQuestion = () => {
         this.htmlContainer.innerHTML = `
-            <div class="quiz-question">${this.currentOptions}
+            <div class="quiz-entire-line">${this.currentQuestion}</div>
+            <div class="quiz-option-line">
                 ${this.currentOptions.map((option, index) => `
-                    <div class="trivia-option-item">
-                        <input class="trivia-option" 
+                    <div class="quiz-option-itme">
+                        <input class="quiz-option" 
                         type="radio" id="option${index}" 
-                        name="trivia-option" 
+                        name="quiz-option" 
                         value="${option}" 
                         onclick="checkQuizAnswer('${option}')"/> ${option}
                     </div>`)
