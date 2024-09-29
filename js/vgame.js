@@ -20,7 +20,7 @@ class GameCube {
                 <div class="cube-back">Back</div>
                 <div class="cube-top"><img src="${this.imgComposer}" alt="image of composer"></div>
                 <div class="cube-bottom"><img src="${this.imgComposer}"><br>
-                <span>${this.composer} <p>Title of the track </p></span>  
+                <span>${this.composer} <p>${this.title} </p></span>  
                 </div>
                 <div class="cube-left">Left</div>
                 <div class="cube-right">Right</div>
@@ -209,6 +209,8 @@ class GameView {
         const path_to_face_images = "./assets/images/card_faces/";
         var composerImages = this.getComposerImages();
         var faceImages = this.getCardImages();
+        var playListDescriptions = this.getPlayListDescriptions();
+
         // Shuffle the face images array
         this.shuffle(faceImages);
         // array index track number in the playlist
@@ -226,8 +228,8 @@ class GameView {
                     {
                         index: i,
                         trackIndex: trackIndex,
-                        composer: this.playlist[trackIndex],
-                        title: "title of the track",
+                        composer: playListDescriptions[trackIndex].composer,
+                        title: playListDescriptions[trackIndex].title,
                         composerImage: path_to_composer_images + composerImages[trackIndex],
                         faceImage: path_to_face_images + faceImages[0]
                     }
@@ -238,8 +240,8 @@ class GameView {
                     {
                         index: i,
                         trackIndex: trackIndex,
-                        composer: this.playlist[trackIndex],
-                        title: "title of the track",
+                        composer: playListDescriptions[trackIndex].composer,
+                        title: playListDescriptions[trackIndex].title,
                         composerImage: path_to_composer_images + composerImages[trackIndex],
                         faceImage: path_to_face_images + faceImages[0]
                     }
@@ -282,6 +284,24 @@ class GameView {
             "face5.webp",
         ];
         return images;
+    }
+
+    getPlayListDescriptions = () => {
+        const descriptions = [
+            { filename: "Bach", composer: "Bach", title: "Tocata & Fugue" },
+            { filename: "Beethoven", composer: "Beethoven", title: "Ninth Symphony" },
+            { filename: "Brahms", composer: "Brahms", title: "Tragic Overture" },
+            { filename: "Chopin", composer: "Chopin", title: "Nocturne No.2" },
+            { filename: "Johann Strauss", composer: "Johann Strauss", title: "Voices of Spring" },
+            { filename: "Mozart", composer: "Mozart", title: "Symphony No.40" },
+            { filename: "Rossini", composer: "Rossini", title: "The Barber of Seville" },
+            { filename: "Satie", composer: "Satie", title: "Gnossienne No.1" },
+            { filename: "Sibelius", composer: "Sibelius", title: "Andante Festivo" },
+            { filename: "Tchaikovski", composer: "Tchaikovski", title: "Swan Lake" },
+            { filename: "Verdi", composer: "Verdi", title: "Aida" },
+            { filename: "Vivaldi", composer: "Vivaldi", title: "Winter" }
+        ];
+        return descriptions;
     }
 
     cubeClicked = (n) => {
