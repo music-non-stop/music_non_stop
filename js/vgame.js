@@ -12,7 +12,7 @@ class GameCube {
     }
 
     // Render the 3D cube
-    render() {
+    render = () => {
         return `
             <div id="cube-${this.index}" class="cube" onclick="cubeClicked(${this.index})">
                 <<div class="cube">
@@ -184,7 +184,7 @@ class GameView {
         this.cubes = [];
         this.uncovered_cubes = [];
         this.flip_previous_cube = false;
-        this.time_of_last_cube_pick = 0;
+        this.time_of_last_cube_pick = 0;        
     }
 
     // intialize the game
@@ -319,7 +319,8 @@ class GameView {
             // Update the score display
             // updateScoreDisplay();
 
-
+            quiz.generateNextQuestion();
+            quiz.renderQuestion();
             // Set the time of the last card pick to the current time (for calculating the extra score)
             this.time_of_last_cube_pick = Date.now();
             return;
@@ -360,21 +361,12 @@ class GameView {
     }
 
     // Method for rendering the game
-    render() {
+    render = () => {
         let container = document.getElementById('cubes-container');
         // Loop through the cubes and render them
         for (let i = 0; i < this.game.cubes.length; i++) {
             container.innerHTML += this.cubes[i].render();
         }
-    }
-}
-
-function renderCubes() {
-
-    for (let i = 0; i < NUMBER_OF_CUBES; i++) {
-        let cube = new GameCube({ idex: i, trackIndex: i, composer: 'Composer Name', title: "title", backgroundColor: 'red', composerImage: 'Bach.png', faceImage: 'face1.webp' });
-        let cubeHtml = cube.render();
-        document.getElementById('cubes-container').innerHTML += cubeHtml;
     }
 }
 
@@ -387,5 +379,10 @@ function gameOver() {
     console.log('Game Over');
 }
 
+function checkQuizAnswer(answer) {    
+    quiz.guess(answer);
+}
+
 const gameView = new GameView();
 gameView.initGame();
+const quiz = new Quiz();
