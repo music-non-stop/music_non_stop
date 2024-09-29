@@ -11,6 +11,7 @@ class MP3Player {
         this.tracks = playlist;
         this.audio_files_foler_path = path;
         this.trackIndex = 0;
+        this.volume = 0.5;
     }
 
     play = (n) => {
@@ -22,11 +23,13 @@ class MP3Player {
             }
             // 
             this.audio = new Audio(this.audio_files_foler_path + this.tracks[n] + ".mp3");
+            this.audio.volume = this.volume;
             this.audio.play();
         } else {
             // if the audio has been stoppped, load the audio file and play it
             if (this.audio == null) {
                 this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex] + ".mp3");
+                this.audio.volume = this.volume;
                 this.audio.play();
             } else {
                 // Otherwise the audio has been paused, resume playing                
@@ -54,22 +57,16 @@ class MP3Player {
         if (this.audio != null) this.stop();
         this.trackIndex = this.trackIndex < this.tracks.length - 1 ? this.trackIndex + 1 : 0;
         this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex] + ".mp3");
+        this.audio.volume = this.volume;
         this.play(null);
     }
 
-    turnUpVolume = () => {
-        if (this.audio.volume < 1) {
-            this.audio.volume += 0.1;
-        }
-    }
-
-    turnDownVolume = () => {
-        if (this.audio.volume > 0) {
-            this.audio.volume -= 0.1;
-        }
+    setVolume = (volume) => {
+        this.volume = volume;
+        this.audio.volume = volume;
     }
 
     mute = () => {
-        this.audio.volume = 0;
+        this.audio.volume = 0.0;
     }
 }
