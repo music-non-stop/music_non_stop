@@ -305,7 +305,7 @@ class GameView {
     }
 
     cubeClicked = (n) => {
-        // showEmptyTriviaMessageContainer();
+        quiz.showQuizPlaceholder();
 
         // If the timee of the last pick is 0, that means it is the opening move
         if (this.time_of_last_cube_pick == 0) {
@@ -406,3 +406,4 @@ function checkQuizAnswer(answer) {
 const gameView = new GameView();
 gameView.initGame();
 const quiz = new Quiz();
+quiz.hideQuizContainer();

@@ -17,6 +17,7 @@ class Quiz {
     }
 
     generateNextQuestion = () => {
+        this.hideFeedbackMessage();
         this.shuffle(this.questions);
         this.currentQuestion = this.questions[0].question;
         this.currentAnswer = this.questions[0].answer;
@@ -42,33 +43,61 @@ class Quiz {
         this.htmlContainer.style.display = "block";
     }
 
-    getCurrentQuestion = () => {
-        return this.questions[this.currentQuestionIndex];
-    }
+    // getCurrentQuestion = () => {
+    //     return this.questions[this.currentQuestionIndex];
+    // }
 
-    guess = (answer) => {
+    guess = (answer) => {        ;
         if (answer === this.currentAnswer) {
-            this.score += 30;
-            this.htmlContainer.innerHTML = `
-                <div class="quiz-question">
-                    <h2>Correct!</h2>                    
-                </div>
-            `;
+            this.score += 30;            
+            this.showSuccessMessage();
         }
         else {
-            this.htmlContainer.innerHTML = `
-                <div class="quiz-question">
-                    <h2>Incorrect!</h2>
-                    <p>The correct answer is: ${this.currentAnswer}</p>
-                </div>
-            `;
+            this.showFailureMessage();
         }
 
     }
 
-    hasEnded = () => {
-        return this.currentQuestionIndex >= this.questions.length;
+    showSuccessMessage = () => {
+        this.hideQuizContainer();
+        let feedbackMessage = document.getElementById("quiz-message");
+        feedbackMessage.className = "quiz-message-success";
+        feedbackMessage.textContent = "Correct! You have scored 30 points!";
+        feedbackMessage.style.display = "flex";
     }
+
+    showFailureMessage = () => {
+        this.hideQuizContainer();
+        let feedbackMessage = document.getElementById("quiz-message");
+        feedbackMessage.className = "quiz-message-fail";
+        feedbackMessage.textContent = "Incorrect! The correct answer is: " + this.currentAnswer;
+        feedbackMessage.style.display = "flex";
+    }
+
+    showQuizPlaceholder = () => {
+        let feedbackMessage = document.getElementById("quiz-message");
+        feedbackMessage.className = "quiz-message-success";
+        feedbackMessage.textContent = "Here you will see a BONUS question to score some EXTRA points !";
+        feedbackMessage.style.display = "flex";
+    }
+
+    hideQuizPlaceholder = () => {
+        let feedbackMessage = document.getElementById("quiz-message");
+        feedbackMessage.style.display = "none";
+    }
+
+    hideFeedbackMessage = () => {
+        let feedbackMessage = document.getElementById("quiz-message");
+        feedbackMessage.style.display = "none";
+    }
+
+    hideQuizContainer = () => {
+        this.htmlContainer.style.display = "none";
+    }
+
+    // hasEnded = () => {
+    //     return this.currentQuestionIndex >= this.questions.length;
+    // }
 }
 
 // Array of questions with answers:
