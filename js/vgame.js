@@ -19,7 +19,9 @@ class GameCube {
                 <div class="cube-front"><img src="${this.imgFace}" alt="image of composer"></div>
                 <div class="cube-back">Back</div>
                 <div class="cube-top"><img src="${this.imgComposer}" alt="image of composer"></div>
-                <div class="cube-bottom">${this.composer} <p>Title of the track </p></div>
+                <div class="cube-bottom"><img src="${this.imgComposer}"><br>
+                <span>${this.composer} <p>Title of the track </p></span>  
+                </div>
                 <div class="cube-left">Left</div>
                 <div class="cube-right">Right</div>
             </div>`;
@@ -327,7 +329,7 @@ class GameView {
         this.previous_cube = n;
         // Flag that if the card does not match the previous card, flip the previous card back over
         this.flip_previous_cube = true;
-        
+
         function calculateExtraScore(instance) {
             /* The less time the players take to find a match, the more they score */
             let extra_score = 0;
@@ -358,12 +360,12 @@ class GameView {
     }
 
     // Method for rendering the game
-    render(){
+    render() {
         let container = document.getElementById('cubes-container');
         // Loop through the cubes and render them
         for (let i = 0; i < this.game.cubes.length; i++) {
             container.innerHTML += this.cubes[i].render();
-        }        
+        }
     }
 }
 
