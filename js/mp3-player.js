@@ -56,4 +56,20 @@ class MP3Player {
         this.audio = new Audio(this.audio_files_foler_path + this.tracks[this.trackIndex] + ".mp3");
         this.play(null);
     }
+
+    turnUpVolume = () => {
+        if (this.audio.volume < 1) {
+            this.audio.volume += 0.1;
+        }
+    }
+
+    turnDownVolume = () => {
+        if (this.audio.volume > 0) {
+            this.audio.volume -= 0.1;
+        }
+    }
+
+    mute = () => {
+        this.audio.volume = 0;
+    }
 }

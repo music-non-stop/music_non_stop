@@ -15,7 +15,7 @@ body {
     grid-template-columns: repeat(4, minmax(150px, 1fr));
     grid-gap: 1rem;
     padding: 0rem;
-    margin: 20px;
+    margin: auto;
     justify-items: center;
 }
 /* CSS for flipping cards copied from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_flip_card */
