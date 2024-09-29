@@ -27,7 +27,7 @@ class Cube3d {
 
 function renderCubes() {
     for (let i = 0; i < NUMBER_OF_CUBES; i++) {
-        let cube = new Cube3d();
+        let cube = new Cube3d({idex: i, trackIndex: i, name: 'Composer Name', backgroundColor: 'red', composerImage: 'Bach.png', faceImage: 'face1.webp'});
         let cubeHtml = cube.render(i);
         document.getElementById('cubes-container').innerHTML += cubeHtml;
     }
