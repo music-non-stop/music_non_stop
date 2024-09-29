@@ -1,7 +1,8 @@
 // class for the quiz 
 class Quiz {
-    constructor() {
-        this.score = 0;
+    constructor(game, gameView) {
+        this.game = game;
+        this.gameView = gameView;
         this.questions = triviaQuestions;
         this.currentQuestion = "";
         this.currentAnswer = "";
@@ -43,13 +44,10 @@ class Quiz {
         this.htmlContainer.style.display = "block";
     }
 
-    // getCurrentQuestion = () => {
-    //     return this.questions[this.currentQuestionIndex];
-    // }
-
     guess = (answer) => {        ;
         if (answer === this.currentAnswer) {
-            this.score += 30;            
+            this.game.addScore(30);
+            this.gameView.updateScoreDisplay();
             this.showSuccessMessage();
         }
         else {
@@ -95,9 +93,6 @@ class Quiz {
         this.htmlContainer.style.display = "none";
     }
 
-    // hasEnded = () => {
-    //     return this.currentQuestionIndex >= this.questions.length;
-    // }
 }
 
 // Array of questions with answers:

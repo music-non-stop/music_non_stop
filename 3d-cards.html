@@ -90,6 +90,17 @@
             justify-content: space-evenly;
             height: 80px;
         }
+
+        .volume-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .slider {
+            width: 50%; 
+        }
     </style>
     <title>Document</title>
 </head>
@@ -109,9 +120,7 @@
     <div id="quiz-message" class="quiz-message-success">Here you will see a BONUS question to score some EXTRA points !
     </div>
     <div class="cubes-container" id="cubes-container"></div>
-    <div class="volume-slide">
-        <input type="range" min="1" max="100" value="50" class="slider" id="volume-slide">
-    </div>
+    
     <div id="game-over-screen" class="game-over-popup">
         <div class="game-over-heading">
             <h1>Game Over</h1>
@@ -124,7 +133,7 @@
             </div>
             <p id="game-over-message" class="game-over-message"></p>
             <div class="game-over-buttons">
-                <button class="play-again" id="play-again" onclick="gameRestart()">Play Again</button>
+                <button class="play-again" id="play-again" onclick="gameView.gameRestart()">Play Again</button>
                 <button class="scoreboard-button" id="scoreboard"
                     onclick="on_scoreboard_button_click()">Scoreboard</button>
             </div>
@@ -133,20 +142,24 @@
 
     <div class="button-container">
         <span id="track-index"></span>
-        <button id="play" onclick="player.play(null)">
+        <button id="play" onclick="gameView.audio_player.play(null)">
             <i class="fas fa-play"></i>
         </button>
-        <button id="pause" onclick="player.pause()">
+        <button id="pause" onclick="gameView.audio_player.pause()">
             <i class="fas fa-pause"></i>
         </button>
-        <button id="stop" onclick="player.stop()">
+        <button id="stop" onclick="gameView.audio_player.stop()">
             <i class="fas fa-stop"></i>
         </button>
+    </div>
+    
+    <div class="volume-slide"> <i class="fa-solid fa-volume-high"></i> 
+        <input type="range" min="1" max="100" value="50" class="slider" id="volume-slide">
     </div>
 
     <div class="restart-container">
         <div>
-            <input type="button" class="restart-button" value="Try Again" id="restart-game" onclick="gameRestart()">
+            <input type="button" class="restart-button" value="Try Again" id="restart-game" onclick="gameView.gameRestart()">
         </div>
         <div>
             <input type="button" class="instructions-button" value="Instructions" id="show-instructions">
@@ -177,13 +190,16 @@
         <button class="close-btn" id="close-instructions">Close</button>
     </div>
 
+
     <div id="overlay"></div>
     </div>
     <div id="footer-placeholder"></div>
-
+    <script src="js/loadLayout.js"></script>
     <script src="./js/mp3-player.js"></script>
     <script src="./js/quiz.js"></script>
     <script src="./js/vgame.js"></script>
+    <script src="./js/timer.js"></script>
+    <script src="./js/instructions.js"></script>
 </body>
 
 </html>

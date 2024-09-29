@@ -39,6 +39,8 @@ class MP3Player {
     }
     // stop the audio and reset the time
     stop = () => {
+        // If the sound promise is null, then return
+        if(this.audio == null) return;
         // If the sound promise is not null, then stop the audio
         this.audio.pause();
         this.audio.currentTime = 0;        

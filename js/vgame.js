@@ -53,7 +53,7 @@ class Game {
         this.timerInterval = null;
     }
 
-    restart() {
+    restart = () => {
         this.firstCube = null;
         this.secondCube = null;
         this.score = 0;
@@ -61,11 +61,11 @@ class Game {
         this.mp3player.stop();
     }
 
-    stopPlayback() {
+    stopPlayback = () => {
         this.mp3player.stop();
     }
 
-    cubePicked(n) {       
+    cubePicked = (n) => {
         // Play the song associated with the Cube    
         this.mp3player.play(this.cubes[n].trackIndex);
         // If the first Cube is null, it means that this is the first Cube to be selected
@@ -88,7 +88,7 @@ class Game {
         return this.isAMatch(n);
     }
 
-    isAMatch(n) {
+    isAMatch = (n) => {
         if (this.firstCube == null || this.secondCube == null) {
             return false;
         }
@@ -112,13 +112,13 @@ class Game {
         return false;
     }
 
-    isGameOver() {
+    isGameOver = () => {
         return this.cubes_uncovered === this.cubes.length;
     }
 
     // Method for calling a function supplied for game over
 
-    onGameOver(callback) {
+    onGameOver = (callback) => {
         // Call the callback function after a delay
         // The main.js needs to get through the last function first
         setTimeout(() => {
@@ -126,31 +126,31 @@ class Game {
         }, 1000);
     }
 
-    addScore(extraScore) {
+    addScore = (extraScore) => {
         this.score += extraScore;
     }
     // Setter for the showTriviaQuestionsCallback
-    addShowTriviaQuestionsCallback(callback) {
+    addShowTriviaQuestionsCallback = (callback) => {
         this.showTrivaQuestionsCallback = callback;
     }
     // Setter for the hideTriviaQuestionsCallback
-    addHideQuizCallback(callback) {
+    addHideQuizCallback = (callback) => {
         this.hideQuizCallback = callback;
     }
 
-    stopPlayback() {
+    stopPlayback = () => {
         this.mp3player.stop();
     }
 
-    turnUpVolume() {
+    turnUpVolume = () => {
         this.mp3player.turnUpVolume();
     }
 
-    turnDownVolume() {
+    turnDownVolume = () => {
         this.mp3player.turnDownVolume();
     }
 
-    mute() {
+    mute = () => {
         this.mp3player.mute();
     }
 }
@@ -187,11 +187,9 @@ class GameView {
 
     // intialize the game
     initGame = () => {
-        this.quiz = new Quiz();
         this.generateGameCubes();
         this.game = new Game(this.cubes, this.audio_player, this.showGameOverScreen);
-        // this.game.addShowTriviaQuestionsCallback(showTriviaQuestions);
-        // this.game.addHideTriviaQuestionsCallback(hideTriviaQuestions);
+        this.quiz = new Quiz(this.game, this);       
         this.render();
         this.quiz.hideQuizContainer();
         this.hideGameOverScreen();
@@ -340,7 +338,7 @@ class GameView {
             this.flip_previous_cube = false;
 
             // Update the score display
-            // updateScoreDisplay();
+            this.updateScoreDisplay();
 
             this.quiz.generateNextQuestion();
             this.quiz.renderQuestion();
@@ -366,6 +364,45 @@ class GameView {
             // Add the extra score to the game score
             instance.game.addScore(extra_score);
         }
+    }
+
+    gameRestart = () => {
+        // Show the empty trivia message container
+        this.quiz.showQuizPlaceholder();
+        // Reset the timer back to 00:00
+        resetTimer();
+        this.audio_player.stop();
+        // Set the html content of the score display to 0
+        const scoreDisplay = document.getElementById("score");
+        scoreDisplay.textContent = 0;
+
+        // clear the covered cards array
+        this.uncovered_subes = [];
+        this.previous_sube = null;
+        this.removeCubesFromDOM();
+        this.cubes = [];
+        // Reinitialize the game cards
+        // const newGameCards = [];
+        // generateGameCards(newGameCards);
+        // embedGameCards(cardsContainer, newGameCards);
+        this.generateGameCubes();
+        this.game = new Game(this.cubes, this.audio_player, this.showGameOverScreen);
+        this.quiz = new Quiz(this.game, this);       
+        this.render();
+        this.quiz.hideQuizContainer();
+        this.hideGameOverScreen();
+        this.game.addHideQuizCallback(this.quiz.hideQuizContainer);       
+    }
+
+    removeCubesFromDOM = () => {
+        var elements = document.getElementsByClassName("cube");
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    }
+
+    updateScoreDisplay = () => {
+        document.getElementById("score").textContent = this.game.score;
     }
 
     flipCubeOver = (n) => {
