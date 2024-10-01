@@ -20,7 +20,7 @@ class GameCube {
                 <div class="cube-back">Back</div>
                 <div class="cube-top"><img src="${this.imgComposer}" alt="image of composer"></div>
                 <div class="cube-bottom"><img src="${this.imgComposer}"><br>
-                <span>${this.composer} <p>Title of the track </p></span>  
+                <span>${this.composer} <p>${this.title} </p></span>  
                 </div>
                 <div class="cube-left">Left</div>
                 <div class="cube-right">Right</div>
@@ -48,12 +48,12 @@ class Game {
         // Callback function for showing trivia questions
         this.showTrivaQuestionsCallback = null;
         // Callback fucntion for hiding trivia questions
-        this.hideTriviaQuestionsCallback = null;
+        this.hideQuizCallback = null;
         this.timer = 0;
         this.timerInterval = null;
     }
 
-    restart() {
+    restart = () => {
         this.firstCube = null;
         this.secondCube = null;
         this.score = 0;
@@ -61,14 +61,11 @@ class Game {
         this.mp3player.stop();
     }
 
-    stopPlayback() {
+    stopPlayback = () => {
         this.mp3player.stop();
     }
 
-    cubePicked(n) {
-        if (this.hideTriviaQuestionsCallback !== null) {
-            this.hideTriviaQuestionsCallback();
-        }
+    cubePicked = (n) => {
         // Play the song associated with the Cube    
         this.mp3player.play(this.cubes[n].trackIndex);
         // If the first Cube is null, it means that this is the first Cube to be selected
@@ -91,7 +88,7 @@ class Game {
         return this.isAMatch(n);
     }
 
-    isAMatch(n) {
+    isAMatch = (n) => {
         if (this.firstCube == null || this.secondCube == null) {
             return false;
         }
@@ -107,7 +104,7 @@ class Game {
             }
 
             if (this.isGameOver()) {
-                this.hideTriviaQuestionsCallback();
+                this.hideQuizCallback();
                 this.onGameOver(this.gameOverCallback);
             }
             return true;
@@ -115,13 +112,13 @@ class Game {
         return false;
     }
 
-    isGameOver() {
+    isGameOver = () => {
         return this.cubes_uncovered === this.cubes.length;
     }
 
     // Method for calling a function supplied for game over
 
-    onGameOver(callback) {
+    onGameOver = (callback) => {
         // Call the callback function after a delay
         // The main.js needs to get through the last function first
         setTimeout(() => {
@@ -129,31 +126,31 @@ class Game {
         }, 1000);
     }
 
-    addScore(extraScore) {
+    addScore = (extraScore) => {
         this.score += extraScore;
     }
     // Setter for the showTriviaQuestionsCallback
-    addShowTriviaQuestionsCallback(callback) {
+    addShowTriviaQuestionsCallback = (callback) => {
         this.showTrivaQuestionsCallback = callback;
     }
     // Setter for the hideTriviaQuestionsCallback
-    addHideTriviaQuestionsCallback(callback) {
-        this.hideTriviaQuestionsCallback = callback;
+    addHideQuizCallback = (callback) => {
+        this.hideQuizCallback = callback;
     }
 
-    stopPlayback() {
+    stopPlayback = () => {
         this.mp3player.stop();
     }
 
-    turnUpVolume() {
+    turnUpVolume = () => {
         this.mp3player.turnUpVolume();
     }
 
-    turnDownVolume() {
+    turnDownVolume = () => {
         this.mp3player.turnDownVolume();
     }
 
-    mute() {
+    mute = () => {
         this.mp3player.mute();
     }
 }
@@ -184,16 +181,19 @@ class GameView {
         this.cubes = [];
         this.uncovered_cubes = [];
         this.flip_previous_cube = false;
-        this.time_of_last_cube_pick = 0;        
+        this.time_of_last_cube_pick = 0;
+        this.quiz = null;
     }
 
     // intialize the game
     initGame = () => {
         this.generateGameCubes();
-        this.game = new Game(this.cubes, this.audio_player, gameOver);
-        // this.game.addShowTriviaQuestionsCallback(showTriviaQuestions);
-        // this.game.addHideTriviaQuestionsCallback(hideTriviaQuestions);
+        this.game = new Game(this.cubes, this.audio_player, this.showGameOverScreen);
+        this.quiz = new Quiz(this.game, this);       
         this.render();
+        this.quiz.hideQuizContainer();
+        this.hideGameOverScreen();
+        this.game.addHideQuizCallback(this.quiz.hideQuizContainer);
     }
 
     // Fisher Yates shuffle algorithm
@@ -209,6 +209,8 @@ class GameView {
         const path_to_face_images = "./assets/images/card_faces/";
         var composerImages = this.getComposerImages();
         var faceImages = this.getCardImages();
+        var playListDescriptions = this.getPlayListDescriptions();
+
         // Shuffle the face images array
         this.shuffle(faceImages);
         // array index track number in the playlist
@@ -226,8 +228,8 @@ class GameView {
                     {
                         index: i,
                         trackIndex: trackIndex,
-                        composer: this.playlist[trackIndex],
-                        title: "title of the track",
+                        composer: playListDescriptions[trackIndex].composer,
+                        title: playListDescriptions[trackIndex].title,
                         composerImage: path_to_composer_images + composerImages[trackIndex],
                         faceImage: path_to_face_images + faceImages[0]
                     }
@@ -238,8 +240,8 @@ class GameView {
                     {
                         index: i,
                         trackIndex: trackIndex,
-                        composer: this.playlist[trackIndex],
-                        title: "title of the track",
+                        composer: playListDescriptions[trackIndex].composer,
+                        title: playListDescriptions[trackIndex].title,
                         composerImage: path_to_composer_images + composerImages[trackIndex],
                         faceImage: path_to_face_images + faceImages[0]
                     }
@@ -284,8 +286,27 @@ class GameView {
         return images;
     }
 
+    getPlayListDescriptions = () => {
+        const descriptions = [
+            { filename: "Bach", composer: "Bach", title: "Tocata & Fugue" },
+            { filename: "Beethoven", composer: "Beethoven", title: "Ninth Symphony" },
+            { filename: "Brahms", composer: "Brahms", title: "Tragic Overture" },
+            { filename: "Chopin", composer: "Chopin", title: "Nocturne No.2" },
+            { filename: "Johann Strauss", composer: "Johann Strauss", title: "Voices of Spring" },
+            { filename: "Mozart", composer: "Mozart", title: "Symphony No.40" },
+            { filename: "Rossini", composer: "Rossini", title: "The Barber of Seville" },
+            { filename: "Satie", composer: "Satie", title: "Gnossienne No.1" },
+            { filename: "Sibelius", composer: "Sibelius", title: "Andante Festivo" },
+            { filename: "Tchaikovski", composer: "Tchaikovski", title: "Swan Lake" },
+            { filename: "Verdi", composer: "Verdi", title: "Aida" },
+            { filename: "Vivaldi", composer: "Vivaldi", title: "Winter" }
+        ];
+        return descriptions;
+    }
+
     cubeClicked = (n) => {
-        // showEmptyTriviaMessageContainer();
+        this.quiz.hideQuizContainer();
+        this.quiz.showQuizPlaceholder();
 
         // If the timee of the last pick is 0, that means it is the opening move
         if (this.time_of_last_cube_pick == 0) {
@@ -317,10 +338,10 @@ class GameView {
             this.flip_previous_cube = false;
 
             // Update the score display
-            // updateScoreDisplay();
+            this.updateScoreDisplay();
 
-            quiz.generateNextQuestion();
-            quiz.renderQuestion();
+            this.quiz.generateNextQuestion();
+            this.quiz.renderQuestion();
             // Set the time of the last card pick to the current time (for calculating the extra score)
             this.time_of_last_cube_pick = Date.now();
             return;
@@ -345,6 +366,45 @@ class GameView {
         }
     }
 
+    gameRestart = () => {
+        // Show the empty trivia message container
+        this.quiz.showQuizPlaceholder();
+        // Reset the timer back to 00:00
+        resetTimer();
+        this.audio_player.stop();
+        // Set the html content of the score display to 0
+        const scoreDisplay = document.getElementById("score");
+        scoreDisplay.textContent = 0;
+
+        // clear the covered cards array
+        this.uncovered_subes = [];
+        this.previous_sube = null;
+        this.removeCubesFromDOM();
+        this.cubes = [];
+        // Reinitialize the game cards
+        // const newGameCards = [];
+        // generateGameCards(newGameCards);
+        // embedGameCards(cardsContainer, newGameCards);
+        this.generateGameCubes();
+        this.game = new Game(this.cubes, this.audio_player, this.showGameOverScreen);
+        this.quiz = new Quiz(this.game, this);       
+        this.render();
+        this.quiz.hideQuizContainer();
+        this.hideGameOverScreen();
+        this.game.addHideQuizCallback(this.quiz.hideQuizContainer);       
+    }
+
+    removeCubesFromDOM = () => {
+        var elements = document.getElementsByClassName("cube");
+        while (elements.length > 0) {
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+    }
+
+    updateScoreDisplay = () => {
+        document.getElementById("score").textContent = this.game.score;
+    }
+
     flipCubeOver = (n) => {
         let cube = document.getElementById(`cube-${n}`);
         cube.className = 'cube cube-rotate-up';
@@ -358,6 +418,34 @@ class GameView {
     showCubesBottom = (n) => {
         let cube = document.getElementById(`cube-${n}`);
         cube.className = 'cube cube-rotate-down';
+    }
+
+    showGameOverScreen = () => {
+        // Show the game over popup
+        document.getElementById("game-over-screen").style.display = "flex";
+        // player.stop()
+        // stopTimer()
+        // Update the final score
+        document.getElementById("final-score").textContent = this.game.score;
+
+        // Get the final time from the timer element
+        const finalTime = document.getElementById("timer").textContent;
+        document.getElementById("final-timer").textContent = finalTime;
+
+        // Retrieve player name from localStorage, fallback to "Player" if not found
+        // const playerName = localStorage.getItem("playerName") || "Player";
+        // document.getElementById("player-name").textContent = playerName;
+
+        // Set the game over message based on the score
+        const message =
+            this.game.score >= 10 ? "You're a music master!" : "A graceful attempt! Ready for another movement?";
+        document.getElementById("game-over-message").textContent = message;
+
+    }
+
+    hideGameOverScreen = () => {
+        // Hide the game over popup
+        document.getElementById("game-over-screen").style.display = "none";
     }
 
     // Method for rendering the game
@@ -379,10 +467,15 @@ function gameOver() {
     console.log('Game Over');
 }
 
-function checkQuizAnswer(answer) {    
-    quiz.guess(answer);
+function checkQuizAnswer(answer) {
+    gameView.quiz.guess(answer);
 }
 
 const gameView = new GameView();
+var volume_slider = document.getElementById('volume-slide');
+volume_slider.oninput = function () {
+    gameView.game.mp3player.setVolume(this.value / 100);
+};
 gameView.initGame();
-const quiz = new Quiz();
+
+
